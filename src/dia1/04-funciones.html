@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>funciones</title>
+    <script type="text/javascript">
+
+
+        function1(1, 2, 4, 5);
+
+        function function1(param1, param2) {
+            console.log(arguments); // arguments es un array que se crea automáticamente (con todos los parámetros, no solo los definidos)
+
+            // comprobamos el número de parámetros
+            console.log(arguments.length);
+        }
+
+        // Definición de una función anónima
+        //a(); // fail-> las funciones anónimas deben estar definidas antes de llamarse
+
+        var a = function () {
+            console.log("soy una función anónima");
+        }
+        a();
+
+        // Podemos definir funciones dentro de funciones
+        function2();
+
+
+        function function2() {
+            a = 1;
+            inner();
+
+            return true;
+
+            function inner() {
+
+            }
+        }
+
+        // Funcion anónima autoejecutada
+
+        // usadas para contextos...
+
+        (function () {
+            console.log("me auto ejecuto");
+        }());
+
+        // Las funciones pueden tener protoripos
+
+        function1.prototype
+
+        // TAmbien podemos modificar los prototipos de ya definidos
+        Array.prototype.each = function () {
+            console.log(this);
+        }
+
+        var z = [1, 2, 3];
+
+        z.each();
+
+        // Cada función tiene un contexto (scope)
+
+        this
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <title>Namespace</title>
+
+    <script type="text/javascript">
+        var MyApp = {} // Va a ser nuestro "nombre de paquete" raiz
+
+        MyApp.views = {};
+
+
+        // Definimos la clase Panel dentro del paquete MyApp.views
+
+        MyApp.views.Panel = function () {
+            var msg = "Hola a todos";
+
+            mensaje = "Otro mensaje"; // esta variable como no usa var se define como global
+
+        };
+
+
+
+        var p = new MyApp.views.Panel(); // llamada al constructor
+
+
+        // Window
+        // Es el objeto principal dentro del cual estan todos
+
+        window.parseInt(10);
+
+        MyApp.views.Panel2 = function () {
+            window.parseInt(5); // Es mas lento por que va bajando niveles hasta que la encuentra
+
+
+            // Mas optimizado.
+            // TIP: Siempre que usemos dentro de bucles deberíamos cachear las variables globales
+            // Se consiguen considerables mejoras de rendimiento
+            win = window;
+            win.parseInt(5);
+
+            // Otro ejemplo de cacheo
+            arr = [1,2,3,4,5,5];
+            len = arr.length;
+
+            for(var i=0; i < len; i++) {
+                //
+            }
+
+        };
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
