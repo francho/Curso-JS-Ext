@@ -19,9 +19,37 @@
         var z = new Date();
 
         // Expresiones regulares
-        var a = new RegExp("[a-zA-Z0-9]+","gi");
-        var a1 = /[a-zA-Z0-9_ ]+/ ;
+        var a = new RegExp("[a-zA-Z0-9]+","gi"); // Podría agregar variables dentro de la expresion
+        var a1 = /[a-zA-Z0-9_ ]+/ ; // No podría agregar variables
         var a2 = /[\w]+/;
+
+        a1.test("Hola");
+
+        // Números
+        var n = new Number("20");
+        n1 = 123;
+
+        // Experimentos con objetos
+        x.propiedad = 12;
+        x.metodo = function() {
+            // lo que sea
+        }
+        x.metodo();
+
+        // Otra forma de definir un método
+        var obj = {
+            propiedad:123,
+            metodo:function() {
+
+            },
+            arreglo : [1,2]
+        };
+
+        // Accediendo a las propiedades
+        obj.propiedad;
+
+        console.log(obj);
+
 
     //-->
     </script>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <title>Operadores</title>
+
+<script type="text/javascript">
+
+    var x = {};
+
+    // Si tiene valor será true
+    if(x) {
+        console.log("X es true");
+    }
+
+    // Valores falsos
+
+    // undefined (por ejemplo una propiedad no definida)
+    // var x2 = 0;
+    // var x2 = null;
+    // var x2 = NaN; // NaN = "no es un número"
+    var x2 = "";
+
+    if(x2) {
+        console.log("X2 es true");
+    } else {
+        console.log("X2 es false");
+    }
+
+    // Se pueden concatenar al estilo "bash"
+    var y = x2 || "Valor por defecto"
+
+    console.log(y);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
