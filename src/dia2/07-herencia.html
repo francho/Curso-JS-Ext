@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulando herencia</title>
+    <script type="text/javascript" src="js/App.js"></script>
+    <script type="text/javascript">
+
+        var Persona = function(options) {
+            console.log('superclase');
+
+            //this.nombre = options.nombre;
+
+            // Tambien lo podría hacer con mi clase de utilidad
+            App.copy(this, options || {});
+
+            this.caminar = function() {
+                console.log('Estoy caminando');
+            };
+
+            debugger;
+
+            //console.log('Persona ' + this.nombre + ' ' + this.apellido + ' creado');
+
+            // El concepto de variable privada
+            // Podemos emularla con closures
+            var privada = 1;
+            // método privilegiado que va a exportar nuestra variable
+            this.getPrivada = function() {
+                return privada;
+            };
+            // tambien puedo hacer un método privilegiado para el setter
+            this.setPrivada = function(value) {
+                privada = value;
+            }
+
+
+
+        };
+
+        // No existe herencia como tal, tenemos que emularla.
+        // - Primero copiamos las propiedades de la clase padre
+        // - Luego añado las especializaciones
+        var MexicanoPersona = function() {
+
+            // El constructor de la superclase la llamamos en nuestro contexto
+            MexicanoPersona.supperclass.constructor.apply(this,arguments); // La propiedad constructor se crea de forma automática
+
+            console.log('subclase');
+
+        };
+
+        MexicanoPersona.prototype = new Persona(); // Mexicano extends Persona
+        // Para no perder el constructor del padre guardamos una referencia
+        MexicanoPersona.supperclass = Persona.prototype;
+
+        MexicanoPersona.prototype.cantar = function () {
+            console.log("la lalalla....");
+        };
+
+        var p = new MexicanoPersona( {
+            nombre: 'Zulema',
+            apellido: 'Martinez'
+        });
+
+        console.log(p.nombre);
+
+        var m = new MexicanoPersona( {
+            nombre: 'Maria',
+            apellido: 'Lopez'
+        });
+
+        console.log(m.nombre);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

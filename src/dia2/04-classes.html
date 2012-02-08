@@ -2,32 +2,58 @@
 <html>
 <head>
     <title>Clases</title>
+    <script type="text/javascript" src="js/App.js" ></script>
     <script type="text/javascript">
 
         // Definiendo a nivel de clase
         var Persona = function(options) {
             console.log('Esto es el constructor!');
 
-            this.nombre = options.nombre;
+            //this.nombre = options.nombre;
 
+            // Tambien lo podría hacer con mi clase de utilidad
+            App.copy(this, options || {});
 
             this.caminar = function() {
                 console.log('Estoy caminando');
+            };
+
+            debugger;
+
+            console.log('Persona ' + this.nombre + ' ' + this.apellido + ' creado');
+
+            // El concepto de variable privada
+            // Podemos emularla con closures
+            var privada = 1;
+            // método privilegiado que va a exportar nuestra variable
+            this.getPrivada = function() {
+                return privada;
+            };
+            // tambien puedo hacer un método privilegiado para el setter
+            this.setPrivada = function(value) {
+                privada = value;
             }
+
+
 
         };
 
         // Definiendo a nivel de instancia (hasta que no llega a esta línea el método no existe)
         Persona.prototype.comer = function() {
             console.log('Estoy comiendo mmmmmmm :)');
+
+            console.log(' privada' + this.getPrivada());
         };
 
-        var juan = new Persona({
-            nombre: "Juan",
-            apellidos: "Perez Mee"
+        var juan;
+        juan = new Persona({
+            nombre:"Juan",
+            apellidos:"Perez Mee"
         });
 
+        console.log(juan);
 
+        console.log(juan.getPrivada());
 
 
     </script>

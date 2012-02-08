@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+
+    <script type="text/javascript" src="js/App.js"></script>
+    <script type="text/javascript">
+        App.define("Persona", {
+            nombre : '',
+            apellidos: '',
+
+            // Esto será el constructor
+            init : function(options) {
+                App.copy(this, options || {});
+                console.log("Constructor");
+            },
+
+            comer : function() {
+                console.log(this.nombre + " está comiendo");
+
+            },
+
+            dormir: function() {
+                console.log(this.nombre + " está durmiendo");
+            }
+
+        });
+
+        App.define("EspanolPersona", {
+            extend: "Persona",
+
+            nadar: function() {
+                console.log("nadando en la playa...");
+            }
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

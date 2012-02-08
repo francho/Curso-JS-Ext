@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automatizando la definicion de clases</title>
+
+    <script type="text/javascript" src="js/App.js"></script>
+    <script type="text/javascript">
+        App.define("Persona", {
+            nombre : '',
+            apellidos: '',
+
+            // Esto será el constructor
+            init : function(options) {
+                App.copy(this, options || {});
+                console.log("Constructor");
+            },
+
+            comer : function() {
+                console.log(this.nombre + " está comiendo");
+
+            },
+
+            dormir: function() {
+                console.log(this.nombre + " está durmiendo");
+            }
+
+        });
+
+        console.log(Persona);
+
+        var pepe = new Persona({ nombre: 'Pepito', apellidos: 'Juarez'});
+        pepe.comer();
+
+        console.log(pepe);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
