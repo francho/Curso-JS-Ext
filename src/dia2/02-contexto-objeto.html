@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <title>Contexto objeto</title>
+    <script type="text/javascript">
+        // Cuando yo creo un objeto sus métodos toman el contexto del objeto
+
+        var Persona = {
+            nombre:"Jaime",
+            caminar: function() {
+                delete this.nombre; // Se pueden borrar referencias "al vuelo" (no es lo mismo que ponerla a null)
+
+                console.log("Persona.caminar() ---------------",this);
+                console.log(this.nombre);
+
+                // Esta tendrá el contexto global
+                // (no se ha asignado al objeto)
+                (function() {
+                    console.log("anonim",this);
+                })();
+            }
+        };
+
+        Persona.correr = function() {
+            console.log("Persona.correr()", this);
+        };
+
+        Persona.caminar();
+        Persona.correr();
+
+        // Esto cambia el contexto a DOMWindow
+        setTimeout(Persona.caminar, 1000);
+
+        // Para ejecutarla en el contexto adecuado
+        setTimeout(function() {
+            Persona.caminar();
+        },1000);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

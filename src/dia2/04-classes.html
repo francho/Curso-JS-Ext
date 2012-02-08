@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clases</title>
+    <script type="text/javascript">
+
+        // Definiendo a nivel de clase
+        var Persona = function(options) {
+            console.log('Esto es el constructor!');
+
+            this.nombre = options.nombre;
+
+
+            this.caminar = function() {
+                console.log('Estoy caminando');
+            }
+
+        };
+
+        // Definiendo a nivel de instancia (hasta que no llega a esta línea el método no existe)
+        Persona.prototype.comer = function() {
+            console.log('Estoy comiendo mmmmmmm :)');
+        };
+
+        var juan = new Persona({
+            nombre: "Juan",
+            apellidos: "Perez Mee"
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

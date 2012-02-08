@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cambio de context</title>
+
+    <script type="text/javascript">
+        var Animal = {
+            tipo: 'Mamifero',
+            comer: function() {
+                console.log(this);
+            }
+        };
+
+        // Ejecutamos en el contexto original
+        metodo();
+        // Cambiamos el contexto sobre el que se va a ejecutar la funcion (solo en esta llamada)
+        metodo.call(Animal);
+
+        function metodo() {
+            console.log("metodo ---",this);
+        }
+
+        // Si tuviera que recibir parámetros
+        metodo2.call(Animal,1,2,3);
+        function metodo2(x,y,z) {
+            console.log("metodo2---",this);
+        }
+
+        // Para ejecutar la funcion sobrel contexto indicado como parámetro
+        // Los parámetros van sobre un Array
+        // Permite que los parámetros sean variables
+        metodo2.apply(Animal, [1,2,3]);
+
+
+        // Podemos asignar un metodo ya existente a un objeto
+        // Como ahora lo refereciamos, ahora tiene el contexto del objeto
+        Animal.cazar = metodo;
+        Animal.cazar();
+
+        // Sobre el contexto de window
+        var App = {
+            bind : function(fn,ctx) {
+                return function() {
+                    console.log(this);
+                };
+            }
+        };
+
+        // Otra forma
+        var App2 = {
+            bind: function(fn, ctx) {
+                debugger;
+                fn.call(ctx);
+            }
+        };
+
+        debugger;
+
+        App2.bind(function() {
+
+            console.log('anom', this);
+        },Animal);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

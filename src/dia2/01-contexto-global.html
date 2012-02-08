@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>Contexto global</title>
+    <script type="text/javascript">
+        var x = 1; // variable en el contexto global
+
+        window.x; // es lo mismo (window representa el contexto global)
+
+        metodo();
+
+        function metodo(){
+            console.log(this);
+        }
+
+        setTimeout(metodo,1000);
+
+        // si tenemos que pasar parámetros
+        setTimeout(function(){
+            metodo(1,2);
+        },1000);
+
+        // Los listeners cambian el contexto
+
+        // las funciones anónimas adoptan el contexto global
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
