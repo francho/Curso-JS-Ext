@@ -1,3 +1,5 @@
+// francho
+
 var App;
 App = {
     copy:function (dest, source) {
@@ -26,7 +28,6 @@ App = {
         window[name] = subclass;
 
     },
-
 
     each : function (collection, fn, ctx) {
         var size=collection.length;
