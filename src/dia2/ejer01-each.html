@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 01 - each...</title>
+    <script type="text/javascript" src="js/App.js"></script>
+    <script type="text/javascript">
+        // Realizar un método, dentro del objeto App, que nos permita iterar una colección de la siguiente manera:
+
+        var collection = [
+            {property:1},
+            {property:2},
+            {property:3}
+        ],
+                persona = {nombre:"Juanito"};
+
+
+        App.each(collection, function (obj, index) {
+            console.log(obj.property);
+            console.log(this.nombre);
+        }, persona)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

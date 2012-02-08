@@ -25,6 +25,16 @@ App = {
 
         window[name] = subclass;
 
+    },
+
+
+    each : function (collection, fn, ctx) {
+        var size=collection.length;
+        for(var x=0; x<size; x++) {
+            fn.call(ctx,collection[x]);
+        }
+
+
     }
 
 
