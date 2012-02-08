@@ -7,17 +7,23 @@ App = {
     },
 
     define : function(name, config) {
-        var cons = config.init || function() {};
+        var subclass = config.init || function() {};
 
         // La borramos porque no queremos que este como una funcion mas (va a ser nuestro constructor)
         delete config.init;
 
 
+        if(config.extend) {
+            var superclass = window[config.extend];
+            App.copy(subclass.prototype, new superclass());
 
+            subclass.superclass = superclass.prototype;
+        }
+        subclass.prototype.classname = name;
 
-        App.copy(cons.prototype, config);
+        App.copy(subclass.prototype, config);
 
-        window[name] = cons;
+        window[name] = subclass;
 
     }
 

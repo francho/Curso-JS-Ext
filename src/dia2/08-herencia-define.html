@@ -13,7 +13,7 @@
             // Esto será el constructor
             init : function(options) {
                 App.copy(this, options || {});
-                console.log("Constructor");
+                console.log("constructor " + this.classname);
             },
 
             comer : function() {
@@ -30,10 +30,25 @@
         App.define("EspanolPersona", {
             extend: "Persona",
 
+            init : function() {
+                EspanolPersona.superclass.constructor.apply(this, arguments);
+
+                console.log("constructor " + this.classname);
+            },
+
             nadar: function() {
-                console.log("nadando en la playa...");
+                console.log(this.nombre + " esta nadando en la playa...");
             }
         });
+
+        var pepe = new EspanolPersona({
+            nombre: "Pepe",
+            apellidos: "Lopez"
+        });
+
+        pepe.nadar();
+        pepe.comer();
+
     </script>
 </head>
 <body>
