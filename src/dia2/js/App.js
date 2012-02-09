@@ -33,6 +33,8 @@ App = {
         var size=collection.length;
         for(var x=0; x<size; x++) {
             fn.call(ctx,collection[x]);
+
+            // Si hubiera parámetros opcionales usaríamos el .apply
         }
 
 
