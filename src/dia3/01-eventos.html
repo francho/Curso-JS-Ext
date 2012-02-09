@@ -22,12 +22,12 @@
             }, 1000);
 
 
-            setTimeout(function() {
-                if(el.hasCls('cuadrado')) {
-                    el.removeCls('cuadrado');
-                }
-
-            },5000);
+//            setTimeout(function() {
+//                if(el.hasCls('cuadrado')) {
+//                    el.removeCls('cuadrado');
+//                }
+//
+//            },5000);
 
             setTimeout(function() {
                 el.appendChild('link');
@@ -64,9 +64,8 @@
 
             });
 
-            // Podemos añadir propiedades directamente
-            //el.setHeight(500);
-            el.setHeight(500,true); // con animacion
+
+
 
 
             /**
@@ -75,14 +74,35 @@
 
             // La clase Ext.Element tambien tiene métodos para añadir eventos
             el.addListener('click', function(){
-                alert('Caja pulsada');
+                //alert('Caja pulsada');
+
+                // Podemos añadir propiedades directamente
+                //el.setHeight(500);
+
+                // el.setHeight(500,true); // con animacion
+
+                // con configuracion
+                el.setHeight(400, {
+                    duration: 500,
+                    easing:'easeOut',
+                    callback: function() {
+                        console.log('fin');
+                          el.fadeOut();
+//                        el.fadeOut ({
+//                            opacity: .0,
+//                            duration: 1000
+//                        });
+                    }
+                })
+
+
             });
 
-            // Tambien se puede añadir un contexto al listener
-            var persona = { nombre: 'Perico'};
-            el.addListener('click', function() {
-                alert('Pulsado ' + this.nombre);
-            },persona);
+//            // También se puede añadir un contexto al listener
+//            var persona = { nombre: 'Perico'};
+//            el.addListener('click', function() {
+//                alert('Pulsado ' + this.nombre);
+//            },persona);
 
             // Element.addListener tiene un alias Element.on
             el.on('mouseover', function() {

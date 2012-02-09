@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selectores</title>
+    <meta charset="UTF-8"/>
+
+    <script type="text/javascript" src="../../ext-4.0.7-gpl/ext-all-debug.js"></script>
+    <script type="text/javascript">
+        /*
+         http://docs.sencha.com/ext-js/4-0/#!/api/Ext.DomQuery
+         */
+
+        Ext.onReady(function () {
+
+            var resultado = Ext.DomQuery.select(
+/*
+            '#container ul li'      // del elemento container tráete todos los li
+            '#container ul li:fist-child'
+            '#container ul li:last-child'
+            '#container ul li:nth-child(2)'     // elemento 2
+            '#container ul li:nth-child(even)' // pares
+            '#container ul li:nth-child(3n +1)' // pares
+            '#container ul li:nth-child(3n +1)' // Operaciones vienen de la especificación CSS
+            '.cuadrado > a' // selecciona el elemento de la clase cuadrado y que inmediatamente detrás tenga una a
+*/
+
+
+                    '#container ul li:nth-child(odd)' // impares
+
+
+
+
+            );
+            console.log(resultado);
+            for(var i=0, size=resultado.length; i<size;i++) {
+                // Patron de diseño flyweight
+                // Intenta reducir la redundancia
+                Ext.fly(resultado[i]).setStyle('background-color','#aaffaa');
+
+                // Tambien podemos pasar un objeto de configuracion
+                Ext.fly(resultado[i]).setStyle({
+                    'boder' : '1px solid #0f0',
+                    'color' : '#090'
+                });
+            }
+        });
+
+
+    </script>
+    <style type="text/css">
+        .borde {
+            border: 1px solid #9999aa;
+        }
+
+        .cuadrado {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            background-color: #f2e3e4;
+            border: 1px solid #ff2222;
+        }
+
+        .link-google {
+            font-size: 40px;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+<div id="container" class="borde">
+    <h1>Curso de JS</h1>
+
+    <p>Esto es otro <em>elemento</em>...</p>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+
+    </ul>
+</div>
+<div class="cuadrado">
+    <a href="#" id="link">Link</a>
+</div>
+</body>
+</html>

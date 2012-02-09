@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <title>Ejer 3/1: Mi primer panel</title>
+    <meta charset="UTF-8"/>
+
+    <script type="text/javascript" src="../../ext-4.0.7-gpl/ext-all-debug.js"></script>
+    <script type="text/javascript" src="../dia2/js/App.js"></script>
+    <script type="text/javascript" src="Panel.js"></script>
+
+    <script type="text/javascript">
+        /**
+         * Debe pintar un panel con titulo basándose en los parámetros
+         */
+
+        Ext.onReady(function () {
+            var p = new Panel({
+                width:300,
+                height:200,
+                title:'Mi primer panel',
+                content:'Esto es el contenido',
+                renderTo:'menu'
+            });
+        });
+
+
+    </script>
+
+    <style type="text/css">
+        .panel {
+            margin: 50px auto;
+            background-color: #9fc9f5;
+            border: 1px solid #095f93;
+            padding: 10px
+        }
+
+        .panel-title {
+            font-size: 2em;
+            font-family: helvetica;
+            color: #04468c;
+            text-decoration: none;
+        }
+
+        .panel-content {
+            color: #283042;
+            font-family: Helvetica;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="menu"></div>
+
+</body>
+</html>
