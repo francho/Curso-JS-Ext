@@ -65,7 +65,9 @@
             });
 
             // Podemos añadir propiedades directamente
-            el.setHeight(500);
+            //el.setHeight(500);
+            el.setHeight(500,true); // con animacion
+
 
             /**
              * http://docs.sencha.com/ext-js/4-0/#!/api/Ext.Element-method-addListener
@@ -89,11 +91,15 @@
 
             // Ha un cuarto parámetro que es un elemento de configuración
 
+
         });
 
     </script>
     
     <style type="text/css">
+        .borde {
+            border: 1px solid #9999aa;
+        }
         .cuadrado {
             width: 200px; 
             height: 200px;
@@ -110,7 +116,7 @@
     
 </head>
 <body>
-<div id="container">
+<div id="container" class="borde">
     <h1>Curso de JS</h1>
     <p>Esto es otro <em>elemento</em>...</p>
 </div>
