@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eventos</title>
+    <meta charset="UTF-8" />
+
+        <script type="text/javascript" src="../../ext-4.0.7-gpl/ext-all-debug.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function() {
+            // Debe esperar hasta que el arbol de DOM esté listo
+            // Lo más común es escuchar al evento load
+            // Otra opcion es escuchar a ready (pero cambia segun el navegador)
+
+            // Accediendo a dom con js nativo
+            var container = document.getElementById('container');
+
+            // Con ext
+            var el = Ext.get('container');
+
+            setTimeout(function() {
+                el.addCls('cuadrado'); // Añadimos un nuevo elemento
+            }, 1000);
+
+
+            setTimeout(function() {
+                if(el.hasCls('cuadrado')) {
+                    el.removeCls('cuadrado');
+                }
+
+            },5000);
+
+            setTimeout(function() {
+                el.appendChild('link');
+            },3000);
+
+            // Con una helper que tiene Ext podemos añadir elementos DOM "on the fly"
+            Ext.DomHelper.append('container', {
+                tag : 'h2',
+                html: 'título con js'
+            })  ;
+
+            // Añadiendo con hijos anidados
+            Ext.DomHelper.append('container', {
+                tag : 'div',
+                children: [{
+                    tag: 'ul',
+                    children : [ {
+                        tag: 'li',
+                        html: 'juan'
+                    },{
+                        tag : 'li',
+                        html: 'maria'
+                    },{
+                        tag: 'li',
+                        html: 'pepe'
+                    }]
+                },{
+                    tag: 'a',
+                    href: 'http://google.com',
+                    id: 'google',
+                    cls: 'link-google',
+                    html: 'Gooogle'
+                }]
+
+            });
+
+            // Podemos añadir propiedades directamente
+            el.setHeight(500);
+
+            /**
+             * http://docs.sencha.com/ext-js/4-0/#!/api/Ext.Element-method-addListener
+             */
+
+            // La clase Ext.Element tambien tiene métodos para añadir eventos
+            el.addListener('click', function(){
+                alert('Caja pulsada');
+            });
+
+            // Tambien se puede añadir un contexto al listener
+            var persona = { nombre: 'Perico'};
+            el.addListener('click', function() {
+                alert('Pulsado ' + this.nombre);
+            },persona);
+
+            // Element.addListener tiene un alias Element.on
+            el.on('mouseover', function() {
+                console.log(".");
+            }) ;
+
+            // Ha un cuarto parámetro que es un elemento de configuración
+
+        });
+
+    </script>
+    
+    <style type="text/css">
+        .cuadrado {
+            width: 200px; 
+            height: 200px;
+            margin: 50px auto;
+            background-color: #f2e3e4;
+            border: 1px solid #ff2222;
+        }
+
+        .link-google {
+            font-size: 40px;
+            text-decoration: none;
+        }
+    </style>
+    
+</head>
+<body>
+<div id="container">
+    <h1>Curso de JS</h1>
+    <p>Esto es otro <em>elemento</em>...</p>
+</div>
+<a href="#" id="link">Link</a>
+</body>
+</html>
