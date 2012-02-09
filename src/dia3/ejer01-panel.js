@@ -21,12 +21,12 @@ App.define('Panel', {
                 cls:'panel',
                 children:[
                     {
-                        tag:'h1',
+                        tag:'div',
                         html:this.title,
                         cls:'panel-title'
                     },
                     {
-                        tag:'p',
+                        tag:'div',
                         html:this.content,
                         cls:'panel-content'
                     }
