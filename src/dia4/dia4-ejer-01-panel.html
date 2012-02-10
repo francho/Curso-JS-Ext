@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="author" content="francho"/>
+    <title>Ejer 4/1: Panel con eventos</title>
+    <meta charset="UTF-8"/>
+
+    <script type="text/javascript" src="../../ext-4.0.7-gpl/ext-all-debug.js"></script>
+    <script type="text/javascript" src="js/App.js"></script>
+    <script type="text/javascript" src="dia4-ejer01-panel.js"></script>
+
+    <script type="text/javascript">
+        /**
+         * Debe pintar un panel con titulo basándose en los parámetros
+         *
+         * añadir:
+         *   panel.hide()
+         *   panel.show()
+         *
+         * Añadir eventos:
+         *   render
+         *   hide
+         *   show
+         *
+         */
+
+        Ext.onReady(function () {
+            var p = new Panel({
+                width:300,
+                height:200,
+                title:'Mi primer panel',
+                content:'Esto es el contenido',
+                renderTo:'menu',
+                listeners:{
+                    panelCreated:function () {
+                        console.log("Panel creado");
+                        Ext.getBody().addCls('fondo0');
+                    },
+
+                    panelShowed:function () {
+                        console.log("Panel mostrado");
+                        Ext.getBody().addCls('fondo1');
+
+
+                    },
+
+                    panelClosed:function () {
+                        console.log("Panel borrado");
+                        Ext.getBody().addCls('fondo2');
+                    },
+
+                    click: function () {
+                        console.log("panel pulsado");
+                        p.close();
+                    }
+                }
+
+            });
+
+            p.show();
+            p.on('click', function () {
+
+            });
+
+
+        });
+    </script>
+
+    <style type="text/css">
+        .panel {
+            margin: 50px auto;
+            background-color: #9fc9f5;
+            border: 1px solid #095f93;
+            font-family: helvetica, sans-serif;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+        }
+
+        .panel-title {
+            font-size: 2em;
+            color: #9fc9f5;
+            background-color: #04468c;
+            padding-left: 10px;
+
+            border-radius: 10px 10px 0px 0px;
+            -border-radius: 10px 10px 0px 0px;
+            margin: 1px;
+
+        }
+
+        .panel-content {
+            color: #04468c;
+            padding: 10px
+        }
+
+        .fondo0 {
+            background-color: #aaaaaa;
+        }
+
+        .fondo1 {
+            background-color: #333333;
+        }
+
+        .fondo2 {
+            background-color: #000000;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="menu"></div>
+
+</body>
+</html>
