@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Observable</title>
+    <meta charset="UTF-8" />
+
+    <script type="text/javascript" src="../../ext-4.0.7-gpl/ext-all-debug.js"></script>
+    <script type="text/javascript">
+        /**
+         *  Patrón observable implementado por
+         *
+         * http://docs.sencha.com/ext-js/4-0/#!/api/Ext.util.Observable
+         */
+
+
+        // Definimos el objeto observable
+        var obj = new Ext.util.Observable();
+
+        obj.addEvents('seleccionar');
+
+/*
+        // Otra forma de hacerlo, para definir varios de golpe
+        obj.addEvents( {
+            'seleccionar':true,
+            'borrar':true
+        });
+*/
+
+        // Método que disparará el evento
+        obj.seleccionarGenero = function(value) {
+            this.genero = value;
+            this.fireEvent('seleccionar', value);
+        };
+
+        // Creamos otro objeto que haga de listener y reaccione ante el evento
+        var Persona = {
+            saludar : function(genero) {
+                console.log("Hola! " + genero);
+            }
+        };
+
+        obj.addListener("seleccionar",Persona.saludar);
+        // obj.on("seleccionar", Persona.saludar); // otra forma de hacerlo
+
+        // Probamos que funciona bien
+        setTimeout(function() {
+            obj.seleccionarGenero('F');
+        }, 1000);
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

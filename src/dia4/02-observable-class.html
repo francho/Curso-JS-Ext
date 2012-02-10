@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clase Observable</title>
+    <meta charset="UTF-8"/>
+
+    <script type="text/javascript" src="../../ext-4.0.7-gpl/ext-all-debug.js"></script>
+    <script type="text/javascript" src="js/App.js"></script>
+    <script type="text/javascript" src="js/Automovil.js"></script>
+    <script type="text/javascript">
+        var ferrari = new Automovil();
+
+        ferrari.on('encender', function (date) {
+            console.log("evento encendido a las " + date);
+        });
+        ferrari.on('apagado', function (date) {
+            console.log("evento apagado a las " + date);
+        });
+
+        ferrari.encender();
+
+        setTimeout(function () {
+            ferrari.apagar();
+        }, 3000);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
