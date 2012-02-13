@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pruebas con Store</title>
+    <link rel="stylesheet" type="text/css" href="../../../ext-3.4.0/resources/css/ext-all.css" />
+
+
+    <script type="text/javascript" src="../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../ext-3.4.0/ext-all-debug.js"></script>
+    <script type="text/javascript" src="js/Personas.js"></script>
+
+
+    <script type="text/javascript">
+        var store= new MyApp.stores.Personas();
+
+        // Ajax es asíncrono por eso debemos usar un listener para escuchar cuando termina
+        store.on("load", function() {
+            console.log(store.getCount());
+        });
+        store.load();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
