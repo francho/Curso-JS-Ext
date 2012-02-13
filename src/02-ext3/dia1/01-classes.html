@@ -1,7 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Probando las clases Ext3</title>
+    <script type="text/javascript" src="../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../ext-3.4.0/ext-all-debug.js"></script>
+
+    <script type="text/javascript">
+
+        // Ext3 tiene un método para crear nuestro propio espacio de nombres
+        Ext.namespace('MyApp.model.facturacion');
+
+        // Tiene una versión corta:
+        // Ext.ns(....)
+
+        // Para definir una clase dentro de mi espacio de nombres
+        MyApp.model.facturacion.Factura = Ext.extend(Object, {
+            cliente : '',
+            total : 0,
+
+            // define nuestro constructor (por convenio de Ext3 debe llamarse 'constructor'
+            constructor : function(options) {
+                // Copia todas las propiedades de un objeto a otro.
+                // El tercer parámetro (opcional) puede recibir valores por defecto
+                Ext.apply(this,options || {});
+            },
+
+            addItem : function(item) {
+                this.total += item.subtotal;
+            }
+
+        });
+
+        // Creamos una instancia
+        var f=new MyApp.model.facturacion.Factura({
+            cliente : 'Iberia SL'
+        });
+
+        // Usamos los métodos definidos
+        f.addItem({subtotal:300});
+        f.addItem({subtotal:400});
+
+        console.log(f.cliente,f.total);
+
+    </script>
+
 </head>
 <body>
 

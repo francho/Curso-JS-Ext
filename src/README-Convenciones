@@ -1,0 +1,4 @@
+ Convenciones a seguir:
+   - El objeto principal es camelcase
+   - los paquetes los ponemos en minúscula
+   - Las clases camelcase
