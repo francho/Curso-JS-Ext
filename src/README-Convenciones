@@ -2,3 +2,5 @@
    - El objeto principal es camelcase
    - los paquetes los ponemos en minúscula
    - Las clases camelcase
+
+   - Dejaremos que los Ids los genere la librería (Component) les asigne uno
