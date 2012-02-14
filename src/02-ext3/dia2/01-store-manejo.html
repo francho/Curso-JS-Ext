@@ -50,7 +50,7 @@
             store.remove(p3);
 
             // Para modificarlo
-            var p4 = store.getAt(3);
+            var p4 = store.getAt(1);
             p4.set('nombre', 'Teofilo');
 
             // para iterar usamos el método each
@@ -65,7 +65,7 @@
             // Los que no cumplan el filtro quedarán deshabilitados temporalmente
             // store.filter('nombre','Ma');
 
-            // Se puede filtar con expresiones regulares
+            // Se puede filtrar con expresiones regulares
             store.filter('nombre',/rico/gi);
             store.each(function(record,index) {
                 console.log(index+ ' ' + record.get('nombre'));

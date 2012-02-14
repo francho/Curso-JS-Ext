@@ -33,7 +33,10 @@ MyApp.stores.Personas = Ext.extend(Ext.data.Store, {
         // El reader se encargará de extraer la informacion
         var reader = new Ext.data.JsonReader({
             root: 'personas',
-            idProperty : 'id'
+            idProperty : 'id' ,
+
+            // Propiedad que devolverá true cuando una operación haya concluido ok
+            "successProperty": "success",
         },Persona);
 
         // Tambien puedo definir un write

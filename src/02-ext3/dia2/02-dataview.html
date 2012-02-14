@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data view</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../../ext-3.4.0/resources/css/ext-all.css" />
+
+
+    <script type="text/javascript" src="../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../ext-3.4.0/ext-all-debug.js"></script>
+    <script type="text/javascript" src="../dia1/js/Personas.js"></script>
+    <script type="text/javascript" src="js/PersonasView.js"></script>
+
+
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var view = new MyApp.view.PersonasView();
+            var win = new Ext.Window({
+             title : 'Personas registradas',
+             width : 300,
+             height: 250,
+             items : [view]
+             });
+
+            win.show();
+        });
+    </script>
+    <style type="text/css">
+        .record-over { background-color: #eee }
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>
