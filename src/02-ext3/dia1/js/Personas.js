@@ -36,14 +36,31 @@ MyApp.stores.Personas = Ext.extend(Ext.data.Store, {
             idProperty : 'id'
         },Persona);
 
+        // Tambien puedo definir un write
+
+        var writer = new Ext.data.JsonWriter({
+            writeAllFields: true
+        });
+
+
         // Luego hay que definir un proxy que será el encargado de obtener los datos
+        // A las URLS se les pasa un campo xaction con la accion
         var proxy = new Ext.data.HttpProxy({
-            url:'serverside/personas.json'
+            // url:'serverside/personas.json'
+
+            // Puedo definir una URL por cada accion
+            api : {
+                create  : 'serverside/create',
+                read    : 'serverside/personas.json',
+                update  : 'serverside/update',
+                destroy : 'serverside/destroy'
+            }
         });
 
         // Configuramos nuestra Store
         var config={
             reader: reader,
+            writer: writer,
             proxy: proxy
         } ;
 
