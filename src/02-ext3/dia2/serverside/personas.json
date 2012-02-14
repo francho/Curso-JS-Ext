@@ -1,0 +1,8 @@
+{
+    "success" : true,
+    "personas": [
+        {"id": 1, "nombre":"Eustaquio", "apellido" : "Perez", "edad":24, "genero":"M" },
+        {"id": 2, "nombre":"Rigoberto", "apellido" : "Gutierrez", "edad":25, "genero":"F" },
+        {"id": 3, "nombre":"Protasio", "apellido" : "Gomez", "edad":34, "genero":"M" }
+    ]
+}

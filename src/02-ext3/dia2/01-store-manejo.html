@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pruebas con Store</title>
+    <link rel="stylesheet" type="text/css" href="../../../ext-3.4.0/resources/css/ext-all.css" />
+
+
+    <script type="text/javascript" src="../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../ext-3.4.0/ext-all-debug.js"></script>
+    <script type="text/javascript" src="../dia1/js/Personas.js"></script>
+
+
+    <script type="text/javascript">
+        var store= new MyApp.stores.Personas();
+
+        // Ajax es asíncrono por eso debemos usar un listener para escuchar cuando termina
+        store.on("load", function() {
+            console.log(store.getCount());
+
+            // para iterar usamos el método each
+            // Por cada elemento de la colección se ejecutará la función
+            // El primer parámetro será el registro
+            // El segundo el índice que ocupa dentro de la colección
+            store.each(function(record,index) {
+                console.log(index+ ' ' + record.get('nombre'));
+            });
+
+
+            // puedo ordenar mis colecciones
+            // El parámetro de tipo de orden debe ir en mayúsculas
+            store.sort('nombre','ASC');
+
+            // los que añada aquí no irán ordenados (a no ser que vuelva a llamar a sort
+
+
+            // También puedo añadir un nuevo registro
+            // Como no tengo referencia directa al tipo de registro (lo creamos en el constructor haciendola privada)
+            // debo usar la propiedad recordType que guarda la referencia de forma automática
+            var p = new store.recordType({'nombre':'Liborio'});
+            store.add(p);
+
+            // Puedo insertar registros en un punto determinado
+            var p2 = new store.recordType({'nombre':'Frederico'});
+            store.insert(0,p2);
+
+            // Para eliminar un registro usamos remove (primero debemos obtener el registro en cuestión)
+            var p3 = store.getAt(2);
+            store.remove(p3);
+
+            // Para modificarlo
+            var p4 = store.getAt(3);
+            p4.set('nombre', 'Teofilo');
+
+            // para iterar usamos el método each
+            // Por cada elemento de la colección se ejecutará la función
+            // El primer parámetro será el registro
+            // El segundo el índice que ocupa dentro de la colección
+            store.each(function(record,index) {
+                console.log(index+ ' ' + record.get('nombre'));
+            });
+
+            // También lo puedo filtrar en local
+            // Los que no cumplan el filtro quedarán deshabilitados temporalmente
+            // store.filter('nombre','Ma');
+
+            // Se puede filtar con expresiones regulares
+            store.filter('nombre',/rico/gi);
+            store.each(function(record,index) {
+                console.log(index+ ' ' + record.get('nombre'));
+            });
+
+            // Para que vuelvan a salir todos debemos limpiar los filtros
+            store.clearFilter();
+
+            // Puedo ejecutar filtros en base al resultado de una función.
+            // debe devolver true si el registro "ha pasado el filtro" o false "si debe ser desactivado temporalmente"
+            store.filterBy(function(record,id) {
+                return record.get('edad') > 25;
+            }) ;
+
+            store.each(function(record,index) {
+                console.log(index+ ' ' + record.get('nombre'));
+            });
+
+            store.clearFilter();
+        });
+        store.load();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
