@@ -20,7 +20,7 @@ MyApp.stores.Personas = Ext.extend(Ext.data.Store, {
 
     // No existe el initComponents así que sobreescribimos el constructor
 
-    constructor : function(options) {
+    constructor : function() {
         // Definición de registro
         var Persona = Ext.data.Record.create([
             'nombre','apellido','edad','genero'
@@ -36,7 +36,7 @@ MyApp.stores.Personas = Ext.extend(Ext.data.Store, {
             idProperty : 'id' ,
 
             // Propiedad que devolverá true cuando una operación haya concluido ok
-            "successProperty": "success",
+            "successProperty": "success"
         },Persona);
 
         // Tambien puedo definir un write

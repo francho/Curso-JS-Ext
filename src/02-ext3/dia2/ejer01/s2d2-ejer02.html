@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>s2d2 Ejercicio 01</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../../../../ext-3.4.0/resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="../../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../../ext-3.4.0/ext-all-debug.js"></script>
+
+    <script type="text/javascript" src="./js/Articulos.js" ></script>
+    <script type="text/javascript" src="./js/ArticulosView.js" ></script>
+
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var listado = new MyApp.view.ArticulosView();
+
+            var win = new Ext.Window({
+                title: 'Ejercicio s2d2-1',
+                width: 600,
+                height: 500,
+                renderTo : Ext.getBody(),
+                layout : 'border',
+                defaults :  {
+                    xtype : 'panel',
+                    height : 80,
+                    collapsible : true
+
+                },
+                items : [
+                    { title : 'Listado de artículos', padding: 10, region: 'center', items: [listado], autoScroll: true },
+                    { title : 'Panel 1', region: 'north' },
+                    { title : 'Panel 2', region: 'south' },
+                    { title : 'Panel 3', region: 'east' },
+                    { title : 'Panel 4', region: 'west' }
+                ],
+                tbar: [
+                    { text : 'Agregar' , handler : function(){
+                            var store = listado.getStore()
+                            var nuevo = new store.recordType({
+                                'nombre' : 'Nuevo artículo',
+                                'descripcion' : '--sin descripcion--',
+                                'precio' : "$0",
+                                'stock' : 0,
+                                'imagen' : "http://cdn2.iconfinder.com/data/icons/Siena/128/label_new%20blue.png"
+                            });
+
+                            store.insert(0,nuevo);
+                    }  }
+                ]
+            });
+
+            win.show();
+        });
+
+
+    //console.log(store.count());
+    </script>
+
+    <style type="text/css">
+        .record-articulo h2 { font-size : 1.3em ; color: #0055aa; }
+        .record-articulo .pvp { font-size: 2em; text-align: right; }
+        .record-articulo .stock { font-size: 0.8em; text-align: right; }
+
+    </style>
+
+</head>
+<body>
+</body>
+</html>
