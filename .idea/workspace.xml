@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57b0fff9-1f0f-42aa-986e-8e4786d3d5ea" name="Default" comment="avanzados los ejemplos">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ext-4.0.7-gpl/ext-4.0.7-gpl.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/dia3/01-eventos.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+    <list default="true" id="57b0fff9-1f0f-42aa-986e-8e4786d3d5ea" name="Default" comment="Avanzados ejemplos de Observable">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dia2/js/App.js" afterPath="$PROJECT_DIR$/src/dia2/js/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/02-ext3/dia2/07-layout-vbox.html" afterPath="$PROJECT_DIR$/src/02-ext3/dia2/07-layout-vbox.html" />
     </list>
     <ignored path="dia1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,10 +81,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="01-eventos.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/dia3/01-eventos.html">
+      <file leaf-file-name="07-layout-vbox.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/07-layout-vbox.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="63" selection-start="137" selection-end="150" vertical-scroll-proportion="0.15056461">
+            <state line="8" column="84" selection-start="272" selection-end="272" vertical-scroll-proportion="0.20382166">
               <folding />
             </state>
           </provider>
@@ -112,31 +108,31 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/dia1/01-literales.html" />
-        <option value="$PROJECT_DIR$/dia1/02-referencias.html" />
-        <option value="$PROJECT_DIR$/src/dia1/03-operadores.html" />
-        <option value="$PROJECT_DIR$/src/dia1/04-funciones.html" />
-        <option value="$PROJECT_DIR$/src/dia1/05-namespace.html" />
-        <option value="$PROJECT_DIR$/src/dia2/02-contexto-global.html" />
-        <option value="$PROJECT_DIR$/src/dia2/01-contexto-global.html" />
-        <option value="$PROJECT_DIR$/src/dia2/02-contexto-objeto.html" />
-        <option value="$PROJECT_DIR$/src/dia2/03-contexto-cambio.html" />
-        <option value="$PROJECT_DIR$/src/dia2/04-classes.html" />
-        <option value="$PROJECT_DIR$/src/dia2/06-definicion-clases.html" />
-        <option value="$PROJECT_DIR$/src/dia2/07-herencia.html" />
-        <option value="$PROJECT_DIR$/src/dia2/08-herencia-define.html" />
-        <option value="$PROJECT_DIR$/src/dia2/ejer01-each.html" />
-        <option value="$PROJECT_DIR$/src/dia2/js/App.js" />
-        <option value="$PROJECT_DIR$/src/dia3/01-eventos.html" />
+        <option value="$PROJECT_DIR$/src/README-Convenciones" />
+        <option value="$PROJECT_DIR$/src/02-ext3/README-para examen" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia1/js/FacturaPanel.js" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia1/serverside/personas.json" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia1/04-store.html" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/serverside/personas.json" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/01-store-manejo.html" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia1/js/Personas.js" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/js/PersonasView.js" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/02-dataview.html" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/03-layout-defaul.html" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/04-layout-fit.html" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/04-layout-border.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/06-layout-hbox.html" />
+        <option value="$PROJECT_DIR$/src/02-ext3/dia2/07-layout-vbox.html" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
+    <option name="x" value="-1126" />
     <option name="y" value="18" />
-    <option name="width" value="1298" />
-    <option name="height" value="1015" />
+    <option name="width" value="1300" />
+    <option name="height" value="1016" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -210,6 +206,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -228,16 +225,123 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Curso JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="02-ext3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Curso JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="02-ext3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dia2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Curso JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="02-ext3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dia2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Curso JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="02-ext3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dia1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Curso JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="02-ext3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dia1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Curso JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="01-introjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane />
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="125" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="130" />
@@ -264,7 +368,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="reference.settings.ide.settings.web.browsers" />
+    <property name="options.lastSelected" value="editor.preferences.smartKeys" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -272,6 +376,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/02-ext3/dia2" />
+      <recent name="$PROJECT_DIR$/src/dia4" />
+      <recent name="$PROJECT_DIR$/src/dia4/js" />
+      <recent name="$PROJECT_DIR$/src/dia3" />
       <recent name="$PROJECT_DIR$/dia1" />
     </key>
   </component>
@@ -471,7 +579,7 @@
     <configuration default="false" name="Chrome" type="JavascriptDebugSession" factoryName="Remote" editBeforeRun="true">
       <JSRemoteDebuggerConfigurationSettings>
         <option name="engineId" value="chrome" />
-        <option name="fileUrl" value="file://$PROJECT_DIR$/../Curso%20JS/src/dia3/01-eventos.html" />
+        <option name="fileUrl" value="file://$PROJECT_DIR$/../Curso%20JS/src/02-ext3/dia1/01-classes.html" />
       </JSRemoteDebuggerConfigurationSettings>
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -516,7 +624,7 @@
     </task>
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
+  <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
       <are-packages-shown value="false" />
       <are-modules-shown value="false" />
@@ -537,28 +645,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="18" width="1298" height="1015" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1126" y="18" width="1300" height="1016" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3301887" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5518868" sideWeight="0.49349594" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.55123675" sideWeight="0.49349594" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5518868" sideWeight="0.500813" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2676887" sideWeight="0.500813" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2504065" sideWeight="0.2370283" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900944" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286219" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2504065" sideWeight="0.2370283" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2504065" sideWeight="0.4481132" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2573052" sideWeight="0.6713781" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900944" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -597,7 +706,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="avanzados los ejemplos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadidos ejemplos de layouts" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -619,6 +728,19 @@
     <MESSAGE value="terminada explicación dia 2" />
     <MESSAGE value="Empezado ejercicio 1" />
     <MESSAGE value="avanzados los ejemplos" />
+    <MESSAGE value="añadido cambio de tamaño con animación" />
+    <MESSAGE value="Terminado ejercicio 1" />
+    <MESSAGE value="maqueo de código" />
+    <MESSAGE value="ajustes estéticos ejecicio 01" />
+    <MESSAGE value="Terminado ejercicio dia 4" />
+    <MESSAGE value="Avanzados ejemplos de Observable" />
+    <MESSAGE value="Añadido ejemplo de como hacer un panel con Ext3" />
+    <MESSAGE value="Experimentando con los ciclos de vida de los componentes&#10;" />
+    <MESSAGE value="Añadido ejemplo de Store" />
+    <MESSAGE value="Añadidos ejemplos de manejo de colecciones" />
+    <MESSAGE value="Añadidos el writer a la store" />
+    <MESSAGE value="Añadido ejemplo de dataview" />
+    <MESSAGE value="Añadidos ejemplos de layouts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -640,74 +762,110 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/dia1/03-operadores.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia1/03-componentes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="56" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0" />
+        <state line="13" column="38" selection-start="65" selection-end="460" vertical-scroll-proportion="-10.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia1/04-funciones.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia1/js/FacturaElectronica.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="12" selection-start="1008" selection-end="1008" vertical-scroll-proportion="1.7128713" />
+        <state line="8" column="0" selection-start="153" selection-end="187" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia1/05-namespace.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia1/serverside/personas.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="102" selection-start="772" selection-end="772" vertical-scroll-proportion="0.34362933" />
+        <state line="0" column="0" selection-start="0" selection-end="309" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/01-contexto-global.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/serverside/personas.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="34" selection-start="547" selection-end="547" vertical-scroll-proportion="0.9227799" />
+        <state line="4" column="37" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/ECMAScript.js2">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia1/04-store.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="53" selection-start="5774" selection-end="5774" vertical-scroll-proportion="0.55932206" />
+        <state line="25" column="66" selection-start="758" selection-end="758" vertical-scroll-proportion="-19.23077">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/07-herencia.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/js/PersonasView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="43" selection-start="2015" selection-end="2015" vertical-scroll-proportion="-14.076923" />
+        <state line="18" column="26" selection-start="411" selection-end="411" vertical-scroll-proportion="0.29593095">
+          <folding>
+            <element signature="e#0#151#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/02-contexto-objeto.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia1/js/Personas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="62" selection-start="443" selection-end="443" vertical-scroll-proportion="13.846154" />
+        <state line="18" column="0" selection-start="395" selection-end="416" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/04-classes.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia1/js/FacturaPanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="35" selection-start="1103" selection-end="1103" vertical-scroll-proportion="-26.153847" />
+        <state line="66" column="17" selection-start="1488" selection-end="1501" vertical-scroll-proportion="0.38840938">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/03-contexto-cambio.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="17" selection-start="885" selection-end="885" vertical-scroll-proportion="8.884615" />
+        <state line="2" column="9" selection-start="23" selection-end="23" vertical-scroll-proportion="-1.5384616">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/06-definicion-clases.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/05-layout-border.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="13" selection-start="92" selection-end="689" vertical-scroll-proportion="-11.115385" />
+        <state line="15" column="12" selection-start="571" selection-end="571" vertical-scroll-proportion="-10.038462">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/08-herencia-define.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/03-layout-defaul.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1187" selection-end="1187" vertical-scroll-proportion="-5.203704" />
+        <state line="26" column="24" selection-start="1080" selection-end="1080" vertical-scroll-proportion="-20.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/js/App.js">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/01-store-manejo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="67" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0" />
+        <state line="83" column="16" selection-start="3544" selection-end="3544" vertical-scroll-proportion="-63.846153">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia2/ejer01-each.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/02-dataview.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="19" selection-start="640" selection-end="640" vertical-scroll-proportion="0.3322785" />
+        <state line="15" column="32" selection-start="563" selection-end="586" vertical-scroll-proportion="-11.538462">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dia3/01-eventos.html">
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/04-layout-fit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="63" selection-start="137" selection-end="150" vertical-scroll-proportion="0.15056461">
+        <state line="27" column="45" selection-start="1173" selection-end="1173" vertical-scroll-proportion="-20.76923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/06-layout-hbox.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="65" selection-start="774" selection-end="774" vertical-scroll-proportion="-15.384615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/02-ext3/dia2/07-layout-vbox.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="84" selection-start="272" selection-end="272" vertical-scroll-proportion="0.20382166">
           <folding />
         </state>
       </provider>
