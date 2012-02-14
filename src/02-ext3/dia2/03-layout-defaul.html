@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data view</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../../ext-3.4.0/resources/css/ext-all.css" />
+
+
+    <script type="text/javascript" src="../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../ext-3.4.0/ext-all-debug.js"></script>
+    <script type="text/javascript" src="../dia1/js/Personas.js"></script>
+    <script type="text/javascript" src="js/PersonasView.js"></script>
+
+
+    <script type="text/javascript">
+        new Ext.Panel({
+            title: 'Layout por default',
+            width: 300,
+            // height: 200,
+            renderTo : Ext.getBody(),
+            layout : 'auto',
+            // Valores que se aplicaran a todos y cada uno de los items
+            defaults :  {
+                xtype : 'panel', // El xtype viene definido en la documentacion
+                                // Listado completo en http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component
+                height : 80,
+                collapsible : true
+
+            },
+            items : [
+                { title : 'Panel 1' },
+                { title : 'Panel 2' },
+                { title : 'Panel 3' }
+            ]
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

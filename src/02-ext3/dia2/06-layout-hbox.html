@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layout hbox</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../../ext-3.4.0/resources/css/ext-all.css" />
+
+
+    <script type="text/javascript" src="../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../ext-3.4.0/ext-all-debug.js"></script>
+
+
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var win = new Ext.Window({
+                title: 'Layout fit',
+                width: 400,
+                height: 400,
+                renderTo : Ext.getBody(),
+                // layout : 'hbox', // Se ajustan a ocupar el espacio basándose en pesos
+                layout : {          // Si quisieramos que ocupara el alto deberíamos pasar el align
+                    type : 'hbox',
+                    align : 'stretch'
+                },
+                // Valores que se aplicaran a todos y cada uno de los items
+                defaults :  {
+                    xtype : 'panel', // El xtype viene definido en la documentacion
+                                    // Listado completo en http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component
+                    height : 80,
+                    collapsible : true
+                },
+                items : [
+                    { title : 'Panel 1' , width: 200},
+                    { title : 'Panel 2' , flex: 1},  // flex indica el peso a usar para rellenar el espacio libre
+                    { title : 'Panel 3' , flex: 2}
+                ]
+            });
+
+            win.show();
+
+        });
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

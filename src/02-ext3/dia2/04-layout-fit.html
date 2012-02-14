@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layout Fit</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../../ext-3.4.0/resources/css/ext-all.css" />
+
+
+    <script type="text/javascript" src="../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../ext-3.4.0/ext-all-debug.js"></script>
+    <script type="text/javascript" src="../dia1/js/Personas.js"></script>
+    <script type="text/javascript" src="js/PersonasView.js"></script>
+
+
+    <script type="text/javascript">
+        var win = new Ext.Window({
+            title: 'Layout fit',
+            width: 300,
+            height: 500,
+            renderTo : Ext.getBody(),
+            layout : 'fit', // Ocupa el 100% del espacio. Solo expande el primero (no puede haber mas de uno)
+
+            // Valores que se aplicaran a todos y cada uno de los items
+            defaults :  {
+                xtype : 'panel', // El xtype viene definido en la documentacion
+                                // Listado completo en http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component
+                height : 80,
+                collapsible : true
+
+            },
+            items : [
+                { title : 'Panel 1' },
+                { title : 'Panel 2' },
+                { title : 'Panel 3' }
+            ]
+        });
+
+        win.show();
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
