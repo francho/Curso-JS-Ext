@@ -37,7 +37,7 @@ MyApp.stores.Articulos = Ext.extend(Ext.data.Store, {
                 create  : 'serverside/create',
                 read    : 'serverside/articulos.json',
                 update  : 'serverside/update',
-                destroy : 'serverside/destroy'
+                destroy : 'serverside/result'
             }
         });
 

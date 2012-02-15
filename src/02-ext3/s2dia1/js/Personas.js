@@ -53,10 +53,10 @@ MyApp.stores.Personas = Ext.extend(Ext.data.Store, {
 
             // Puedo definir una URL por cada accion
             api : {
-                create  : 'serverside/create',
+                create  : 'serverside/response',
                 read    : 'serverside/personas.json',
-                update  : 'serverside/update',
-                destroy : 'serverside/destroy'
+                update  : 'serverside/response',
+                destroy : 'serverside/response'
             }
         });
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>s2d3 - ejer 1</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../../../../ext-3.4.0/resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="../../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../../ext-3.4.0/ext-all-debug.js"></script>
+    <!--<script type="text/javascript" src="js/Personas.js"></script>-->
+    <!--<script type="text/javascript" src="js/PersonasGrid.js"></script>-->
+    <!--<script type="text/javascript" src="js/PersonasGridController.js"></script>-->
+    <!--<script type="text/javascript" src="js/PersonaForm.js"></script>-->
+    <!--<script type="text/javascript" src="js/PersonaFormWindow.js"></script>-->
+
+    <script type="text/javascript" src="js/Personas.js"></script>
+    <script type="text/javascript" src="js/PersonaForm.js"></script>
+    <script type="text/javascript" src="js/PersonasGrid.js"></script>
+    <script type="text/javascript" src="js/EditarPersonaPanel.js"></script>
+    <script type="text/javascript" src="js/PersonasViewPort.js"></script>
+
+
+
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            new MyApp.view.PersonasViewPort({
+                renderTo:Ext.getBody()
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
