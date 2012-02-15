@@ -27,7 +27,7 @@ MyApp.view.PersonaUI = Ext.extend(Ext.Panel, {
             iconAlign:'top' // posición del icono
         });
         me.borrarBtn = new Ext.Button({ text:'Borrar', iconCls: 'icon-del', scale:'large',iconAlign:'top'});
-        me.filtroBtn = new Ext.form.TextField();
+        me.filtroTxt = new Ext.form.TextField();
         me.filtrarBtn = new Ext.Button({ text:'Filtrar', iconCls: 'icon-search', scale:'large',iconAlign:'top'});
 
         me.tbar = [
@@ -36,7 +36,7 @@ MyApp.view.PersonaUI = Ext.extend(Ext.Panel, {
             me.borrarBtn,
             '| ', // Separador barra
             '->', // Envia lo siguiente alineado a la derecha
-            me.filtroBtn,
+            me.filtroTxt,
             ' ', // Espacio en blanco
             me.filtrarBtn];
 

@@ -13,7 +13,12 @@ MyApp.controller.PersonaController = Ext.extend(MyApp.view.PersonaUI, {
         var me = this;
 
         me.nuevoBtn.on('click', me.agregarNuevo, me);
-        me.borrarBtn.on('click', me.borrarPersona, me)
+        me.borrarBtn.on('click', me.borrarPersona, me);
+        me.filtrarBtn.on('click', me.filtrarPersona, me);
+
+        // Queremos capturar el "enter" del campo de texto
+        // http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TextField
+        me.filtroTxt.on('specialkey',me.capturarTecla, me);
     },
 
     agregarNuevo : function() {
@@ -40,5 +45,23 @@ MyApp.controller.PersonaController = Ext.extend(MyApp.view.PersonaUI, {
             }, me);
 
         }
+    },
+
+    filtrarPersona: function () {
+        var me = this,
+            txt = me.filtroTxt.getValue();
+
+        if(Ext.isEmpty(txt)) {
+            me.view.getStore().clearFilter();
+        } else {
+            me.view.getStore().filter('nombre',txt);
+        }
+    },
+
+    capturarTecla: function(textfield, event) {
+        if(event.getKey() == event.ENTER) {
+            this.filtrarPersona();
+        }
     }
+
 });
