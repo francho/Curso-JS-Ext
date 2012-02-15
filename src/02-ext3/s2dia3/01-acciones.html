@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pruebas con Store</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../../../ext-3.4.0/resources/css/ext-all.css" />
+
+
+    <script type="text/javascript" src="../../../ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../../ext-3.4.0/ext-all-debug.js"></script>
+    <script type="text/javascript" src="js/Personas.js"></script>
+    <script type="text/javascript" src="js/PersonasView.js"></script>
+    <script type="text/javascript" src="js/PersonaUI.js"></script>
+    <script type="text/javascript" src="js/PersonaController.js"></script>
+
+
+    <script type="text/javascript">
+        Ext.onReady(function() {
+//            new MyApp.view.PersonaUI({
+//                renderTo: Ext.getBody()
+//            })
+
+            new MyApp.controller.PersonaController({
+                renderTo: Ext.getBody()
+            })
+        });
+    </script>
+
+    <style type="text/css">
+
+        .record-over {
+            background-color: #9fc9f5;
+        }
+
+        .record-selected {
+            background-color: #0055aa;
+            color: #fff;
+        }
+
+        .icon-add {
+            background: transparent url(../../images/icon-add.png) 0 0 no-repeat !important;
+        }
+
+        .icon-del {
+            background: transparent url(../../images/icon-del.png) 0 0 no-repeat !important;
+        }
+
+        .icon-search {
+            background: transparent url(../../images/icon-search.png) 0 0 no-repeat !important;
+        }
+
+    </style>
+
+</head>
+<body>
+
+</body>
+</html>
