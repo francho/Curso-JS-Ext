@@ -24,6 +24,10 @@ MyApp.view.PersonasGrid = Ext.extend(Ext.grid.GridPanel, {
         // Minimamente debo definir las store y las columnas que va a tener
         var me = this;
 
+        me.nuevoBtn = new Ext.Button({text:'Nuevo'});
+
+        me.tbar = [ me.nuevoBtn ];
+        
         // Si lo añadimos a lascolumns permitirá seleccionar ls filas mediante un checkbox
         me.sm = new Ext.grid.CheckboxSelectionModel();
 
