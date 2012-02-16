@@ -1,5 +1,9 @@
 Para Examen:
 
+* Ciclo de vida
+
+* Como se extiende una clase
+
 * Al definir un componente ¿qué método debemos sobreecribir en vez del constructor
     Hay que tener en cuenta el ciclo de vida (descrito en Component.js)
     En vez de sobreescribir el constructor sobreescribiremos initComponents
