@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <title>Clases de Ext4 con autoload</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../ext-4.0.7-gpl/resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="../../../ext-4.0.7-gpl/ext-dev.js"></script>
+
+    <script type="text/javascript">
+        Ext.Loader.setConfig({
+            enabled: true,
+            paths: {
+                MyApp : 'js',
+                Ext   : '../../../ext-4.0.7-gpl/src'
+            }
+        });
+
+        // Si lo comentamos, lo cargará pero tarda mas y genera un waring
+        // Ext.require('MyApp.data.ProductoDeportivo');
+
+        Ext.onReady(function() {
+            Ext.create('MyApp.data.ProductoDeportivo', {
+                title : 'Hola Mundo',
+                width : 300,
+                height: 400,
+                html: 'Hi dude',
+                renderTo:Ext.getBody()
+
+            })
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

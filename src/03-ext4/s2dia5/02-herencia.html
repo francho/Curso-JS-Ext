@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clases de Ext4</title>
+    <script type="text/javascript" src="../../../ext-4.0.7-gpl/ext-all-dev.js"></script>
+    <script type="text/javascript" src="js/data/Producto.js" ></script>
+    <script type="text/javascript" src="js/data/Perecederos.js" ></script>
+    <script type="text/javascript">
+        // Par que use todas las características del sistema de clases de Ext4 debo usar el método create
+        var cocacola = Ext.create('MyApp.data.Perecederos', {
+            id:1,
+            nombre : 'Coca cola',
+            precio : '0.8'
+        });
+
+        console.log(cocacola.getNombre());
+
+        cocacola.setPrecio(1);
+
+
+        console.log(cocacola.getPrecio());
+        console.log(cocacola.getCaducidad());
+
+        cocacola.on('caducar', function()
+        {
+            console.log('Esto está por caducar');
+        });
+
+        cocacola.fireEvent('caducar');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
