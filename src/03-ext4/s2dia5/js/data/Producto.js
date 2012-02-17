@@ -12,13 +12,17 @@
 Ext.define('MyApp.data.Producto', {
     /*
      Este nuevo sistema tiene procesadores (pre y post)
+     Vienen definidos por la clase factoría Ext.Class y los dispara el Ext.ClassManager
+
+     http://docs.sencha.com/ext-js/4-0/#!/api/Ext.Class
+
      Uno de estos es el encargado de precargar las librerías necesarias, otro es de herencia, etc...
      */
 
     /**
      * Disparará el preProcesador de config
      *
-     * Por cada campo definido, la librería me crea los getters y setter a utomáticamente
+     * Por cada campo definido, la librería me crea los getters y setter a utomaticamente
      */
     config : {
         id         : 0,

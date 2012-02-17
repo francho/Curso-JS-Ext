@@ -48,7 +48,7 @@ Ext.define('MyApp.data.ProductoDeportivo',{
                 { color: 'rojo'},
                 { color: 'verde'},
                 { color: 'amarillo'}
-                ]
+            ]
         };
         
         this.callParent();        
