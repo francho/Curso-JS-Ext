@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Ejer 01 : Twitter</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../ext-4.0.7-gpl/resources/css/ext-all.css" />
+
     <script type="text/javascript" src="../../../../ext-4.0.7-gpl/ext-all-dev.js" ></script>
 
     <script type="text/javascript">
@@ -17,6 +20,8 @@
         Ext.Loader.require('MyApp.model.Tweet');
         Ext.Loader.require('MyApp.store.Tweets');
 
+        Ext.Loader.require('MyApp.view.TweetsGrid');
+
         Ext.onReady(function() {
             var store = Ext.create('MyApp.store.Tweets');
 
@@ -25,12 +30,21 @@
             });
 
 
+            var grid = Ext.create('MyApp.view.TweetsGrid', {
+                renderTo: 'tweets' ,
+                store: store
+            });
+
+
+
         });
+
+
 
     </script>
 
 </head>
 <body>
-
+<div id="tweets"></div>
 </body>
 </html>

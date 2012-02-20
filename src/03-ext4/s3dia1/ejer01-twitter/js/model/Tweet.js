@@ -12,6 +12,7 @@ Ext.define("MyApp.model.Tweet", {
     idProperty:'id',
 
     fields:[
+        "created_at",
         "from_user",
         "from_user_id",
         "from_user_id_str",
