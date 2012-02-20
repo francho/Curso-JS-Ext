@@ -31,7 +31,7 @@
 
 
             var grid = Ext.create('MyApp.view.TweetsGrid', {
-                renderTo: 'tweets' ,
+                renderTo: Ext.getBody(),
                 store: store
             });
 
@@ -45,6 +45,5 @@
 
 </head>
 <body>
-<div id="tweets"></div>
 </body>
 </html>

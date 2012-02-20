@@ -25,6 +25,11 @@ Ext.define('MyApp.view.TweetsGrid', {
             text : 'fecha',
             dataIndex : 'created_at',
 
+        } , {
+            dataIndex: 'profile_image_url',
+            renderer: function(value) {
+                return Ext.String.format('<img src="{0}" />', value);
+            }
         }
     ],
 
