@@ -1,0 +1,19 @@
+{
+    'success' : true,
+    'data' : [
+        {
+            'id' : 1,
+            'nombre' : 'Ruby',
+            'raza' : 'Beagle',
+            'nacimiento' : '21-03-2009',
+            'genero' : 'F'
+        }, {
+            'id' : 2,
+            'nombre' : 'Lucas',
+            'raza' : 'Schnauzer Miniatura',
+            'nacimiento' : '21-11-1999',
+            'genero' : 'M'
+        }
+
+    ]
+}

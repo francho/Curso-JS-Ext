@@ -1,1 +1,5 @@
 * ¿Que clase extienden todos los objetos de Ext4? -> Ext.Base
+
+* ¿Porque es preferible usar Ext.create('Class') en vez de "new Class" ?
+
+Porque así funcionará el autoload

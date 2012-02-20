@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Store</title>
+    <script type="text/javascript" src="../../../ext-4.0.7-gpl/ext-all-dev.js" ></script>
+
+    <script type="text/javascript">
+
+        Ext.Loader.setConfig({
+            enabled : true,
+            paths : {
+                MyApp : './js'
+            }
+        });
+
+
+        Ext.Loader.require('MyApp.model.Animal');
+        Ext.Loader.require('MyApp.store.Animales');
+
+        Ext.onReady(function() {
+            var store = Ext.create('MyApp.store.Animales');
+
+            store.load(function() {
+                console.log(store.getAt(0));
+            });
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
