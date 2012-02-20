@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modelos en Ext4</title>
+    <script type="text/javascript" src="../../../ext-4.0.7-gpl/ext-all-dev.js" ></script>
+
+    <script type="text/javascript">
+        Ext.Loader.setConfig({
+            enabled : true,
+            paths : {
+                MyApp : 'js'
+            }
+        });
+
+        Ext.Loader.require('MyApp.model.Animal');
+
+        Ext.Loader.require('MyApp.data.Model');
+        Ext.Loader.require('MyApp.model.Pwd');
+
+        // El require carga de forma asíncrona, por eso deberemos esperar al onReady
+        Ext.onReady(function() {
+            var a = Ext.create('MyApp.model.Animal', {
+                nombre : 'Mikey',
+                raza : 'San Bernardo',
+                edad : 1.5
+            });
+
+            // en la propiedad data estan todos los campos que he definido
+            // No es buena idea asignar valores directamente al modelo mediante el objeto data.
+            console.log(a.data);
+
+            // Se deben asignar a través del método set (hace más cosas que poner el valor)
+            a.set('genero','F');
+
+            a.set('fechanac', '21-12-2002');
+
+
+//            a.set('genero',"X");
+//            if(a.isValid()) {
+//                console.log("Registro válido");
+//            } else {
+//                console.log('Errores de validación');
+//                var errores = a.validate();
+//                errores.each(function(err) {
+//                    console.log("(EE)" + err.field, err.msg);
+//                });
+//            }
+
+
+            // Vamos a añadir nuestro propio validador
+
+
+            var b = Ext.create('MyApp.model.Pwd', {
+                pwd : '1234',
+                raza : '1111'
+            });
+
+            errores = b.validate();
+            errores.each(function(err) {
+                console.log("(EE)" + err.field, err.message);
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
