@@ -11,7 +11,7 @@ Ext.define('MyApp.store.Tweets', {
     model : 'MyApp.model.Tweet',
     proxy : {
         type : 'jsonp',
-        url : 'http://search.twitter.com/search.json?q=extjs&rpp=5&include_entities=true&result_type=recent',
+        url : 'http://search.twitter.com/search.json?q=extjs&include_entities=true&result_type=recent',
         reader : {
             type : 'json',
             root : 'results'

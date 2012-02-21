@@ -12,30 +12,38 @@ Ext.define('MyApp.view.TweetsGrid', {
     store : 'MyApp.store.Tweets',
 
     stateful: false,
-    stateId: 'stateGrid',
-    columns: [
-        {
-            text : 'usuario',
-            dataIndex : 'from_user'
-        } , {
-            text : 'tweet',
-            dataIndex : 'text',
-            width: 600
-        } , {
-            text : 'fecha',
-            dataIndex : 'created_at',
 
-        } , {
-            dataIndex: 'profile_image_url',
-            renderer: function(value) {
-                return Ext.String.format('<img src="{0}" />', value);
-            }
-        }
-    ],
-
+    autoScroll: true,
 
     title: 'Tweets',
     viewConfig: {
         stripeRows: true
-    }
+    },
+
+    stateId: 'stateGrid',
+
+    columns: [
+        {
+            dataIndex: 'profile_image_url',
+            renderer: function(value) {
+                return Ext.String.format('<img src="{0}" />', value);
+            } ,
+            flex: 0.5
+        } , {
+            text : 'usuario',
+            dataIndex : 'from_user',
+            flex : 1
+        } , {
+            text : 'tweet',
+            dataIndex : 'text',
+            flex: 4
+        } , {
+            text : 'fecha',
+            dataIndex : 'created_at',
+            flex: 2
+        }
+    ]
+
+
+
 });
