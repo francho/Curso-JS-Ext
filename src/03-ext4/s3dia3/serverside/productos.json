@@ -1,0 +1,27 @@
+{
+    "success":true,
+    "articulos":[
+        {
+            "id":1,
+            "nombre":"T-Shirts & Apparel : Hermione's Gryffindor Longsleeve Shirt",
+            "descripcion":"Exact replica of the shirt worn by Hermione in Harry Potter and the Deathly Hallows: Part 1. Hermione rocks the magic like no one else. In fact, without her, the Dark Lord probably would have taken over everything and we'd all be . . . snake food or something. And this is an exact replica of her shirt from the penultimate movie.",
+            "precio": 29.99,
+            "inventario":10
+        },
+        {
+            "id":2,
+            "nombre":"THome & Office : Molecular Cuisine Kit",
+            "descripcion":"New Advanced kits and Refills now available! The easiest way to break into the new molecular cuisine craze!",
+            "precio": 116.99,
+            "inventario":100
+        },
+        {
+            "id":3,
+            "nombre":"Geek Toys : Wheatley Plush Keychain",
+            "descripcion":"Hang the most dangerously stupid core with your keys. If you bring him into your office or laboratory, ThinkGeek is not responsible for the chaos that may ensue. Chances are, Wheatley will rain death and destruction in your high rise and fill it with deadly neurotoxin. Have fun!",
+            "precio": 12.99,
+            "inventario":18
+        }
+    ]
+}
+
