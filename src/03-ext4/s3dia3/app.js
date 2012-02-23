@@ -12,7 +12,8 @@
 Ext.Loader.setConfig({
     enabled : true,
     path : {
-        MyApp : 'js/MyApp'
+        MyApp : 'js/MyApp',
+        Ext : '../../../../ext-4.0.7-gpl/src'
     }
 });
 

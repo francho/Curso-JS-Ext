@@ -1,0 +1,394 @@
+3.1.0 (Brainy Betty)
+2de75d096f40c6ff39460f56402d1f57e1deed59
+o:Sass::Tree::RootNode
+:
+@linei:@has_childrenT:@template"Ç@mixin extjs-layout {
+    .#{$prefix}docked {
+        position: absolute;
+        z-index: 1;
+    }
+    
+    /**
+      * Dock Layouts
+      * @todo move this somewhere else?
+      */
+    .#{$prefix}docked-top {
+        border-bottom-width: 0 !important;
+    }
+
+    .#{$prefix}docked-bottom {
+        border-top-width: 0 !important;
+    }
+
+    .#{$prefix}docked-left {
+        border-right-width: 0 !important;
+    }
+
+    .#{$prefix}docked-right {
+        border-left-width: 0 !important;
+    }
+    
+    .#{$prefix}docked-noborder-top {
+        border-top-width: 0 !important;
+    }
+
+    .#{$prefix}docked-noborder-right {
+        border-right-width: 0 !important;
+    }
+    
+    .#{$prefix}docked-noborder-bottom {
+        border-bottom-width: 0 !important;
+    }
+    
+    .#{$prefix}docked-noborder-left {
+        border-left-width: 0 !important;
+    }
+    
+    .#{$prefix}box-inner {
+        overflow:hidden;
+
+        zoom:1;
+
+        position:relative;
+        left:0;
+        top:0;
+    }
+
+    .#{$prefix}box-item {
+        position:absolute !important;
+        left:0;
+        top:0;
+    }
+
+    .#{$prefix}box-layout-ct,
+    .#{$prefix}border-layout-ct {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .#{$prefix}overflow-hidden {
+        overflow:hidden !important;
+    }
+
+    .#{$prefix}inline-children > * {
+        display: inline-block !important;
+    }
+
+    .#{$prefix}abs-layout-item {
+        position: absolute;
+    }
+
+    .#{$prefix}fit-item {
+        position: relative;
+    }
+
+    .#{$prefix}border-layout-ct {
+        background-color: $border-layout-ct-background;
+    }
+
+    .#{$prefix}border-region-slide-in {
+        z-index: 5;
+    }
+
+    .#{$prefix}region-collapsed-placeholder {
+        z-index: 4;
+    }
+
+    .#{$prefix}accordion-hd .#{$prefix}panel-header-text {
+        color: $accordion-header-color;
+        font-weight: normal;
+    }
+
+    .#{$prefix}accordion-hd {
+        .#{$prefix}tool-collapse-top,
+        .#{$prefix}tool-collapse-right,
+        .#{$prefix}tool-collapse-bottom,
+        .#{$prefix}tool-collapse-left {
+            background-position: 0 -255px;
+        }
+
+        .#{$prefix}tool-expand-top,
+        .#{$prefix}tool-expand-right,
+        .#{$prefix}tool-expand-bottom,
+        .#{$prefix}tool-expand-left {
+            background-position: 0 -240px;
+        }
+
+        .#{$prefix}tool-over {
+            .#{$prefix}tool-collapse-top,
+            .#{$prefix}tool-collapse-right,
+            .#{$prefix}tool-collapse-bottom,
+            .#{$prefix}tool-collapse-left {
+                background-position: -15px -255px;
+            }
+        }
+
+        .#{$prefix}tool-over {
+            .#{$prefix}tool-expand-top,
+            .#{$prefix}tool-expand-right,
+            .#{$prefix}tool-expand-bottom,
+            .#{$prefix}tool-expand-left {
+                background-position: -15px -240px;
+            }
+        }
+
+        background: $accordion-header-background-color !important;
+        @include single-box-shadow($accordion-header-background-color, 0, 0, 0, 0, true);
+    }
+
+    .#{$prefix}accordion-hd {
+        border-width: 1px 0 1px 0 !important;
+        padding: 4px 5px 5px 5px;
+        border-top-color: $panel-header-inner-border-color !important;
+    }
+    
+    .#{$prefix}accordion-body {
+        border-width: 0 !important;
+    }
+    
+    .#{$prefix}accordion-hd-sibling-expanded {
+        border-top-color: $panel-border-color !important;
+        @include single-box-shadow($panel-header-inner-border-color, 0, 1px, 0, 0, true);
+    }
+
+    .#{$prefix}accordion-hd-last-collapsed {
+        border-bottom-color: $accordion-header-background-color !important;
+    }
+
+    .#{$prefix}frame-tl,
+    .#{$prefix}frame-tr,
+    .#{$prefix}frame-tc,
+    .#{$prefix}frame-bl,
+    .#{$prefix}frame-br,
+    .#{$prefix}frame-bc {
+        overflow: hidden;
+        background-repeat: no-repeat;
+    }
+
+    .#{$prefix}frame-tc,
+    .#{$prefix}frame-bc {
+        background-repeat: repeat-x;
+    }
+
+    .#{$prefix}frame-mc {
+        position: relative;
+        background-repeat: repeat-x;
+        overflow: hidden;
+    }
+
+    // Classes for horizontal Box layout scroller.
+    // Uses the *TAB* scroller image because it's all we have.
+    // This will not work well in other cases
+    .#{$prefix}box-scroller-left {
+        float: left;
+        height: 100%;
+
+        z-index: 5;
+
+        .#{$prefix}toolbar-scroll-left,
+        .#{$prefix}tabbar-scroll-left {
+            width: 18px;
+            position: relative;
+            cursor: pointer;
+            height: $tab-height;
+            background: transparent no-repeat -18px 0;
+            background-image: theme-background-image($theme-name, 'tab-bar/scroll-left.gif');
+        }
+        .#{$prefix}toolbar-scroll-left-hover {
+            background-position: 0 0;
+        }
+        .#{$prefix}toolbar-scroll-left-disabled,
+        .#{$prefix}tabbar-scroll-left-disabled {
+            background-position: -18px 0;
+            @include opacity(.5);
+            
+            cursor:default;
+        }
+
+        .#{$prefix}toolbar-scroll-left {
+            background-image: theme-background-image($theme-name, 'toolbar/scroll-left.gif');
+            background-position: -14px 0;
+        }
+        .#{$prefix}toolbar-scroll-left-hover {
+            background-position: 0 0;
+        }
+        .#{$prefix}toolbar-scroll-left-disabled {
+            background-position: -14px 0;
+        }
+
+        .#{$prefix}toolbar-scroll-left {
+            width: 14px;
+            height: 22px;
+
+            border-bottom: 1px solid #8db2e3;
+        }
+    }
+
+    .#{$prefix}horizontal-box-overflow-body {
+        float: left;
+    }
+    .#{$prefix}box-scroller-right {
+        float: right;
+        height: 100%;
+
+        z-index: 5;
+
+        .#{$prefix}toolbar-scroll-right,
+        .#{$prefix}tabbar-scroll-right {
+            width: 18px;
+            position: relative;
+            cursor: pointer;
+            height: $tab-height;
+            background: transparent no-repeat 0 0;
+            background-image: theme-background-image($theme-name, 'tab-bar/scroll-right.gif');
+        }
+        .#{$prefix}toolbar-scroll-right-hover {
+            background-position: -18px 0;
+        }
+        .#{$prefix}toolbar-scroll-right-disabled,
+        .#{$prefix}tabbar-scroll-right-disabled {
+            background-position: 0 0;
+            @include opacity(.5);
+            
+            cursor:default;
+        }
+
+        .#{$prefix}toolbar-scroll-right {
+            background-image: theme-background-image($theme-name, 'toolbar/scroll-right.gif');
+        }
+        .#{$prefix}toolbar-scroll-right-hover {
+            background-position: -14px 0;
+        }
+        .#{$prefix}toolbar-scroll-right-disabled {
+            background-position: 0 0;
+        }
+
+        .#{$prefix}toolbar-scroll-right {
+            width: 14px;
+            height: 22px;
+
+            border-bottom: 1px solid #8db2e3;
+        }
+    }
+
+// Classes for vertical Box layout scroller
+    .#{$prefix}box-scroller-top {
+        .#{$prefix}box-scroller {
+            line-height: 0;
+            font-size: 0;
+        }
+        .#{$prefix}menu-scroll-top {
+            background: transparent no-repeat center center;
+            background-image: theme-background-image($theme-name, 'layout/mini-top.gif');
+            height: 8px;
+            cursor: pointer;
+        }
+    }
+    .#{$prefix}box-scroller-bottom {
+        .#{$prefix}box-scroller {
+            line-height: 0;
+            font-size: 0;
+        }
+        .#{$prefix}menu-scroll-bottom {
+            background: transparent no-repeat center center;
+            background-image: theme-background-image($theme-name, 'layout/mini-bottom.gif');
+            height: 8px;
+            cursor: pointer;
+        }
+    }
+
+    .#{$prefix}box-menu-right {
+        float: right;
+        padding-right: $toolbar-horizontal-spacing;
+    }
+
+    .#{$prefix}column {
+        float: left;
+    }
+    @if $include-ie {
+        .#{$prefix}ie6 .#{$prefix}column {
+            display: inline; /*prevent IE6 double-margin bug*/
+        }
+    }
+}:@children[o:Sass::Tree::MixinDefNode:
+@name"extjs-layout;i:
+@args[ ;T;	[,o:Sass::Tree::RuleNode;i;T;	[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo:Sass::Script::String;"absolute:
+@type:identifier;["position;i;	[ :
+@tabsi :@importantF:@options{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;o;;"1;;;["z-index;i	;	[ ;i ;F;@;i ;@:
+@rule[".o:Sass::Script::Variable	;"prefix;i:@underscored_name"prefix;{ "dockedo:Sass::Tree::CommentNode;"B/**
+  * Dock Layouts
+  * @todo move this somewhere else?
+  */:@silent0;i:@lines[ ;	[ :
+@loud0;@o;;i;T;	[o;;;;o:Sass::Script::List	:@separator:
+space;[o:Sass::Script::Number:@numerator_units[ ;i ;i:@original"0:@denominator_units[ ;{ o;	;"!important;i;;;@1;i;@1;["border-bottom-width;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ "docked-topo;;i;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;i;'"0;(@0;{ o;	;"!important;i;;;@F;i;@F;["border-top-width;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ "docked-bottomo;;i;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;i;'"0;(@0;{ o;	;"!important;i;;;@[;i;@[;["border-right-width;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ "docked-lefto;;i;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;i;'"0;(@0;{ o;	;"!important;i;;;@p;i;@p;["border-left-width;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ "docked-righto;;i ;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;i!;'"0;(@0;{ o;	;"!important;i!;;;@Ä;i!;@Ä;["border-top-width;i!;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i ;"prefix;{ "docked-noborder-topo;;i$;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;i%;'"0;(@0;{ o;	;"!important;i%;;;@ï;i%;@ï;["border-right-width;i%;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i$;"prefix;{ "docked-noborder-righto;;i(;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;i);'"0;(@0;{ o;	;"!important;i);;;@™;i);@™;["border-bottom-width;i);	[ ;i ;F;@;i ;@;[".o;	;"prefix;i(;"prefix;{ "docked-noborder-bottomo;;i,;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;i-;'"0;(@0;{ o;	;"!important;i-;;;@ø;i-;@ø;["border-left-width;i-;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i,;"prefix;{ "docked-noborder-lefto;;i0;T;	[
+o;;;;o;;"hidden;;;["overflow;i1;	[ ;i ;F;@o;;;;o;;"1;;;["	zoom;i3;	[ ;i ;F;@o;;;;o;;"relative;;;["position;i5;	[ ;i ;F;@o;;;;o;;"0;;;["	left;i6;	[ ;i ;F;@o;;;;o;;"0;;;["top;i7;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i0;"prefix;{ "box-innero;;i:;T;	[o;;;;o;"	;#;$;[o;	;"absolute;i;;;;{ o;	;"!important;i;;;;@˙;i;;@˙;["position;i;;	[ ;i ;F;@o;;;;o;;"0;;;["	left;i<;	[ ;i ;F;@o;;;;o;;"0;;;["top;i=;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i:;"prefix;{ "box-itemo;;iA;T;	[o;;;;o;;"hidden;;;["overflow;iB;	[ ;i ;F;@o;;;;o;;"1;;;["	zoom;iC;	[ ;i ;F;@;i ;@;[
+".o;	;"prefix;i@;"prefix;{ "box-layout-ct,
+    .o;	;"prefix;iA;"prefix;{ "border-layout-cto;;iF;T;	[o;;;;o;"	;#;$;[o;	;"hidden;iG;;;{ o;	;"!important;iG;;;@4;iG;@4;["overflow;iG;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iF;"prefix;{ "overflow-hiddeno;;iJ;T;	[o;;;;o;"	;#;$;[o;	;"inline-block;iK;;;{ o;	;"!important;iK;;;@H;iK;@H;["display;iK;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iJ;"prefix;{ "inline-children > *o;;iN;T;	[o;;;;o;;"absolute;;;["position;iO;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iN;"prefix;{ "abs-layout-itemo;;iR;T;	[o;;;;o;;"relative;;;["position;iS;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iR;"prefix;{ "fit-itemo;;iV;T;	[o;;;;o;	;" border-layout-ct-background;iW;" border_layout_ct_background;{ ;["background-color;iW;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iV;"prefix;{ "border-layout-cto;;iZ;T;	[o;;;;o;;"5;;;["z-index;i[;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iZ;"prefix;{ "border-region-slide-ino;;i^;T;	[o;;;;o;;"4;;;["z-index;i_;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i^;"prefix;{ "!region-collapsed-placeholdero;;ib;T;	[o;;;;o;	;"accordion-header-color;ic;"accordion_header_color;{ ;["
+color;ic;	[ ;i ;F;@o;;;;o;;"normal;;;["font-weight;id;	[ ;i ;F;@;i ;@;[
+".o;	;"prefix;ib;"prefix;{ "accordion-hd .o;	;"prefix;ib;"prefix;{ "panel-header-texto;;ig;T;	[o;;ik;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;il;'"0;(@0;{ o;%;&["px;iˇ;il;'"-255px;([ ;@»;il;@»;["background-position;il;	[ ;i ;F;@;i ;@;[".o;	;"prefix;ih;"prefix;{ "!tool-collapse-top,
+        .o;	;"prefix;ii;"prefix;{ "#tool-collapse-right,
+        .o;	;"prefix;ij;"prefix;{ "$tool-collapse-bottom,
+        .o;	;"prefix;ik;"prefix;{ "tool-collapse-lefto;;ir;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;is;'"0;(@0;{ o;%;&["px;iˇ;is;'"-240px;([ ;@Ô;is;@Ô;["background-position;is;	[ ;i ;F;@;i ;@;[".o;	;"prefix;io;"prefix;{ "tool-expand-top,
+        .o;	;"prefix;ip;"prefix;{ "!tool-expand-right,
+        .o;	;"prefix;iq;"prefix;{ ""tool-expand-bottom,
+        .o;	;"prefix;ir;"prefix;{ "tool-expand-lefto;;iv;T;	[o;;iz;T;	[o;;;;o;"	;#;$;[o;%;&["px;iÏ;i{;'"
+-15px;([ ;{ o;%;&["px;iˇ;i{;'"-255px;([ ;@;i{;@;["background-position;i{;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iw;"prefix;{ "%tool-collapse-top,
+            .o;	;"prefix;ix;"prefix;{ "'tool-collapse-right,
+            .o;	;"prefix;iy;"prefix;{ "(tool-collapse-bottom,
+            .o;	;"prefix;iz;"prefix;{ "tool-collapse-left;i ;@;[".o;	;"prefix;iv;"prefix;{ "tool-overo;;i;T;	[o;;i~;T;	[o;;;;o;"	;#;$;[o;%;&["px;iÏ;i;'"
+-15px;([ ;{ o;%;&["px;iˇ;i;'"-240px;([ ;@L;i;@L;["background-position;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i{;"prefix;{ "#tool-expand-top,
+            .o;	;"prefix;i|;"prefix;{ "%tool-expand-right,
+            .o;	;"prefix;i};"prefix;{ "&tool-expand-bottom,
+            .o;	;"prefix;i~;"prefix;{ "tool-expand-left;i ;@;[".o;	;"prefix;i;"prefix;{ "tool-overo;;;;o;"	;#;$;[o;	;"&accordion-header-background-color;iÉ;"&accordion_header_background_color;{ o;	;"!important;iÉ;;;@x;iÉ;@x;["background;iÉ;	[ ;i ;F;@o:Sass::Tree::MixinNode:@keywords{ ;"single-box-shadow;iÑ;[o;	;"&accordion-header-background-color;iÑ;"&accordion_header_background_color;{ o;%;&[ ;i ;iÑ;'"0;(@0;@Öo;%;&[ ;i ;iÑ;'"0;(@0;@Öo;%;&[ ;i ;iÑ;'"0;(@0;@Öo;%;&[ ;i ;iÑ;'"0;(@0;@Öo:Sass::Script::Bool;T;iÑ;@Ö;	[ ;@;i ;@;[".o;	;"prefix;ig;"prefix;{ "accordion-hdo;;iá;T;	[o;;;;o;"	;#;$;[
+o;%;&["px;i;ià;'"1px;([ ;{ o;%;&[ ;i ;ià;'"0;(@0;@•o;%;&["px;i;ià;'"1px;([ ;@•o;%;&[ ;i ;ià;'"0;(@0;@•o;	;"!important;ià;;;@•;ià;@•;["border-width;ià;	[ ;i ;F;@o;;;;o;;"4px 5px 5px 5px;;;["padding;iâ;	[ ;i ;F;@o;;;;o;"	;#;$;[o;	;"$panel-header-inner-border-color;iä;"$panel_header_inner_border_color;{ o;	;"!important;iä;;;@¬;iä;@¬;["border-top-color;iä;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iá;"prefix;{ "accordion-hdo;;iç;T;	[o;;;;o;"	;#;$;[o;%;&[ ;i ;ié;'"0;(@0;{ o;	;"!important;ié;;;@◊;ié;@◊;["border-width;ié;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iç;"prefix;{ "accordion-bodyo;;ië;T;	[o;;;;o;"	;#;$;[o;	;"panel-border-color;ií;"panel_border_color;{ o;	;"!important;ií;;;@Ï;ií;@Ï;["border-top-color;ií;	[ ;i ;F;@o;);*{ ;"single-box-shadow;iì;[o;	;"$panel-header-inner-border-color;iì;"$panel_header_inner_border_color;{ o;%;&[ ;i ;iì;'"0;(@0;@˘o;%;&["px;i;iì;'"1px;([ ;@˘o;%;&[ ;i ;iì;'"0;(@0;@˘o;%;&[ ;i ;iì;'"0;(@0;@˘o;+;T;iì;@˘;	[ ;@;i ;@;[".o;	;"prefix;ië;"prefix;{ ""accordion-hd-sibling-expandedo;;iñ;T;	[o;;;;o;"	;#;$;[o;	;"&accordion-header-background-color;ió;"&accordion_header_background_color;{ o;	;"!important;ió;;;@;ió;@;["border-bottom-color;ió;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iñ;"prefix;{ " accordion-hd-last-collapsedo;;iü;T;	[o;;;;o;;"hidden;;;["overflow;i†;	[ ;i ;F;@o;;;;o;;"no-repeat;;;["background-repeat;i°;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iö;"prefix;{ "frame-tl,
+    .o;	;"prefix;iõ;"prefix;{ "frame-tr,
+    .o;	;"prefix;iú;"prefix;{ "frame-tc,
+    .o;	;"prefix;iù;"prefix;{ "frame-bl,
+    .o;	;"prefix;iû;"prefix;{ "frame-br,
+    .o;	;"prefix;iü;"prefix;{ "frame-bco;;i•;T;	[o;;;;o;;"repeat-x;;;["background-repeat;i¶;	[ ;i ;F;@;i ;@;[
+".o;	;"prefix;i§;"prefix;{ "frame-tc,
+    .o;	;"prefix;i•;"prefix;{ "frame-bco;;i©;T;	[o;;;;o;;"relative;;;["position;i™;	[ ;i ;F;@o;;;;o;;"repeat-x;;;["background-repeat;i´;	[ ;i ;F;@o;;;;o;;"hidden;;;["overflow;i¨;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i©;"prefix;{ "frame-mco;;"ñ/* Classes for horizontal Box layout scroller.
+ * Uses the *TAB* scroller image because it's all we have.
+ * This will not work well in other cases */;i ;iØ; [ ;	[ ;!0;@o;;i≤;T;	[o;;;;o;;"	left;;;["
+float;i≥;	[ ;i ;F;@o;;;;o;;"	100%;;;["height;i¥;	[ ;i ;F;@o;;;;o;;"5;;;["z-index;i∂;	[ ;i ;F;@o;;iπ;T;	[o;;;;o;;"	18px;;;["
+width;i∫;	[ ;i ;F;@o;;;;o;;"relative;;;["position;iª;	[ ;i ;F;@o;;;;o;;"pointer;;;["cursor;iº;	[ ;i ;F;@o;;;;o;	;"tab-height;iΩ;"tab_height;{ ;["height;iΩ;	[ ;i ;F;@o;;;;o;"	;#;$;[	o;	;"transparent;iæ;;;{ o;	;"no-repeat;iæ;;;@ºo;%;&["px;iÈ;iæ;'"
+-18px;([ ;@ºo;%;&[ ;i ;iæ;'"0;(@0;@º;iæ;@º;["background;iæ;	[ ;i ;F;@o;;;;o:Sass::Script::Funcall
+;*{ ;"theme-background-image;iø;[o;	;"theme-name;iø;"theme_name;{ o;	;"tab-bar/scroll-left.gif;iø;:string;@“;@“;["background-image;iø;	[ ;i ;F;@;i ;@;[
+".o;	;"prefix;i∏;"prefix;{ "#toolbar-scroll-left,
+        .o;	;"prefix;iπ;"prefix;{ "tabbar-scroll-lefto;;i¡;T;	[o;;;;o;;"0 0;;;["background-position;i¬;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i¡;"prefix;{ "toolbar-scroll-left-hovero;;i≈;T;	[o;;;;o;"	;#;$;[o;%;&["px;iÈ;i∆;'"
+-18px;([ ;{ o;%;&[ ;i ;i∆;'"0;(@0;@˝;i∆;@˝;["background-position;i∆;	[ ;i ;F;@o;);*{ ;"opacity;i«;[o;%;&[ ;f0.5;i«;'"0.5;(@0;{ ;	[ ;@o;;;;o;;"default;;;["cursor;i…;	[ ;i ;F;@;i ;@;[
+".o;	;"prefix;iƒ;"prefix;{ ",toolbar-scroll-left-disabled,
+        .o;	;"prefix;i≈;"prefix;{ " tabbar-scroll-left-disabledo;;iÃ;T;	[o;;;;o;,
+;*{ ;"theme-background-image;iÕ;[o;	;"theme-name;iÕ;"theme_name;{ o;	;"toolbar/scroll-left.gif;iÕ;;-;@*;@*;["background-image;iÕ;	[ ;i ;F;@o;;;;o;"	;#;$;[o;%;&["px;iÌ;iŒ;'"
+-14px;([ ;{ o;%;&[ ;i ;iŒ;'"0;(@0;@8;iŒ;@8;["background-position;iŒ;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iÃ;"prefix;{ "toolbar-scroll-lefto;;i–;T;	[o;;;;o;;"0 0;;;["background-position;i—;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i–;"prefix;{ "toolbar-scroll-left-hovero;;i”;T;	[o;;;;o;"	;#;$;[o;%;&["px;iÌ;i‘;'"
+-14px;([ ;{ o;%;&[ ;i ;i‘;'"0;(@0;@_;i‘;@_;["background-position;i‘;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i”;"prefix;{ "!toolbar-scroll-left-disabledo;;i◊;T;	[o;;;;o;;"	14px;;;["
+width;iÿ;	[ ;i ;F;@o;;;;o;;"	22px;;;["height;iŸ;	[ ;i ;F;@o;;;;o;;"1px solid #8db2e3;;;["border-bottom;i€;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i◊;"prefix;{ "toolbar-scroll-left;i ;@;[".o;	;"prefix;i≤;"prefix;{ "box-scroller-lefto;;iﬂ;T;	[o;;;;o;;"	left;;;["
+float;i‡;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iﬂ;"prefix;{ "!horizontal-box-overflow-bodyo;;i‚;T;	[o;;;;o;;"
+right;;;["
+float;i„;	[ ;i ;F;@o;;;;o;;"	100%;;;["height;i‰;	[ ;i ;F;@o;;;;o;;"5;;;["z-index;iÊ;	[ ;i ;F;@o;;iÈ;T;	[o;;;;o;;"	18px;;;["
+width;iÍ;	[ ;i ;F;@o;;;;o;;"relative;;;["position;iÎ;	[ ;i ;F;@o;;;;o;;"pointer;;;["cursor;iÏ;	[ ;i ;F;@o;;;;o;	;"tab-height;iÌ;"tab_height;{ ;["height;iÌ;	[ ;i ;F;@o;;;;o;;"transparent no-repeat 0 0;;;["background;iÓ;	[ ;i ;F;@o;;;;o;,
+;*{ ;"theme-background-image;iÔ;[o;	;"theme-name;iÔ;"theme_name;{ o;	;"tab-bar/scroll-right.gif;iÔ;;-;@‹;@‹;["background-image;iÔ;	[ ;i ;F;@;i ;@;[
+".o;	;"prefix;iË;"prefix;{ "$toolbar-scroll-right,
+        .o;	;"prefix;iÈ;"prefix;{ "tabbar-scroll-righto;;iÒ;T;	[o;;;;o;"	;#;$;[o;%;&["px;iÈ;iÚ;'"
+-18px;([ ;{ o;%;&[ ;i ;iÚ;'"0;(@0;@¯;iÚ;@¯;["background-position;iÚ;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iÒ;"prefix;{ "toolbar-scroll-right-hovero;;iı;T;	[o;;;;o;;"0 0;;;["background-position;iˆ;	[ ;i ;F;@o;);*{ ;"opacity;i˜;[o;%;&[ ;f0.5;i˜;'"0.5;(@0;{ ;	[ ;@o;;;;o;;"default;;;["cursor;i˘;	[ ;i ;F;@;i ;@;[
+".o;	;"prefix;iÙ;"prefix;{ "-toolbar-scroll-right-disabled,
+        .o;	;"prefix;iı;"prefix;{ "!tabbar-scroll-right-disabledo;;i¸;T;	[o;;;;o;,
+;*{ ;"theme-background-image;i˝;[o;	;"theme-name;i˝;"theme_name;{ o;	;"toolbar/scroll-right.gif;i˝;;-;@4;@4;["background-image;i˝;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i¸;"prefix;{ "toolbar-scroll-righto;;iˇ;T;	[o;;;;o;"	;#;$;[o;%;&["px;iÌ;i ;'"
+-14px;([ ;{ o;%;&[ ;i ;i ;'"0;(@0;@K;i ;@K;["background-position;i ;	[ ;i ;F;@;i ;@;[".o;	;"prefix;iˇ;"prefix;{ "toolbar-scroll-right-hovero;;i;T;	[o;;;;o;;"0 0;;;["background-position;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ ""toolbar-scroll-right-disabledo;;i;T;	[o;;;;o;;"	14px;;;["
+width;i;	[ ;i ;F;@o;;;;o;;"	22px;;;["height;i;	[ ;i ;F;@o;;;;o;;"1px solid #8db2e3;;;["border-bottom;i
+;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ "toolbar-scroll-right;i ;@;[".o;	;"prefix;i‚;"prefix;{ "box-scroller-righto;;"3/* Classes for vertical Box layout scroller */;i ;i; [ ;	[ ;!0;@o;;i;T;	[o;;i;T;	[o;;;;o;;"0;;;["line-height;i;	[ ;i ;F;@o;;;;o;;"0;;;["font-size;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ "box-scrollero;;i;T;	[	o;;;;o;;"(transparent no-repeat center center;;;["background;i;	[ ;i ;F;@o;;;;o;,
+;*{ ;"theme-background-image;i;[o;	;"theme-name;i;"theme_name;{ o;	;"layout/mini-top.gif;i;;-;@µ;@µ;["background-image;i;	[ ;i ;F;@o;;;;o;;"8px;;;["height;i;	[ ;i ;F;@o;;;;o;;"pointer;;;["cursor;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ "menu-scroll-top;i ;@;[".o;	;"prefix;i;"prefix;{ "box-scroller-topo;;i;T;	[o;;i;T;	[o;;;;o;;"0;;;["line-height;i;	[ ;i ;F;@o;;;;o;;"0;;;["font-size;i;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i;"prefix;{ "box-scrollero;;i ;T;	[	o;;;;o;;"(transparent no-repeat center center;;;["background;i!;	[ ;i ;F;@o;;;;o;,
+;*{ ;"theme-background-image;i";[o;	;"theme-name;i";"theme_name;{ o;	;"layout/mini-bottom.gif;i";;-;@¸;@¸;["background-image;i";	[ ;i ;F;@o;;;;o;;"8px;;;["height;i#;	[ ;i ;F;@o;;;;o;;"pointer;;;["cursor;i$;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i ;"prefix;{ "menu-scroll-bottom;i ;@;[".o;	;"prefix;i;"prefix;{ "box-scroller-bottomo;;i(;T;	[o;;;;o;;"
+right;;;["
+float;i);	[ ;i ;F;@o;;;;o;	;"toolbar-horizontal-spacing;i*;"toolbar_horizontal_spacing;{ ;["padding-right;i*;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i(;"prefix;{ "box-menu-righto;;i-;T;	[o;;;;o;;"	left;;;["
+float;i.;	[ ;i ;F;@;i ;@;[".o;	;"prefix;i-;"prefix;{ "columnu:Sass::Tree::IfNodeŒ[o:Sass::Script::Variable	:
+@name"include-ie:
+@linei0:@underscored_name"include_ie:@options{ 0[o:Sass::Tree::RuleNode;i1:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo:Sass::Script::String;"inline:
+@type:identifier;["display;i2;[ :
+@tabsi :@importantF;	{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso:Sass::Tree::CommentNode;"&/*prevent IE6 double-margin bug*/:@silent0;i2:@lines[ ;[ :
+@loud0;	@;i ;	@:
+@rule[
+".o; 	;"prefix;i1;"prefix;	{ "
+ie6 .o; 	;"prefix;i1;"prefix;	{ "column;@;@

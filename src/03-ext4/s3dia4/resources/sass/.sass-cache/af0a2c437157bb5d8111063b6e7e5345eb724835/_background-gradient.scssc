@@ -1,0 +1,409 @@
+3.1.0 (Brainy Betty)
+897a670c00c87665ad30c6d5b19627c9ff0bae11
+o:Sass::Tree::RootNode
+:
+@linei:@has_childrenT:@template"Z/**
+ * @mixin background-gradient
+ * 
+ * @param {Color} $background-color The background color of the gradient
+ * @param {String/List} $type The type of gradient to be used. Can either be a String which is a predefined gradient, or it can
+ *                            can be a list of color_stops. If none is set, it will still set the `background-color` to the $background-color.
+ * @param {String} $direction The direction of the gradient. Can either me `top` or `left`. (defaults to `top`)
+ */
+@mixin background-gradient($bg-color, $type: $base-gradient, $direction: top) {
+    background-image: none;
+    background-color: $bg-color;
+    
+    @if $base-gradient != null and $bg-color != transparent {
+        //color_stops
+        @if type-of($type) == "list" {
+            @include background-image(linear-gradient($direction, $type));
+        }
+        
+        //default gradients
+        @else if $type == bevel {
+            @include background-image(linear-gradient($direction, color_stops(
+                lighten($bg-color, 15%), 
+                lighten($bg-color, 8%) 30%, 
+                $bg-color 65%, 
+                darken($bg-color, 6%)
+            )));
+        } @else if $type == glossy {
+            @include background-image(linear-gradient($direction, color_stops(lighten($bg-color, 15%), lighten($bg-color, 5%) 50%, $bg-color 51%, darken($bg-color, 5%))));
+        } @else if $type == recessed {
+            @include background-image(linear-gradient($direction, color_stops(darken($bg-color, 10%), darken($bg-color, 5%) 10%, $bg-color 65%, lighten($bg-color, .5%))));
+        } @else if $type == matte {
+            @include background-image(linear-gradient($direction, color_stops(lighten($bg-color, 3%), darken($bg-color, 4%))));
+        } @else if $type == matte-reverse {
+            @include background-image(linear-gradient($direction, color_stops(darken($bg-color, 6%), lighten($bg-color, 4%))));
+        } @else if $type == glossy-toolbar {
+            @include background-image(linear-gradient($direction, color_stops(#F0F5FA, #DAE6F4 2%, #CEDDEF)));
+        }
+        
+        //ext3.3 gradients
+        @else if $type == panel-header {
+            @include background-image(linear-gradient($direction, color_stops(
+                adjust-color($bg-color, $hue: -0.857deg, $saturation: -1.63%, $lightness: 3.529%), 
+                adjust-color($bg-color, $hue: 0.158deg, $saturation: -1.21%, $lightness: 0.392%) 45%, 
+                adjust-color($bg-color, $hue: 1.154deg, $saturation: 0.607%, $lightness: -7.647%) 46%,
+                adjust-color($bg-color, $hue: 1.154deg, $saturation: 0.607%, $lightness: -7.647%) 50%,
+                adjust-color($bg-color, $hue: 1.444deg, $saturation: -1.136%, $lightness: -4.706%) 51%,
+                $bg-color
+            )));
+        } @else if $type == tabbar {
+            @include background-image(linear-gradient($direction, color_stops(
+                adjust-color($bg-color, $hue: 0.0deg, $saturation: 1.604%, $lightness: 4.706%),
+                $bg-color
+            )));
+        } @else if $type == tab {
+            @include background-image(linear-gradient($direction, color_stops(
+                adjust-color($bg-color, $hue: 1.382deg, $saturation: -18.571%, $lightness: -4.902%),
+                adjust-color($bg-color, $hue: 0.43deg, $saturation: -10.311%, $lightness: -2.157%) 25%,
+                $bg-color 45%
+            )));
+        } @else if $type == tab-active {
+            @include background-image(linear-gradient($direction, color_stops(
+                adjust-color($bg-color, $hue: -212.903deg, $saturation: -88.571%, $lightness: 6.863%),
+                adjust-color($bg-color, $hue: 0.43deg, $saturation: -6.753%, $lightness: 4.706%) 25%,
+                $bg-color 45%
+            )));
+        } @else if $type == tab-over {
+            @include background-image(linear-gradient($direction, color_stops(
+                adjust-color($bg-color, $hue: 4.462deg, $saturation: -9.524%, $lightness: -3.725%),
+                adjust-color($bg-color, $hue: 2.272deg, $saturation: 0.0%, $lightness: -1.569%) 25%,
+                $bg-color 45%
+            )));
+        } @else if $type == tab-disabled {
+            @include background-image(linear-gradient($direction, color_stops(
+                $bg-color,
+                adjust-color($bg-color, $hue: -0.267deg, $saturation: 18.571%, $lightness: 2.941%)
+            )));
+        } @else if $type == grid-header {
+            @include background-image(linear-gradient($direction, color_stops(
+                adjust-color($bg-color, $hue: 0deg, $saturation: 0%, $lightness: 20.392%),
+                adjust-color($bg-color, $hue: 220.0deg, $saturation: 5.66%, $lightness: 12.353%)
+            )));
+        } @else if $type == grid-header-over {
+            @include background-image(linear-gradient($direction, color_stops(
+                adjust-color($bg-color, $hue: 0.175deg, $saturation: 0.967%, $lightness: 14.118%),
+                adjust-color($bg-color, $hue: 0.175deg, $saturation: 0.967%, $lightness: 14.118%) 39%,
+                adjust-color($bg-color, $hue: 0.372deg, $saturation: 0.101%, $lightness: 10.196%) 40%,
+                adjust-color($bg-color, $hue: 0.372deg, $saturation: 0.101%, $lightness: 10.196%)
+            )));
+        } @else if $type == grid-row-over {
+            @include background-image(linear-gradient($direction, color_stops(
+                adjust-color($bg-color, $hue: 0.175deg, $saturation: 0.967%, $lightness: 14.118%),
+                $bg-color
+            )));
+        } @else if $type == grid-cell-special {
+            @include background-image(linear-gradient(left, color_stops(
+                $bg-color,
+                darken($bg-color, 5)
+            )));
+        } @else if $type == glossy-button or $type == glossy-button-disabled {
+            @include background-image(linear-gradient($direction, color_stops(
+                $bg-color,
+                adjust-color($bg-color, $hue: 0deg, $saturation: 0%, $lightness: -2.353%) 48%,
+                adjust-color($bg-color, $hue: 0deg, $saturation: 0%, $lightness: -11.373%) 52%,
+                adjust-color($bg-color, $hue: 0deg, $saturation: 0%, $lightness: -9.412%)
+            )));
+        } @else if $type == glossy-button-over {
+            @include background-image(linear-gradient($direction, color_stops(
+                $bg-color,
+                adjust-color($bg-color, $hue: 1.754deg, $saturation: 0.0%, $lightness: -2.157%) 48%,
+                adjust-color($bg-color, $hue: 5.833deg, $saturation: -35.135%, $lightness: -9.216%) 52%,
+                adjust-color($bg-color, $hue: 5.833deg, $saturation: -27.273%, $lightness: -7.647%)
+            )));
+        } @else if $type == glossy-button-pressed {
+            @include background-image(linear-gradient($direction, color_stops(
+                $bg-color,
+                adjust-color($bg-color, $hue: -1.839deg, $saturation: -2.18%, $lightness: 2.157%) 48%,
+                adjust-color($bg-color, $hue: -2.032deg, $saturation: 37.871%, $lightness: -4.706%) 52%,
+                adjust-color($bg-color, $hue: -1.641deg, $saturation: 36.301%, $lightness: -2.549%)
+            )));
+        }  @else if $type == francho {
+                       @include background-image(linear-gradient($direction, color_stops(
+                           $bg-color,
+                           adjust-color($bg-color, $hue: -0.5deg, $saturation: -2.18%, $lightness: 2.157%) 48%,
+                           adjust-color($bg-color, $hue: -2deg, $saturation: 37.871%, $lightness: -4.706%) 52%,
+                           adjust-color($bg-color, $hue: -1deg, $saturation: 36.301%, $lightness: -2.549%)
+                       )));
+                   }
+    }
+}:@children[o:Sass::Tree::CommentNode:@value"Ò/**
+ * @mixin background-gradient
+ * 
+ * @param {Color} $background-color The background color of the gradient
+ * @param {String/List} $type The type of gradient to be used. Can either be a String which is a predefined gradient, or it can
+ *                            can be a list of color_stops. If none is set, it will still set the `background-color` to the $background-color.
+ * @param {String} $direction The direction of the gradient. Can either me `top` or `left`. (defaults to `top`)
+ */:@silent0;i:@lines[ ;	[ :
+@loud0:@options{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso:Sass::Tree::MixinDefNode:
+@name"background-gradient;i:
+@args[[o:Sass::Script::Variable;"bg-color:@underscored_name"bg_color;{ 0[o;;"	type;"	type;@o;	;"base-gradient;i;"base_gradient;@[o;;"direction;"direction;@o:Sass::Script::String	;"top;i:
+@type:identifier;@;T;	[o:Sass::Tree::PropNode:@prop_syntax:new;o;;"	none;;;["background-image;i;	[ :
+@tabsi :@importantF;@o;;;;o;	;"bg-color;i;"bg_color;{ ;["background-color;i;	[ ;i ;F;@u:Sass::Tree::IfNode0o[o:Sass::Script::Operation
+:
+@linei:@operand2o; 
+;i;o:Sass::Script::String	:@value"transparent;i:
+@type:identifier:@options{ :@operator:neq;@
+:@operand1o:Sass::Script::Variable	:
+@name"bg-color;i:@underscored_name"bg_color;@
+;:and;@
+;o; 
+;i;o;	;	"	null;i;
+;;@
+;;;@
+;o;	;"base-gradient;i;"base_gradient;@
+0[o:Sass::Tree::CommentNode;	"/*color_stops */:@silenti ;i:@lines[ :@children[ :
+@loud0;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu:Sass::Tree::IfNodeíl[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::String	:@value"	list;i:
+@type:string:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"type-of;i:
+@args[o:Sass::Script::Variable	;"	type;i:@underscored_name"	type;@	;@	u:Sass::Tree::IfNodeÊi[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::String	:@value"
+bevel;i:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i:@underscored_name"	type;@	u:Sass::Tree::IfNode1e[o:Sass::Script::Operation
+:
+@linei :@operand2o:Sass::Script::String	:@value"glossy;i :
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i :@underscored_name"	type;@	u:Sass::Tree::IfNode{`[o:Sass::Script::Operation
+:
+@linei":@operand2o:Sass::Script::String	:@value"recessed;i":
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i":@underscored_name"	type;@	u:Sass::Tree::IfNodeø[[o:Sass::Script::Operation
+:
+@linei$:@operand2o:Sass::Script::String	:@value"
+matte;i$:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i$:@underscored_name"	type;@	u:Sass::Tree::IfNode X[o:Sass::Script::Operation
+:
+@linei&:@operand2o:Sass::Script::String	:@value"matte-reverse;i&:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i&:@underscored_name"	type;@	u:Sass::Tree::IfNodeyT[o:Sass::Script::Operation
+:
+@linei(:@operand2o:Sass::Script::String	:@value"glossy-toolbar;i(:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i(:@underscored_name"	type;@	u:Sass::Tree::IfNode¶P[o:Sass::Script::Operation
+:
+@linei-:@operand2o:Sass::Script::String	:@value"panel-header;i-:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i-:@underscored_name"	type;@	u:Sass::Tree::IfNodeTG[o:Sass::Script::Operation
+:
+@linei6:@operand2o:Sass::Script::String	:@value"tabbar;i6:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i6:@underscored_name"	type;@	u:Sass::Tree::IfNodeYC[o:Sass::Script::Operation
+:
+@linei;:@operand2o:Sass::Script::String	:@value"tab;i;:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i;:@underscored_name"	type;@	u:Sass::Tree::IfNodeµ=[o:Sass::Script::Operation
+:
+@lineiA:@operand2o:Sass::Script::String	:@value"tab-active;iA:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;iA:@underscored_name"	type;@	u:Sass::Tree::IfNodeÚ7[o:Sass::Script::Operation
+:
+@lineiG:@operand2o:Sass::Script::String	:@value"tab-over;iG:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;iG:@underscored_name"	type;@	u:Sass::Tree::IfNodeY2[o:Sass::Script::Operation
+:
+@lineiM:@operand2o:Sass::Script::String	:@value"tab-disabled;iM:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;iM:@underscored_name"	type;@	u:Sass::Tree::IfNode<.[o:Sass::Script::Operation
+:
+@lineiR:@operand2o:Sass::Script::String	:@value"grid-header;iR:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;iR:@underscored_name"	type;@	u:Sass::Tree::IfNodeÉ)[o:Sass::Script::Operation
+:
+@lineiW:@operand2o:Sass::Script::String	:@value"grid-header-over;iW:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;iW:@underscored_name"	type;@	u:Sass::Tree::IfNode˚![o:Sass::Script::Operation
+:
+@linei^:@operand2o:Sass::Script::String	:@value"grid-row-over;i^:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i^:@underscored_name"	type;@	u:Sass::Tree::IfNodeÍ[o:Sass::Script::Operation
+:
+@lineic:@operand2o:Sass::Script::String	:@value"grid-cell-special;ic:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;ic:@underscored_name"	type;@	u:Sass::Tree::IfNodeë[o:Sass::Script::Operation
+:
+@lineih:@operand2o; 
+;ih;o:Sass::Script::String	:@value"glossy-button-disabled;ih:
+@type:identifier:@options{ :@operator:eq;@
+:@operand1o:Sass::Script::Variable	:
+@name"	type;ih:@underscored_name"	type;@
+;:or;@
+;o; 
+;ih;o;	;	"glossy-button;ih;
+;;@
+;;;@
+;o;	;"	type;ih;"	type;@
+u:Sass::Tree::IfNode›[o:Sass::Script::Operation
+:
+@lineio:@operand2o:Sass::Script::String	:@value"glossy-button-over;io:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;io:@underscored_name"	type;@	u:Sass::Tree::IfNode7[o:Sass::Script::Operation
+:
+@lineiv:@operand2o:Sass::Script::String	:@value"glossy-button-pressed;iv:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;iv:@underscored_name"	type;@	u:Sass::Tree::IfNodeÉ[o:Sass::Script::Operation
+:
+@linei}:@operand2o:Sass::Script::String	:@value"francho;i}:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"	type;i}:@underscored_name"	type;@	0[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i~:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i~;[o;	;"direction;i~;"direction;{ o;
+;{ ;"color_stops;i~;[	o;	;"bg-color;i;"bg_color;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f2.157 ∆®;i{:@original"2.157%:@denominator_units[ ;@"hueo;;["deg;	f	-0.5;i{;"-0.5deg;[ ;@"saturationo;;["%;	f-2.1800000000000002 =q;i{;"-2.18%;[ ;@;"adjust-color;i{;[o;	;"bg-color;i{;"bg_color;@;@o;;["%;	i5;i{;"48%;[ ;@;i;@o;	;;;	[o;
+;{"lightnesso;;["%;	f-4.7060000000000004 Ám;i|;"-4.706%;[ ;@"hueo;;["deg;	i˘;i|;"
+-2deg;[ ;@"saturationo;;["%;	f37.871000000000002 hs;i|;"37.871%;[ ;@;"adjust-color;i|;[o;	;"bg-color;i|;"bg_color;@;@o;;["%;	i9;i|;"52%;[ ;@;i{;@o;
+;{"lightnesso;;["%;	f-2.5489999999999999 1;i};"-2.549%;[ ;@"hueo;;["deg;	i˙;i};"
+-1deg;[ ;@"saturationo;;["%;	f36.301000000000002 J;i};"36.301%;[ ;@;"adjust-color;i};[o;	;"bg-color;i};"bg_color;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i|:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i|;[o;	;"direction;iw;"direction;{ o;
+;{ ;"color_stops;i|;[	o;	;"bg-color;ix;"bg_color;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f2.157 ∆®;iy:@original"2.157%:@denominator_units[ ;@"hueo;;["deg;	f-1.839 Å;iy;"-1.839deg;[ ;@"saturationo;;["%;	f-2.1800000000000002 =q;iy;"-2.18%;[ ;@;"adjust-color;iy;[o;	;"bg-color;iy;"bg_color;@;@o;;["%;	i5;iy;"48%;[ ;@;ix;@o;	;;;	[o;
+;{"lightnesso;;["%;	f-4.7060000000000004 Ám;iz;"-4.706%;[ ;@"hueo;;["deg;	f-2.032 ∆®;iz;"-2.032deg;[ ;@"saturationo;;["%;	f37.871000000000002 hs;iz;"37.871%;[ ;@;"adjust-color;iz;[o;	;"bg-color;iz;"bg_color;@;@o;;["%;	i9;iz;"52%;[ ;@;iy;@o;
+;{"lightnesso;;["%;	f-2.5489999999999999 1;i{;"-2.549%;[ ;@"hueo;;["deg;	f-1.641 ∆®;i{;"-1.641deg;[ ;@"saturationo;;["%;	f36.301000000000002 J;i{;"36.301%;[ ;@;"adjust-color;i{;[o;	;"bg-color;i{;"bg_color;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;iu:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;iu;[o;	;"direction;ip;"direction;{ o;
+;{ ;"color_stops;iu;[	o;	;"bg-color;iq;"bg_color;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f-2.157 ∆®;ir:@original"-2.157%:@denominator_units[ ;@"hueo;;["deg;	f1.754 Ò™;ir;"1.754deg;[ ;@"saturationo;;["%;	f0;ir;"0%;[ ;@;"adjust-color;ir;[o;	;"bg-color;ir;"bg_color;@;@o;;["%;	i5;ir;"48%;[ ;@;iq;@o;	;;;	[o;
+;{"lightnesso;;["%;	f-9.2159999999999993 ﬂ;;is;"-9.216%;[ ;@"hueo;;["deg;	f5.8330000000000002 E¢;is;"5.833deg;[ ;@"saturationo;;["%;	f-35.134999999999998 z·;is;"-35.135%;[ ;@;"adjust-color;is;[o;	;"bg-color;is;"bg_color;@;@o;;["%;	i9;is;"52%;[ ;@;ir;@o;
+;{"lightnesso;;["%;	f-7.6470000000000002 J;it;"-7.647%;[ ;@"hueo;;["deg;	f5.8330000000000002 E¢;it;"5.833deg;[ ;@"saturationo;;["%;	f-27.273 ŒŸ;it;"-27.273%;[ ;@;"adjust-color;it;[o;	;"bg-color;it;"bg_color;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;in:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;in;[o;	;"direction;ii;"direction;{ o;
+;{ ;"color_stops;in;[	o;	;"bg-color;ij;"bg_color;@!o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f-2.3530000000000002 Ám;ik:@original"-2.353%:@denominator_units[ ;@!"hueo;;["deg;	i ;ik;"	0deg;[ ;@!"saturationo;;["%;	i ;ik;"0%;[ ;@!;"adjust-color;ik;[o;	;"bg-color;ik;"bg_color;@!;@!o;;["%;	i5;ik;"48%;[ ;@!;ij;@!o;	;;;	[o;
+;{"lightnesso;;["%;	f-11.372999999999999 –Â;il;"-11.373%;[ ;@!"hueo;;["deg;	i ;il;"	0deg;[ ;@!"saturationo;;["%;	i ;il;"0%;[ ;@!;"adjust-color;il;[o;	;"bg-color;il;"bg_color;@!;@!o;;["%;	i9;il;"52%;[ ;@!;ik;@!o;
+;{"lightnesso;;["%;	f-9.4120000000000008 Ám;im;"-9.412%;[ ;@!"hueo;;["deg;	i ;im;"	0deg;[ ;@!"saturationo;;["%;	i ;im;"0%;[ ;@!;"adjust-color;im;[o;	;"bg-color;im;"bg_color;@!;@!;@!;@!:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;ig:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;ig;[o;	;	"	left;id;
+;;{ o;
+;{ ;"color_stops;ig;[o;	;"bg-color;ie;"bg_color;@o;
+;{ ;"darken;if;[o;	;"bg-color;if;"bg_color;@o:Sass::Script::Number:@numerator_units[ ;	i
+;if:@original"5:@denominator_units[ ;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;ib:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;ib;[o;	;"direction;i_;"direction;{ o;
+;{ ;"color_stops;ib;[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f14.118 €#;i`:@original"14.118%:@denominator_units[ ;@"hueo;;["deg;	f0.17499999999999999 ff;i`;"0.175deg;[ ;@"saturationo;;["%;	f0.96699999999999997 lã;i`;"0.967%;[ ;@;"adjust-color;i`;[o;	;"bg-color;i`;"bg_color;@;@o;	;"bg-color;ia;"bg_color;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i]:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i];[o;	;"direction;iX;"direction;{ o;
+;{ ;"color_stops;i];[	o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f14.118 €#;iY:@original"14.118%:@denominator_units[ ;@"hueo;;["deg;	f0.17499999999999999 ff;iY;"0.175deg;[ ;@"saturationo;;["%;	f0.96699999999999997 lã;iY;"0.967%;[ ;@;"adjust-color;iY;[o;	;"bg-color;iY;"bg_color;@;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso;;["%;	f14.118 €#;iZ;"14.118%;[ ;@"hueo;;["deg;	f0.17499999999999999 ff;iZ;"0.175deg;[ ;@"saturationo;;["%;	f0.96699999999999997 lã;iZ;"0.967%;[ ;@;"adjust-color;iZ;[o;	;"bg-color;iZ;"bg_color;@;@o;;["%;	i,;iZ;"39%;[ ;@;iY;@o;	;;;	[o;
+;{"lightnesso;;["%;	f10.196 1;i[;"10.196%;[ ;@"hueo;;["deg;	f0.372 +;i[;"0.372deg;[ ;@"saturationo;;["%;	f0.10100000000000001 `B;i[;"0.101%;[ ;@;"adjust-color;i[;[o;	;"bg-color;i[;"bg_color;@;@o;;["%;	i-;i[;"40%;[ ;@;iZ;@o;
+;{"lightnesso;;["%;	f10.196 1;i\;"10.196%;[ ;@"hueo;;["deg;	f0.372 +;i\;"0.372deg;[ ;@"saturationo;;["%;	f0.10100000000000001 `B;i\;"0.101%;[ ;@;"adjust-color;i\;[o;	;"bg-color;i\;"bg_color;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;iV:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;iV;[o;	;"direction;iS;"direction;{ o;
+;{ ;"color_stops;iV;[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f20.391999999999999 1;iT:@original"20.392%:@denominator_units[ ;@"hueo;;["deg;	i ;iT;"	0deg;[ ;@"saturationo;;["%;	i ;iT;"0%;[ ;@;"adjust-color;iT;[o;	;"bg-color;iT;"bg_color;@;@o;
+;{"lightnesso;;["%;	f12.353 ˘€;iU;"12.353%;[ ;@"hueo;;["deg;	f220;iU;"220deg;[ ;@"saturationo;;["%;	f5.6600000000000001 p§;iU;"
+5.66%;[ ;@;"adjust-color;iU;[o;	;"bg-color;iU;"bg_color;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;iQ:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;iQ;[o;	;"direction;iN;"direction;{ o;
+;{ ;"color_stops;iQ;[o;	;"bg-color;iO;"bg_color;@o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f2.9409999999999998 I∫;iP:@original"2.941%:@denominator_units[ ;@"hueo;;["deg;	f-0.26700000000000002 J;iP;"-0.267deg;[ ;@"saturationo;;["%;	f18.571000000000002 ;iP;"18.571%;[ ;@;"adjust-color;iP;[o;	;"bg-color;iP;"bg_color;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;iL:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;iL;[o;	;"direction;iH;"direction;{ o;
+;{ ;"color_stops;iL;[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f-3.7250000000000001 ÃÕ;iI:@original"-3.725%:@denominator_units[ ;@"hueo;;["deg;	f4.4619999999999997 ;iI;"4.462deg;[ ;@"saturationo;;["%;	f-9.5239999999999991 5?;iI;"-9.524%;[ ;@;"adjust-color;iI;[o;	;"bg-color;iI;"bg_color;@;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso;;["%;	f-1.569 »¥;iJ;"-1.569%;[ ;@"hueo;;["deg;	f2.2719999999999998 ì;iJ;"2.272deg;[ ;@"saturationo;;["%;	f0;iJ;"0%;[ ;@;"adjust-color;iJ;[o;	;"bg-color;iJ;"bg_color;@;@o;;["%;	i;iJ;"25%;[ ;@;iI;@o;	;;;	[o;	;"bg-color;iK;"bg_color;@o;;["%;	i2;iK;"45%;[ ;@;iJ;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;iF:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;iF;[o;	;"direction;iB;"direction;{ o;
+;{ ;"color_stops;iF;[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f6.8630000000000004  ¡;iC:@original"6.863%:@denominator_units[ ;@"hueo;;["deg;	f-212.90299999999999 â7;iC;"-212.903deg;[ ;@"saturationo;;["%;	f-88.570999999999998 Å;iC;"-88.571%;[ ;@;"adjust-color;iC;[o;	;"bg-color;iC;"bg_color;@;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso;;["%;	f4.7060000000000004 Ám;iD;"4.706%;[ ;@"hueo;;["deg;	f0.42999999999999999 ÎÖ;iD;"0.43deg;[ ;@"saturationo;;["%;	f-6.7530000000000001 çP;iD;"-6.753%;[ ;@;"adjust-color;iD;[o;	;"bg-color;iD;"bg_color;@;@o;;["%;	i;iD;"25%;[ ;@;iC;@o;	;;;	[o;	;"bg-color;iE;"bg_color;@o;;["%;	i2;iE;"45%;[ ;@;iD;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i@:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i@;[o;	;"direction;i<;"direction;{ o;
+;{ ;"color_stops;i@;[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f-4.9020000000000001 ˜œ;i=:@original"-4.902%:@denominator_units[ ;@"hueo;;["deg;	f1.3819999999999999 &È;i=;"1.382deg;[ ;@"saturationo;;["%;	f-18.571000000000002 ;i=;"-18.571%;[ ;@;"adjust-color;i=;[o;	;"bg-color;i=;"bg_color;@;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso;;["%;	f-2.157 ∆®;i>;"-2.157%;[ ;@"hueo;;["deg;	f0.42999999999999999 ÎÖ;i>;"0.43deg;[ ;@"saturationo;;["%;	f-10.311 ¨;i>;"-10.311%;[ ;@;"adjust-color;i>;[o;	;"bg-color;i>;"bg_color;@;@o;;["%;	i;i>;"25%;[ ;@;i=;@o;	;;;	[o;	;"bg-color;i?;"bg_color;@o;;["%;	i2;i?;"45%;[ ;@;i>;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i::
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i:;[o;	;"direction;i7;"direction;{ o;
+;{ ;"color_stops;i:;[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f4.7060000000000004 Ám;i8:@original"4.706%:@denominator_units[ ;@"hueo;;["deg;	f0;i8;"	0deg;[ ;@"saturationo;;["%;	f1.6040000000000001 ãD;i8;"1.604%;[ ;@;"adjust-color;i8;[o;	;"bg-color;i8;"bg_color;@;@o;	;"bg-color;i9;"bg_color;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i5:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i5;[o;	;"direction;i.;"direction;{ o;
+;{ ;"color_stops;i5;[o;
+;{"lightnesso:Sass::Script::Number:@numerator_units["%;	f3.5289999999999999 ¨;i/:@original"3.529%:@denominator_units[ ;@"hueo;;["deg;	f-0.85699999999999998 Å;i/;"-0.857deg;[ ;@"saturationo;;["%;	f-1.6299999999999999 Æ;i/;"-1.63%;[ ;@;"adjust-color;i/;[o;	;"bg-color;i/;"bg_color;@;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{"lightnesso;;["%;	f0.39200000000000002 J;i0;"0.392%;[ ;@"hueo;;["deg;	f0.158 M”;i0;"0.158deg;[ ;@"saturationo;;["%;	f-1.21 è\;i0;"-1.21%;[ ;@;"adjust-color;i0;[o;	;"bg-color;i0;"bg_color;@;@o;;["%;	i2;i0;"45%;[ ;@;i/;@o;	;;;	[o;
+;{"lightnesso;;["%;	f-7.6470000000000002 J;i1;"-7.647%;[ ;@"hueo;;["deg;	f1.1539999999999999 X;i1;"1.154deg;[ ;@"saturationo;;["%;	f0.60699999999999998 Å;i1;"0.607%;[ ;@;"adjust-color;i1;[o;	;"bg-color;i1;"bg_color;@;@o;;["%;	i3;i1;"46%;[ ;@;i0;@o;	;;;	[o;
+;{"lightnesso;;["%;	f-7.6470000000000002 J;i2;"-7.647%;[ ;@"hueo;;["deg;	f1.1539999999999999 X;i2;"1.154deg;[ ;@"saturationo;;["%;	f0.60699999999999998 Å;i2;"0.607%;[ ;@;"adjust-color;i2;[o;	;"bg-color;i2;"bg_color;@;@o;;["%;	i7;i2;"50%;[ ;@;i1;@o;	;;;	[o;
+;{"lightnesso;;["%;	f-4.7060000000000004 Ám;i3;"-4.706%;[ ;@"hueo;;["deg;	f1.444 »¥;i3;"1.444deg;[ ;@"saturationo;;["%;	f-1.1359999999999999 ì;i3;"-1.136%;[ ;@;"adjust-color;i3;[o;	;"bg-color;i3;"bg_color;@;@o;;["%;	i8;i3;"51%;[ ;@;i2;@o;	;"bg-color;i4;"bg_color;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i):
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i);[o;	;"direction;i);"direction;{ o;
+;{ ;"color_stops;i);[o:Sass::Script::Color	;	0;i):@attrs{	:redi:
+alphai:
+greeniı:	bluei˙;@o:Sass::Script::List	:@separator:
+space;	[o;	;	0;i);{	;i⁄;i;iÊ;iÙ;@o:Sass::Script::Number:@numerator_units["%;	i;i):@original"2%:@denominator_units[ ;@;i);@o;	;	0;i);{	;iŒ;i;i›;iÔ;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i':
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i';[o;	;"direction;i';"direction;{ o;
+;{ ;"color_stops;i';[o;
+;{ ;"darken;i';[o;	;"bg-color;i';"bg_color;@o:Sass::Script::Number:@numerator_units["%;	i;i':@original"6%:@denominator_units[ ;@;@o;
+;{ ;"lighten;i';[o;	;"bg-color;i';"bg_color;@o;;["%;	i	;i';"4%;[ ;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i%:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i%;[o;	;"direction;i%;"direction;{ o;
+;{ ;"color_stops;i%;[o;
+;{ ;"lighten;i%;[o;	;"bg-color;i%;"bg_color;@o:Sass::Script::Number:@numerator_units["%;	i;i%:@original"3%:@denominator_units[ ;@;@o;
+;{ ;"darken;i%;[o;	;"bg-color;i%;"bg_color;@o;;["%;	i	;i%;"4%;[ ;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i#:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i#;[o;	;"direction;i#;"direction;{ o;
+;{ ;"color_stops;i#;[	o;
+;{ ;"darken;i#;[o;	;"bg-color;i#;"bg_color;@o:Sass::Script::Number:@numerator_units["%;	i;i#:@original"10%:@denominator_units[ ;@;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{ ;"darken;i#;[o;	;"bg-color;i#;"bg_color;@o;;["%;	i
+;i#;"5%;[ ;@;@o;;["%;	i;i#;"10%;[ ;@;i#;@o;	;;;	[o;	;"bg-color;i#;"bg_color;@o;;["%;	iF;i#;"65%;[ ;@;i#;@o;
+;{ ;"lighten;i#;[o;	;"bg-color;i#;"bg_color;@o;;["%;	f0.5;i#;"	0.5%;[ ;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i!:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i!;[o;	;"direction;i!;"direction;{ o;
+;{ ;"color_stops;i!;[	o;
+;{ ;"lighten;i!;[o;	;"bg-color;i!;"bg_color;@o:Sass::Script::Number:@numerator_units["%;	i;i!:@original"15%:@denominator_units[ ;@;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{ ;"lighten;i!;[o;	;"bg-color;i!;"bg_color;@o;;["%;	i
+;i!;"5%;[ ;@;@o;;["%;	i7;i!;"50%;[ ;@;i!;@o;	;;;	[o;	;"bg-color;i!;"bg_color;@o;;["%;	i8;i!;"51%;[ ;@;i!;@o;
+;{ ;"darken;i!;[o;	;"bg-color;i!;"bg_color;@o;;["%;	i
+;i!;"5%;[ ;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode:@keywords{ ;"background-image;i:
+@args[o:Sass::Script::Funcall
+;{ ;"linear-gradient;i;[o;	;"direction;i;"direction;{ o;
+;{ ;"color_stops;i;[	o;
+;{ ;"lighten;i;[o;	;"bg-color;i;"bg_color;@o:Sass::Script::Number:@numerator_units["%;	i;i:@original"15%:@denominator_units[ ;@;@o:Sass::Script::List	:@separator:
+space;	[o;
+;{ ;"lighten;i;[o;	;"bg-color;i;"bg_color;@o;;["%;	i;i;"8%;[ ;@;@o;;["%;	i#;i;"30%;[ ;@;i;@o;	;;;	[o;	;"bg-color;i;"bg_color;@o;;["%;	iF;i;"65%;[ ;@;i;@o;
+;{ ;"darken;i;[o;	;"bg-color;i;"bg_color;@o;;["%;	i;i;"6%;[ ;@;@;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets[o:Sass::Tree::MixinNode;{ ;"background-image;i;[o;
+;{ ;"linear-gradient;i;[o;	;"direction;i;"direction;{ o;	;"	type;i;"	type;@;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;@;@

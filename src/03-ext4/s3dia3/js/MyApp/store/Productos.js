@@ -11,6 +11,7 @@ Ext.define('MyApp.store.Productos', {
     model : 'MyApp.model.Producto',
 
     autoSave : true,
+    autoSync: true,
 
     proxy : {
         type : 'ajax',

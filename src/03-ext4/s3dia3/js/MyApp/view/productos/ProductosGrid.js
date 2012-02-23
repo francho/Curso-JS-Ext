@@ -7,7 +7,7 @@
  */
 
 Ext.define('MyApp.view.productos.ProductosGrid', {
-    extend:Ext.grid.Panel,
+    extend: 'Ext.grid.Panel',
     alias:'widget.productosgrid',
 
     initComponent:function () {

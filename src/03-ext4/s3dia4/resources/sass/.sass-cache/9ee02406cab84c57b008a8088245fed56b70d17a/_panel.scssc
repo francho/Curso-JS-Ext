@@ -1,0 +1,980 @@
+3.1.0 (Brainy Betty)
+6902905fa774d046adc7f52e29a6629664e27385
+o:Sass::Tree::RootNode
+:
+@linei:@has_childrenT:@template"C/**
+  * @class Ext.Panel
+  * Used to create the base structure of an Ext.Panel
+  */
+@mixin extjs-panel {
+    .#{$prefix}panel,
+    .#{$prefix}plain {
+        overflow: hidden;
+        position: relative;
+    }
+    
+     @if $include-ie {
+        // Workaround for disappearing right edge in IE6
+        .#{$prefix}ie {
+            .#{$prefix}panel-header,
+            .#{$prefix}panel-header-tl,
+            .#{$prefix}panel-header-tc,
+            .#{$prefix}panel-header-tr,
+            .#{$prefix}panel-header-ml,
+            .#{$prefix}panel-header-mc,
+            .#{$prefix}panel-header-mr,
+            .#{$prefix}panel-header-bl,
+            .#{$prefix}panel-header-bc,
+            .#{$prefix}panel-header-br {
+                zoom: 1;
+            }
+        }
+        // Fix for IE8 clipping. EXTJSIV-1553
+        .#{$prefix}ie8 {
+            td.#{$prefix}frame-mc {
+                vertical-align: top;
+            }
+        }
+    }
+    
+    //panel header
+    .#{$prefix}panel-header {
+        padding: $panel-header-padding;
+    }
+    
+    .#{$prefix}panel-header-icon,
+    .#{$prefix}window-header-icon {
+        width:16px;
+        height:16px;
+        background-repeat:no-repeat;
+        background-position:0 0;
+        vertical-align:middle;
+        margin-right:4px;
+        margin-top:-1px;
+        margin-bottom:-1px;
+    }
+    
+    .#{$prefix}panel-header-draggable,
+    .#{$prefix}panel-header-draggable .#{$prefix}panel-header-text,
+    .#{$prefix}window-header-draggable,
+    .#{$prefix}window-header-draggable .#{$prefix}window-header-text{
+        cursor: move;
+    }
+
+    // A ghost is just a Panel. The only extra it needs is opacity.
+    // TODO: Make opacity a variable
+    .#{$prefix}panel-ghost, .#{$prefix}window-ghost {
+        @include opacity(0.65);
+        cursor: move;
+    }
+
+    .#{$prefix}panel-header-horizontal, .#{$prefix}window-header-horizontal, .#{$prefix}btn-group-header-horizontal {
+        .#{$prefix}panel-header-body, .#{$prefix}window-header-body, .#{$prefix}btn-group-header-body {
+            width: 100%;
+        }
+    }
+
+    .#{$prefix}panel-header-vertical, .#{$prefix}window-header-vertical, .#{$prefix}btn-group-header-vertical {
+        .#{$prefix}panel-header-body, .#{$prefix}window-header-body, .#{$prefix}btn-group-header-body {
+            height: 100%;
+        }
+    }
+
+    // Vertical headers must be inline blocks so that they acquire width from the content
+    .#{$prefix}panel-header-vertical, .#{$prefix}panel-header-vertical .#{$prefix}panel-header-body,
+    .#{$prefix}btn-group-header-vertical, .#{$prefix}btn-group-header-vertical .#{$prefix}btn-group-header-body,
+    .#{$prefix}window-header-vertical, .#{$prefix}window-header-vertical .#{$prefix}window-header-body {
+        display: -moz-inline-stack;
+        display: inline-block;
+    }
+    
+    .#{$prefix}panel-header-text-container {
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+
+    .#{$prefix}panel-header-text {
+        @include no-select;
+        white-space: nowrap;
+    }
+
+    .#{$prefix}panel-header-left,
+    .#{$prefix}panel-header-right {
+        .#{$prefix}vml-base {
+            left: -3px !important;
+        }
+    }
+
+    //panel body
+    .#{$prefix}panel-body {
+        overflow: hidden;
+        position: relative;
+        
+        font-size: $panel-body-font-size;
+    }
+
+    .#{$prefix}panel-header-vertical {
+        .#{$prefix}surface {
+            margin-top: 2px;
+        }
+    }
+    
+    .#{$prefix}panel-header-plain-vertical {
+        .#{$prefix}surface {
+            margin-top: 0;
+        }
+    }
+    
+        
+    .#{$prefix}panel-collapsed {
+        .#{$prefix}panel-header-collapsed-border-top {
+            border-bottom-width: $panel-header-border-width !important;
+        }
+        .#{$prefix}panel-header-collapsed-border-right {
+            border-left-width: $panel-header-border-width !important;
+        }
+        .#{$prefix}panel-header-collapsed-border-bottom {
+            border-top-width: $panel-header-border-width !important;
+        }
+        .#{$prefix}panel-header-collapsed-border-left {
+            border-right-width: $panel-header-border-width !important;
+        }
+    }
+
+    @if not $supports-gradients or $compile-all {
+        .#{$prefix}nlg .#{$prefix}panel-header-vertical {
+            .#{$prefix}frame-mc {
+                background-repeat: repeat-y;
+            }
+        }
+    }
+
+    @if $include-panel-uis == true {
+        @include extjs-panel-ui(
+            'default',
+
+            $ui-base-color: $panel-base-color,
+            $ui-border-width: $panel-border-width,
+            $ui-border-color: $panel-border-color,
+            $ui-border-radius: $panel-border-radius,
+            
+            $ui-header-color: $panel-header-color,
+            $ui-header-font-size: $panel-header-font-size,
+            $ui-header-font-weight: $panel-header-font-weight,
+            $ui-header-border-color: $panel-header-border-color,
+            $ui-header-background-color: $panel-header-background-color,
+            $ui-header-background-gradient: $panel-header-background-gradient,
+
+            $ui-body-color: $panel-body-color,
+            $ui-body-border-color: $panel-body-border-color,
+            $ui-body-border-width: 1px,
+            $ui-body-background-color: $panel-body-background-color
+        );
+        
+        @include extjs-panel-ui(
+            'default-framed',
+
+            $ui-base-color: $panel-base-color,
+            $ui-border-width: $panel-frame-border-width,
+            $ui-border-color: $panel-frame-border-color,
+            $ui-border-radius: $panel-frame-border-radius,
+
+            $ui-header-color: $panel-header-color,
+            $ui-header-font-size: $panel-header-font-size,
+            $ui-header-font-weight: $panel-header-font-weight,
+            $ui-header-border-color: $panel-frame-border-color,
+            $ui-header-background-color: $panel-header-background-color,
+            $ui-header-background-gradient: $panel-header-background-gradient,
+
+            $ui-body-color: $panel-body-color,
+            $ui-body-border-color: $panel-body-border-color,
+            $ui-body-border-width: 0,
+            $ui-body-background-color: $panel-frame-background-color
+        );
+    }
+
+    .x-panel-header-plain,
+    .x-panel-body-plain {
+        border: 0;
+        padding: 0;
+    }
+}
+
+/**
+  * @class Ext.Panel
+  * Used to create a visual theme for an Ext.Panel
+  */
+@mixin extjs-panel-ui(
+    $ui-label,
+
+    $ui-base-color: null,
+
+    $ui-border-color: null,
+    $ui-border-radius: null,
+    $ui-border-width: 0,
+
+    $ui-header-color: null,
+    $ui-header-font-family: $panel-header-font-family,
+    $ui-header-font-size: $panel-header-font-size,
+    $ui-header-font-weight: $panel-header-font-weight,
+    $ui-header-border-color: $ui-border-color,
+    $ui-header-background-color: null,
+    $ui-header-background-gradient: matte,
+    $ui-header-inner-border-color: null,
+
+    $ui-body-color: null,
+    $ui-body-border-color: null,
+    $ui-body-border-width: null,
+    $ui-body-border-style: solid,
+    $ui-body-background-color: null,
+    $ui-body-font-size: null,
+    $ui-body-font-weight: null
+){
+    @if $ui-base-color != null {
+        @if $ui-border-color == null { $ui-border-color: $ui-base-color; }
+
+        @if $ui-header-color == null { $ui-header-color: #fff; }
+        @if $ui-header-background-color == null { $ui-header-background-color: lighten($ui-base-color, 15); }
+    }
+    
+    @if $ui-header-inner-border-color == null and $ui-header-background-color != null {
+        $ui-header-inner-border-color: lighten($ui-header-background-color, 10);
+    }
+
+    .#{$prefix}panel-#{$ui-label} {
+        @if $ui-border-color != null { border-color: $ui-border-color; }
+    }
+
+    // header
+    .#{$prefix}panel-header-#{$ui-label} {
+        @if $ui-header-font-size != null { font-size: $ui-header-font-size; }
+        line-height: $panel-header-line-height;
+
+        @if $ui-header-border-color != null {
+            border-color: $ui-header-border-color;
+            border-width: $panel-header-border-width;
+            border-style: $panel-header-border-style;
+        }
+
+        @if $supports-gradients or $compile-all {
+            @if $ui-header-background-color != null { @include background-gradient($ui-header-background-color, $ui-header-background-gradient); }
+
+            @if $panel-header-inner-border and $ui-header-inner-border-color != null {
+                @include inner-border(
+                    $width: $panel-header-inner-border-width,
+                    $color: $ui-header-inner-border-color
+                );
+            }
+        }
+    }
+    
+    // header background images
+    @if $ui-header-background-color != null and $ui-header-background-gradient != null {
+        @if not $supports-gradients or $compile-all {
+            .#{$prefix}nlg .#{$prefix}panel-header-#{$ui-label}-top {
+                background-image: theme-background-image($theme-name, 'panel-header/panel-header-#{$ui-label}-top-bg.gif');
+            }
+            
+            .#{$prefix}nlg .#{$prefix}panel-header-#{$ui-label}-bottom {
+                background-image: theme-background-image($theme-name, 'panel-header/panel-header-#{$ui-label}-bottom-bg.gif');
+            }
+
+            .#{$prefix}nlg .#{$prefix}panel-header-#{$ui-label}-left {
+                background-image: theme-background-image($theme-name, 'panel-header/panel-header-#{$ui-label}-left-bg.gif');
+            }
+
+            .#{$prefix}nlg .#{$prefix}panel-header-#{$ui-label}-right {
+                background-image: theme-background-image($theme-name, 'panel-header/panel-header-#{$ui-label}-right-bg.gif');
+            }
+        }
+    }
+    
+    // header text
+    .#{$prefix}panel-header-text-#{$ui-label} {
+        @if $ui-header-color != null { color: $ui-header-color; }
+
+        @if $ui-header-font-size != null {   font-size: $ui-header-font-size; }
+        @if $ui-header-font-weight != null { font-weight: $ui-header-font-weight; }
+        @if $ui-header-font-family != null { font-family: $ui-header-font-family; }
+    }
+
+
+    // Puedo crear mis propias clases
+    .#{$prefix}panel-body {
+
+    }
+
+
+    // body
+    .#{$prefix}panel-body-#{$ui-label} {
+        @if $ui-body-background-color != null { background: $ui-body-background-color; }
+        @if $ui-body-border-color != null {     border-color: $ui-body-border-color; }
+        @if $ui-body-color != null {            color: $ui-body-color; }
+        @if $ui-body-font-size != null {        font-size: $ui-body-font-size; }
+        @if $ui-body-font-weight != null {      font-size: $ui-body-font-weight; }
+        
+        @if $ui-body-border-width != null {
+            border-width: $ui-body-border-width;
+            @if $ui-body-border-style != null { border-style: $ui-body-border-style; }
+        }
+    }
+    
+    .#{$prefix}panel-collapsed {
+        .#{$prefix}window-header-#{$ui-label},
+        .#{$prefix}panel-header-#{$ui-label} {
+            @if $ui-body-border-color != null { border-color: $ui-body-border-color; }
+        }
+    }
+
+    .#{$prefix}panel-header-#{$ui-label}-vertical {
+        @if $ui-body-border-color != null { border-color: $ui-body-border-color; }
+    }
+
+    @if $ui-base-color != null {
+        @if $supports-gradients or $compile-all {
+            .#{$prefix}panel-header-#{$ui-label}-left,
+            .#{$prefix}panel-header-#{$ui-label}-right {
+                @include background-gradient($ui-header-background-color, $ui-header-background-gradient, right);
+            }
+        }
+    }
+
+    @if $ui-border-radius != null {
+        @include x-frame(
+            'panel',
+            $ui: '#{$ui-label}',
+
+            /* Radius, width, padding and background-color */
+            $border-radius   : $ui-border-radius,
+            $border-width    : $ui-border-width,
+            $padding         : $panel-frame-padding,
+            $background-color: $ui-body-background-color
+        );
+
+
+        @include x-frame('panel-header', '#{$ui-label}-top',    top($ui-border-radius) right($ui-border-radius) 0 0,    $ui-border-width, 4px 5px 4px 5px, $ui-header-background-color, $ui-header-background-gradient);
+        @include x-frame('panel-header', '#{$ui-label}-right',  0 right($ui-border-radius) bottom($ui-border-radius) 0, $ui-border-width, 4px 5px 4px 5px, $ui-header-background-color, $ui-header-background-gradient, false, right);
+        @include x-frame('panel-header', '#{$ui-label}-bottom', 0 0 bottom($ui-border-radius) left($ui-border-radius),  $ui-border-width, 4px 5px 4px 5px, $ui-header-background-color, $ui-header-background-gradient);
+        @include x-frame('panel-header', '#{$ui-label}-left',   top($ui-border-radius) 0 0 left($ui-border-radius),     $ui-border-width, 4px 5px 4px 5px, $ui-header-background-color, $ui-header-background-gradient, false, right);
+        
+        .#{$prefix}panel-header-#{$ui-label}-top {
+            @include inner-border(1px 1px 0 1px, $ui-header-inner-border-color);
+        }
+
+        .#{$prefix}panel-header-#{$ui-label}-right {
+            @include inner-border(1px 1px 1px 0, $ui-header-inner-border-color);
+        }
+
+        .#{$prefix}panel-header-#{$ui-label}-bottom {
+            @include inner-border(0 1px 1px 1px, $ui-header-inner-border-color);
+        }
+
+        .#{$prefix}panel-header-#{$ui-label}-left {
+            @include inner-border(1px 0 1px 1px, $ui-header-inner-border-color);
+        }
+    } @else {
+        .#{$prefix}panel-collapsed {
+            .#{$prefix}panel-header-#{$ui-label}-top {
+                @include border-bottom-radius($ui-border-radius);
+            }
+
+            .#{$prefix}panel-header-#{$ui-label}-right {
+                @include border-left-radius($ui-border-radius);
+            }
+
+            .#{$prefix}panel-header-#{$ui-label}-bottom {
+                @include border-top-radius($ui-border-radius);
+            }
+
+            .#{$prefix}panel-header-#{$ui-label}-left {
+                @include border-right-radius($ui-border-radius);
+            }
+        }
+        
+        .#{$prefix}nlg .#{$prefix}panel-header-#{$ui-label}-right {
+            background-position: top right;
+        }
+        
+        .#{$prefix}panel-header-#{$ui-label}-top {
+            @include inner-border(1px 0 0 0, $ui-header-inner-border-color);
+        }
+
+        .#{$prefix}panel-header-#{$ui-label}-right {
+            @include inner-border(0 1px 0 0, $ui-header-inner-border-color);
+        }
+
+        .#{$prefix}panel-header-#{$ui-label}-bottom {
+            @include inner-border(0 0 1px, $ui-header-inner-border-color);
+        }
+
+        .#{$prefix}panel-header-#{$ui-label}-left {
+            @include inner-border(0 0 0 1px, $ui-header-inner-border-color);
+        }
+    }
+    
+    .#{$prefix}nlg .#{$prefix}panel-header-#{$ui-label}-bottom {
+        background-position: bottom left;
+    }
+    
+    @if $ui-border-radius != null {
+        .#{$prefix}panel .#{$prefix}panel-header-#{$ui-label}-top {
+            border-bottom-width: 1px !important;
+        }
+
+        .#{$prefix}panel .#{$prefix}panel-header-#{$ui-label}-right {
+            border-left-width: 1px !important;
+        }
+
+        .#{$prefix}panel .#{$prefix}panel-header-#{$ui-label}-bottom {
+            border-top-width: 1px !important;
+        }
+
+        .#{$prefix}panel .#{$prefix}panel-header-#{$ui-label}-left {
+            border-right-width: 1px !important;
+        }
+        
+        .#{$prefix}panel-header-#{$ui-label}-collapsed {
+            @include border-radius($ui-border-radius);
+        }
+        
+        @include x-frame('panel-header', '#{$ui-label}-collapsed-top',    top($ui-border-radius) right($ui-border-radius) bottom($ui-border-radius) left($ui-border-radius), $ui-border-width, 4px 5px 4px 5px, $ui-header-background-color, $ui-header-background-gradient);
+        @include x-frame('panel-header', '#{$ui-label}-collapsed-right',  top($ui-border-radius) right($ui-border-radius) bottom($ui-border-radius) left($ui-border-radius), $ui-border-width, 4px 5px 4px 5px, $ui-header-background-color, $ui-header-background-gradient, false, right);
+        @include x-frame('panel-header', '#{$ui-label}-collapsed-bottom', top($ui-border-radius) right($ui-border-radius) bottom($ui-border-radius) left($ui-border-radius), $ui-border-width, 4px 5px 4px 5px, $ui-header-background-color, $ui-header-background-gradient);
+        @include x-frame('panel-header', '#{$ui-label}-collapsed-left',   top($ui-border-radius) right($ui-border-radius) bottom($ui-border-radius) left($ui-border-radius), $ui-border-width, 4px 5px 4px 5px, $ui-header-background-color, $ui-header-background-gradient, false, right);
+    }
+    
+    //background positioning of images
+    .#{$prefix}panel-header-#{$ui-label}-right-tc,
+    .#{$prefix}panel-header-#{$ui-label}-right-mc,
+    .#{$prefix}panel-header-#{$ui-label}-right-bc {
+        background-position: right 0;
+    }
+    
+    .#{$prefix}panel-header-#{$ui-label}-bottom-tc,
+    .#{$prefix}panel-header-#{$ui-label}-bottom-mc,
+    .#{$prefix}panel-header-#{$ui-label}-bottom-bc {
+        background-position: 0 bottom;
+    }
+}:@children[	o:Sass::Tree::CommentNode:@value"X/**
+  * @class Ext.Panel
+  * Used to create the base structure of an Ext.Panel
+  */:@silent0;i:@lines[ ;	[ :
+@loud0:@options{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso:Sass::Tree::MixinDefNode:
+@name"extjs-panel;i
+:
+@args[ ;T;	[o:Sass::Tree::RuleNode;i;T;	[o:Sass::Tree::PropNode:@prop_syntax:new;o:Sass::Script::String;"hidden:
+@type:identifier;["overflow;i;	[ :
+@tabsi :@importantF;@o;;;;o;;"relative;;;["position;i;	[ ;i ;F;@;i ;@:
+@rule[
+".o:Sass::Script::Variable	;"prefix;i:@underscored_name"prefix;{ "panel,
+    .o; 	;"prefix;i;!"prefix;{ "
+plainu:Sass::Tree::IfNodeB[o:Sass::Script::Variable	:
+@name"include-ie:
+@linei:@underscored_name"include_ie:@options{ 0[	o:Sass::Tree::CommentNode:@value"8/* Workaround for disappearing right edge in IE6 */:@silenti ;i:@lines[ :@children[ :
+@loud0;	{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso:Sass::Tree::RuleNode;i:@has_childrenT;[o;;i;T;[o:Sass::Tree::PropNode:@prop_syntax:new;o:Sass::Script::String;"1:
+@type:identifier;["	zoom;i;[ :
+@tabsi :@importantF;	@;i ;	@:
+@rule[".o; 	;"prefix;i;"prefix;	{ " panel-header,
+            .o; 	;"prefix;i;"prefix;	{ "#panel-header-tl,
+            .o; 	;"prefix;i;"prefix;	{ "#panel-header-tc,
+            .o; 	;"prefix;i;"prefix;	{ "#panel-header-tr,
+            .o; 	;"prefix;i;"prefix;	{ "#panel-header-ml,
+            .o; 	;"prefix;i;"prefix;	{ "#panel-header-mc,
+            .o; 	;"prefix;i;"prefix;	{ "#panel-header-mr,
+            .o; 	;"prefix;i;"prefix;	{ "#panel-header-bl,
+            .o; 	;"prefix;i;"prefix;	{ "#panel-header-bc,
+            .o; 	;"prefix;i;"prefix;	{ "panel-header-br;i ;	@;[".o; 	;"prefix;i;"prefix;	{ "ieo;
+;"-/* Fix for IE8 clipping. EXTJSIV-1553 */;i ;i!;[ ;[ ;0;	@o;;i";T;[o;;i#;T;[o;;;;o;;"top;;;["vertical-align;i$;[ ;i ;F;	@;i ;	@;["td.o; 	;"prefix;i#;"prefix;	{ "frame-mc;i ;	@;[".o; 	;"prefix;i";"prefix;	{ "ie8o;
+;"/*panel header */;i ;i);[ ;	[ ;0;@o;;i*;T;	[o;;;;o; 	;"panel-header-padding;i+;!"panel_header_padding;{ ;["padding;i+;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;i*;!"prefix;{ "panel-headero;;i/;T;	[o;;;;o;;"	16px;;;["
+width;i0;	[ ;i ;F;@o;;;;o;;"	16px;;;["height;i1;	[ ;i ;F;@o;;;;o;;"no-repeat;;;["background-repeat;i2;	[ ;i ;F;@o;;;;o;;"0 0;;;["background-position;i3;	[ ;i ;F;@o;;;;o;;"middle;;;["vertical-align;i4;	[ ;i ;F;@o;;;;o;;"4px;;;["margin-right;i5;	[ ;i ;F;@o;;;;o:Sass::Script::Number:@numerator_units["px;iú;i6:@original"	-1px:@denominator_units[ ;{ ;["margin-top;i6;	[ ;i ;F;@o;;;;o;#;$["px;iú;i7;%"	-1px;&[ ;{ ;["margin-bottom;i7;	[ ;i ;F;@;i ;@;[
+".o; 	;"prefix;i.;!"prefix;{ "panel-header-icon,
+    .o; 	;"prefix;i/;!"prefix;{ "window-header-icono;;i=;T;	[o;;;;o;;"	move;;;["cursor;i>;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;i:;!"prefix;{ ""panel-header-draggable,
+    .o; 	;"prefix;i;;!"prefix;{ "panel-header-draggable .o; 	;"prefix;i;;!"prefix;{ "panel-header-text,
+    .o; 	;"prefix;i<;!"prefix;{ "#window-header-draggable,
+    .o; 	;"prefix;i=;!"prefix;{ "window-header-draggable .o; 	;"prefix;i=;!"prefix;{ "window-header-texto;
+;"h/* A ghost is just a Panel. The only extra it needs is opacity.
+ * TODO: Make opacity a variable */;i ;iA;[ ;	[ ;0;@o;;iC;T;	[o:Sass::Tree::MixinNode:@keywords{ ;"opacity;iD;[o;#;$[ ;f0.65000000000000002 ÌÍ;iD;%"	0.65;&[ ;{ ;	[ ;@o;;;;o;;"	move;;;["cursor;iE;	[ ;i ;F;@;i ;@;[
+".o; 	;"prefix;iC;!"prefix;{ "panel-ghost, .o; 	;"prefix;iC;!"prefix;{ "window-ghosto;;iH;T;	[o;;iI;T;	[o;;;;o;;"	100%;;;["
+width;iJ;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;iI;!"prefix;{ "panel-header-body, .o; 	;"prefix;iI;!"prefix;{ "window-header-body, .o; 	;"prefix;iI;!"prefix;{ "btn-group-header-body;i ;@;[".o; 	;"prefix;iH;!"prefix;{ "panel-header-horizontal, .o; 	;"prefix;iH;!"prefix;{ " window-header-horizontal, .o; 	;"prefix;iH;!"prefix;{ " btn-group-header-horizontalo;;iN;T;	[o;;iO;T;	[o;;;;o;;"	100%;;;["height;iP;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;iO;!"prefix;{ "panel-header-body, .o; 	;"prefix;iO;!"prefix;{ "window-header-body, .o; 	;"prefix;iO;!"prefix;{ "btn-group-header-body;i ;@;[".o; 	;"prefix;iN;!"prefix;{ "panel-header-vertical, .o; 	;"prefix;iN;!"prefix;{ "window-header-vertical, .o; 	;"prefix;iN;!"prefix;{ "btn-group-header-verticalo;
+;"]/* Vertical headers must be inline blocks so that they acquire width from the content */;i ;iT;[ ;	[ ;0;@o;;iW;T;	[o;;;;o;;"-moz-inline-stack;;;["display;iX;	[ ;i ;F;@o;;;;o;;"inline-block;;;["display;iY;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;iU;!"prefix;{ "panel-header-vertical, .o; 	;"prefix;iU;!"prefix;{ "panel-header-vertical .o; 	;"prefix;iU;!"prefix;{ "panel-header-body,
+    .o; 	;"prefix;iV;!"prefix;{ "!btn-group-header-vertical, .o; 	;"prefix;iV;!"prefix;{ " btn-group-header-vertical .o; 	;"prefix;iV;!"prefix;{ "!btn-group-header-body,
+    .o; 	;"prefix;iW;!"prefix;{ "window-header-vertical, .o; 	;"prefix;iW;!"prefix;{ "window-header-vertical .o; 	;"prefix;iW;!"prefix;{ "window-header-bodyo;;i\;T;	[o;;;;o;;"hidden;;;["overflow;i];	[ ;i ;F;@o;;;;o;;"ellipsis;;;["-o-text-overflow;i^;	[ ;i ;F;@o;;;;o;;"ellipsis;;;["text-overflow;i_;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;i\;!"prefix;{ " panel-header-text-containero;;ib;T;	[o;';({ ;"no-select;ic;[ ;	[ ;@o;;;;o;;"nowrap;;;["white-space;id;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;ib;!"prefix;{ "panel-header-texto;;ih;T;	[o;;ii;T;	[o;;;;o:Sass::Script::List	:@separator:
+space;[o;#;$["px;iø;ij;%"	-3px;&[ ;{ o;	;"!important;ij;;;@£;ij;@£;["	left;ij;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;ii;!"prefix;{ "vml-base;i ;@;[
+".o; 	;"prefix;ig;!"prefix;{ "panel-header-left,
+    .o; 	;"prefix;ih;!"prefix;{ "panel-header-righto;
+;"/*panel body */;i ;in;[ ;	[ ;0;@o;;io;T;	[o;;;;o;;"hidden;;;["overflow;ip;	[ ;i ;F;@o;;;;o;;"relative;;;["position;iq;	[ ;i ;F;@o;;;;o; 	;"panel-body-font-size;is;!"panel_body_font_size;{ ;["font-size;is;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;io;!"prefix;{ "panel-bodyo;;iv;T;	[o;;iw;T;	[o;;;;o;;"2px;;;["margin-top;ix;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;iw;!"prefix;{ "surface;i ;@;[".o; 	;"prefix;iv;!"prefix;{ "panel-header-verticalo;;i|;T;	[o;;i};T;	[o;;;;o;;"0;;;["margin-top;i~;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;i};!"prefix;{ "surface;i ;@;[".o; 	;"prefix;i|;!"prefix;{ " panel-header-plain-verticalo;;i~;T;	[	o;;i;T;	[o;;;;o;)	;*;+;[o; 	;"panel-header-border-width;i€;!"panel_header_border_width;{ o;	;"!important;i€;;;@;i€;@;["border-bottom-width;i€;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;i;!"prefix;{ "&panel-header-collapsed-border-topo;;i‚;T;	[o;;;;o;)	;*;+;[o; 	;"panel-header-border-width;iƒ;!"panel_header_border_width;{ o;	;"!important;iƒ;;;@,;iƒ;@,;["border-left-width;iƒ;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;i‚;!"prefix;{ "(panel-header-collapsed-border-righto;;i…;T;	[o;;;;o;)	;*;+;[o; 	;"panel-header-border-width;i†;!"panel_header_border_width;{ o;	;"!important;i†;;;@A;i†;@A;["border-top-width;i†;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;i…;!"prefix;{ ")panel-header-collapsed-border-bottomo;;iˆ;T;	[o;;;;o;)	;*;+;[o; 	;"panel-header-border-width;i‰;!"panel_header_border_width;{ o;	;"!important;i‰;;;@V;i‰;@V;["border-right-width;i‰;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;iˆ;!"prefix;{ "'panel-header-collapsed-border-left;i ;@;[".o; 	;"prefix;i~;!"prefix;{ "panel-collapsedu;"‚[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::Variable	:
+@name"compile-all;i:@underscored_name"compile_all:@options{ :@operator:or;@
+:@operand1o:!Sass::Script::UnaryOperation	;i:@operando;	;	"supports-gradients;i;
+"supports_gradients;@
+;:not;@
+0[o:Sass::Tree::RuleNode;iŽ:@has_childrenT:@children[o;;i;T;[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo:Sass::Script::String;"repeat-y:
+@type:identifier;	["background-repeat;i;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@:
+@rule[".o;	;	"prefix;i;
+"prefix;{ "frame-mc;i ;@;![
+".o;	;	"prefix;iŽ;
+"prefix;{ "
+nlg .o;	;	"prefix;iŽ;
+"prefix;{ "panel-header-verticalu;"[o:Sass::Script::Operation
+:
+@linei•:@operand2o:Sass::Script::Bool:@valueT;i•:@options{ :@operator:eq;
+@:@operand1o:Sass::Script::Variable	:
+@name"include-panel-uis;i•:@underscored_name"include_panel_uis;
+@0[o:Sass::Tree::MixinNode:@keywords{"ui_header_font_sizeo;	;"panel-header-font-size;iŸ;"panel_header_font_size;
+{ "ui_base_coloro;	;"panel-base-color;i™;"panel_base_color;
+@"ui_border_widtho;	;"panel-border-width;iš;"panel_border_width;
+@"ui_header_font_weighto;	;"panel-header-font-weight;i ;"panel_header_font_weight;
+@"ui_header_border_coloro;	;"panel-header-border-color;i¡;"panel_header_border_color;
+@"ui_body_border_widtho:Sass::Script::Number:@numerator_units["px;	i;i§:@original"1px:@denominator_units[ ;
+@"ui_header_background_coloro;	;""panel-header-background-color;i¢;""panel_header_background_color;
+@"ui_border_radiuso;	;"panel-border-radius;iœ;"panel_border_radius;
+@""ui_header_background_gradiento;	;"%panel-header-background-gradient;i£;"%panel_header_background_gradient;
+@"ui_body_border_coloro;	;"panel-body-border-color;i¦;"panel_body_border_color;
+@"ui_body_background_coloro;	;" panel-body-background-color;i¨;" panel_body_background_color;
+@"ui_body_coloro;	;"panel-body-color;i¥;"panel_body_color;
+@"ui_border_coloro;	;"panel-border-color;i›;"panel_border_color;
+@"ui_header_coloro;	;"panel-header-color;iž;"panel_header_color;
+@;"extjs-panel-ui;i©:
+@args[o:Sass::Script::String	;	"default;i—:
+@type:string;
+@:@children[ ;
+{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;{"ui_header_font_sizeo;	;"panel-header-font-size;i´;"panel_header_font_size;
+{ "ui_base_coloro;	;"panel-base-color;i®;"panel_base_color;
+@X"ui_border_widtho;	;"panel-frame-border-width;i¯;"panel_frame_border_width;
+@X"ui_header_font_weighto;	;"panel-header-font-weight;iµ;"panel_header_font_weight;
+@X"ui_header_border_coloro;	;"panel-frame-border-color;i¶;"panel_frame_border_color;
+@X"ui_body_border_widtho;;[ ;	i ;i¼;"0;[ ;
+@X"ui_header_background_coloro;	;""panel-header-background-color;i·;""panel_header_background_color;
+@X"ui_border_radiuso;	;"panel-frame-border-radius;i±;"panel_frame_border_radius;
+@X""ui_header_background_gradiento;	;"%panel-header-background-gradient;i¸;"%panel_header_background_gradient;
+@X"ui_body_border_coloro;	;"panel-body-border-color;i»;"panel_body_border_color;
+@X"ui_body_background_coloro;	;"!panel-frame-background-color;i½;"!panel_frame_background_color;
+@X"ui_body_coloro;	;"panel-body-color;iº;"panel_body_color;
+@X"ui_border_coloro;	;"panel-frame-border-color;i°;"panel_frame_border_color;
+@X"ui_header_coloro;	;"panel-header-color;i³;"panel_header_color;
+@X;"extjs-panel-ui;i¾;[o;	;	"default-framed;i¬;;;
+@X;[ ;
+@Oo;:@parsed_ruleso:"Sass::Selector::CommaSequence:@filename" ;iÂ:@members[o:Sass::Selector::Sequence;/[o:#Sass::Selector::SimpleSequence;.@n;iÂ;/[o:Sass::Selector::Class;.@n;["x-panel-header-plain;iÂo;0;/["
+o;1;.@n;iÂ;/[o;2;.@n;["x-panel-body-plain;iÂ;iÂ;T;	[o;;;;o;;"0;;;["border;iÃ;	[ ;i ;F;@o;;;;o;;"0;;;["padding;iÄ;	[ ;i ;F;@;i ;@;["3.x-panel-header-plain,
+    .x-panel-body-plain;@o;
+;"U/**
+  * @class Ext.Panel
+  * Used to create a visual theme for an Ext.Panel
+  */;0;iÈ;[ ;	[ ;0;@o;;"extjs-panel-ui;iå;[[o; ;"ui-label;!"ui_label;{ 0[o; ;"ui-base-color;!"ui_base_color;@™o;	;"	null;iÏ;;;@™[o; ;"ui-border-color;!"ui_border_color;@™o;	;"	null;iÑ;;;@™[o; ;"ui-border-radius;!"ui_border_radius;@™o;	;"	null;iÒ;;;@™[o; ;"ui-border-width;!"ui_border_width;@™o;#;$[ ;i ;iÓ;%"0;&@º;@™[o; ;"ui-header-color;!"ui_header_color;@™o;	;"	null;iÕ;;;@™[o; ;"ui-header-font-family;!"ui_header_font_family;@™o; 	;"panel-header-font-family;iÖ;!"panel_header_font_family;@™[o; ;"ui-header-font-size;!"ui_header_font_size;@™o; 	;"panel-header-font-size;i×;!"panel_header_font_size;@™[o; ;"ui-header-font-weight;!"ui_header_font_weight;@™o; 	;"panel-header-font-weight;iØ;!"panel_header_font_weight;@™[o; ;"ui-header-border-color;!"ui_header_border_color;@™o; 	;"ui-border-color;iÙ;!"ui_border_color;@™[o; ;"ui-header-background-color;!"ui_header_background_color;@™o;	;"	null;iÚ;;;@™[o; ;""ui-header-background-gradient;!""ui_header_background_gradient;@™o;	;"
+matte;iÛ;;;@™[o; ;"!ui-header-inner-border-color;!"!ui_header_inner_border_color;@™o;	;"	null;iÜ;;;@™[o; ;"ui-body-color;!"ui_body_color;@™o;	;"	null;iÞ;;;@™[o; ;"ui-body-border-color;!"ui_body_border_color;@™o;	;"	null;iß;;;@™[o; ;"ui-body-border-width;!"ui_body_border_width;@™o;	;"	null;ià;;;@™[o; ;"ui-body-border-style;!"ui_body_border_style;@™o;	;"
+solid;iá;;;@™[o; ;"ui-body-background-color;!"ui_body_background_color;@™o;	;"	null;iâ;;;@™[o; ;"ui-body-font-size;!"ui_body_font_size;@™o;	;"	null;iã;;;@™[o; ;"ui-body-font-weight;!"ui_body_font_weight;@™o;	;"	null;iä;;;@™;T;	[u;"Ì[o:Sass::Script::Operation
+:
+@lineiæ:@operand2o:Sass::Script::String	:@value"	null;iæ:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-base-color;iæ:@underscored_name"ui_base_color;@	0[u:Sass::Tree::IfNodeC[o:Sass::Script::Operation
+:
+@lineiç:@operand2o:Sass::Script::String	:@value"	null;iç:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-border-color;iç:@underscored_name"ui_border_color;@	0[o:Sass::Tree::VariableNode:
+@expro;	;"ui-base-color;iç;"ui_base_color;{ ;"ui-border-color;iç:@children[ :@guarded0;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;e[o:Sass::Script::Operation
+:
+@lineié:@operand2o:Sass::Script::String	:@value"	null;ié:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-color;ié:@underscored_name"ui_header_color;@	0[o:Sass::Tree::VariableNode:
+@expro:Sass::Script::Color	;	0;ié:@attrs{	:rediÿ:
+alphai:
+greeniÿ:	blueiÿ;{ ;"ui-header-color;ié:@children[ :@guarded0;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;[o:Sass::Script::Operation
+:
+@lineiê:@operand2o:Sass::Script::String	:@value"	null;iê:
+@type:identifier:@options{ :@operator:eq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-background-color;iê:@underscored_name"ui_header_background_color;@	0[o:Sass::Tree::VariableNode:
+@expro:Sass::Script::Funcall
+:@keywords{ ;"lighten;iê:
+@args[o;	;"ui-base-color;iê;"ui_base_color;{ o:Sass::Script::Number:@numerator_units[ ;	i;iê:@original"15:@denominator_units[ ;@;@;"ui-header-background-color;iê:@children[ :@guarded0;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"·[o:Sass::Script::Operation
+:
+@lineií:@operand2o; 
+;ií;o:Sass::Script::String	:@value"	null;ií:
+@type:identifier:@options{ :@operator:neq;@
+:@operand1o:Sass::Script::Variable	:
+@name"ui-header-background-color;ií:@underscored_name"ui_header_background_color;@
+;:and;@
+;o; 
+;ií;o;	;	"	null;ií;
+;;@
+;:eq;@
+;o;	;"!ui-header-inner-border-color;ií;"!ui_header_inner_border_color;@
+0[o:Sass::Tree::VariableNode:
+@expro:Sass::Script::Funcall
+:@keywords{ ;"lighten;iî:
+@args[o;	;"ui-header-background-color;iî;"ui_header_background_color;{ o:Sass::Script::Number:@numerator_units[ ;	i;iî:@original"10:@denominator_units[ ;@;@;"!ui-header-inner-border-color;iî:@children[ :@guarded0;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;iñ;T;	[u;"\[o:Sass::Script::Operation
+:
+@lineiò:@operand2o:Sass::Script::String	:@value"	null;iò:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-border-color;iò:@underscored_name"ui_border_color;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-border-color;iò;"ui_border_color;{ ;["border-color;iò:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@;[	".o; 	;"prefix;iñ;!"prefix;{ "panel-o; 	;"ui-label;iñ;!"ui_label;{ o;
+;"/* header */;i ;iõ;[ ;	[ ;0;@o;;iö;T;	[	u;"i[o:Sass::Script::Operation
+:
+@linei÷:@operand2o:Sass::Script::String	:@value"	null;i÷:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-font-size;i÷:@underscored_name"ui_header_font_size;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-header-font-size;i÷;"ui_header_font_size;{ ;["font-size;i÷:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;o; 	;"panel-header-line-height;iø;!"panel_header_line_height;{ ;["line-height;iø;	[ ;i ;F;@u;"f[o:Sass::Script::Operation
+:
+@lineiú:@operand2o:Sass::Script::String	:@value"	null;iú:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-border-color;iú:@underscored_name"ui_header_border_color;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-header-border-color;iû;"ui_header_border_color;{ ;["border-color;iû:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;	o;	;"panel-header-border-width;iü;"panel_header_border_width;{ ;["border-width;iü;[ ;i ;F;@o;;;;	o;	;"panel-header-border-style;iý;"panel_header_border_style;{ ;["border-style;iý;[ ;i ;F;@u;"[o:Sass::Script::Operation
+:
+@linei :@operand2o:Sass::Script::Variable	:
+@name"compile-all;i :@underscored_name"compile_all:@options{ :@operator:or;@
+:@operand1o;	;	"supports-gradients;i ;
+"supports_gradients;@
+0[u:Sass::Tree::IfNodeÎ[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::String	:@value"	null;i:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-background-color;i:@underscored_name"ui_header_background_color;@	0[o:Sass::Tree::MixinNode:@keywords{ ;"background-gradient;i:
+@args[o;	;"ui-header-background-color;i;"ui_header_background_color;{ o;	;""ui-header-background-gradient;i;""ui_header_background_gradient;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;B[o:Sass::Script::Operation
+:
+@linei:@operand2o; 
+;i;o:Sass::Script::String	:@value"	null;i:
+@type:identifier:@options{ :@operator:neq;@
+:@operand1o:Sass::Script::Variable	:
+@name"!ui-header-inner-border-color;i:@underscored_name"!ui_header_inner_border_color;@
+;:and;@
+;o;	;"panel-header-inner-border;i;"panel_header_inner_border;@
+0[o:Sass::Tree::MixinNode:@keywords{"
+coloro;	;"!ui-header-inner-border-color;i;"!ui_header_inner_border_color;{ "
+widtho;	;"$panel-header-inner-border-width;i;"$panel_header_inner_border_width;@;"inner-border;i:
+@args[ :@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@;[	".o; 	;"prefix;iö;!"prefix;{ "panel-header-o; 	;"ui-label;iö;!"ui_label;{ o;
+;"#/* header background images */;i ;i;[ ;	[ ;0;@u;"Ÿ[o:Sass::Script::Operation
+:
+@linei:@operand2o; 
+;i;o:Sass::Script::String	:@value"	null;i:
+@type:identifier:@options{ :@operator:neq;@
+:@operand1o:Sass::Script::Variable	:
+@name""ui-header-background-gradient;i:@underscored_name""ui_header_background_gradient;@
+;:and;@
+;o; 
+;i;o;	;	"	null;i;
+;;@
+;;;@
+;o;	;"ui-header-background-color;i;"ui_header_background_color;@
+0[u:Sass::Tree::IfNodeÖ	[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::Variable	:
+@name"compile-all;i:@underscored_name"compile_all:@options{ :@operator:or;@
+:@operand1o:!Sass::Script::UnaryOperation	;i:@operando;	;	"supports-gradients;i;
+"supports_gradients;@
+;:not;@
+0[	o:Sass::Tree::RuleNode;i:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo:Sass::Script::Funcall
+:@keywords{ ;	"theme-background-image;i:
+@args[o;	;	"theme-name;i;
+"theme_name;{ o:&Sass::Script::StringInterpolation
+:	@mido;	;	"ui-label;i;
+"ui_label;@;i:@beforeo:Sass::Script::String	;"panel-header/panel-header-;i:
+@type:string;@:@aftero;	;"-top-bg.gif;i; ;!;@;@;@;	["background-image;i;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;#i ;@&:
+@rule[".o;	;	"prefix;i;
+"prefix;{ "
+nlg .o;	;	"prefix;i;
+"prefix;{ "panel-header-o;	;	"ui-label;i;
+"ui_label;{ "	-topo;;i;T;[o;;;;o;
+;{ ;	"theme-background-image;i;[o;	;	"theme-name;i;
+"theme_name;{ o;
+;o;	;	"ui-label;i;
+"ui_label;@D;i;o;	;"panel-header/panel-header-;i; ;!;@D;"o;	;"-bottom-bg.gif;i; ;!;@D;@D;@D;	["background-image;i;[ ;#i ;$F;@&;#i ;@&;([".o;	;	"prefix;i;
+"prefix;{ "
+nlg .o;	;	"prefix;i;
+"prefix;{ "panel-header-o;	;	"ui-label;i;
+"ui_label;{ "-bottomo;;i;T;[o;;;;o;
+;{ ;	"theme-background-image;i;[o;	;	"theme-name;i;
+"theme_name;{ o;
+;o;	;	"ui-label;i;
+"ui_label;@k;i;o;	;"panel-header/panel-header-;i; ;!;@k;"o;	;"-left-bg.gif;i; ;!;@k;@k;@k;	["background-image;i;[ ;#i ;$F;@&;#i ;@&;([".o;	;	"prefix;i;
+"prefix;{ "
+nlg .o;	;	"prefix;i;
+"prefix;{ "panel-header-o;	;	"ui-label;i;
+"ui_label;{ "
+-lefto;;i;T;[o;;;;o;
+;{ ;	"theme-background-image;i;[o;	;	"theme-name;i;
+"theme_name;{ o;
+;o;	;	"ui-label;i;
+"ui_label;@;i;o;	;"panel-header/panel-header-;i; ;!;@;"o;	;"-right-bg.gif;i; ;!;@;@;@;	["background-image;i;[ ;#i ;$F;@&;#i ;@&;([".o;	;	"prefix;i;
+"prefix;{ "
+nlg .o;	;	"prefix;i;
+"prefix;{ "panel-header-o;	;	"ui-label;i;
+"ui_label;{ "-righto;
+;"/* header text */;i ;i!;[ ;	[ ;0;@o;;i";T;	[	u;"Z[o:Sass::Script::Operation
+:
+@linei#:@operand2o:Sass::Script::String	:@value"	null;i#:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-color;i#:@underscored_name"ui_header_color;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-header-color;i#;"ui_header_color;{ ;["
+color;i#:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"n[o:Sass::Script::Operation
+:
+@linei%:@operand2o:Sass::Script::String	:@value"	null;i%:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-font-size;i%:@underscored_name"ui_header_font_size;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-header-font-size;i%;"ui_header_font_size;{ ;["font-size;i%:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"x[o:Sass::Script::Operation
+:
+@linei&:@operand2o:Sass::Script::String	:@value"	null;i&:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-font-weight;i&:@underscored_name"ui_header_font_weight;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-header-font-weight;i&;"ui_header_font_weight;{ ;["font-weight;i&:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"x[o:Sass::Script::Operation
+:
+@linei':@operand2o:Sass::Script::String	:@value"	null;i':
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-header-font-family;i':@underscored_name"ui_header_font_family;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-header-font-family;i';"ui_header_font_family;{ ;["font-family;i':@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@;[	".o; 	;"prefix;i";!"prefix;{ "panel-header-text-o; 	;"ui-label;i";!"ui_label;{ o;
+;")/* Puedo crear mis propias clases */;i ;i+;[ ;	[ ;0;@o;;i,;T;	[ ;i ;@;[".o; 	;"prefix;i,;!"prefix;{ "panel-bodyo;
+;"/* body */;i ;i1;[ ;	[ ;0;@o;;i2;T;	[u;"ƒ[o:Sass::Script::Operation
+:
+@linei3:@operand2o:Sass::Script::String	:@value"	null;i3:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-background-color;i3:@underscored_name"ui_body_background_color;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-background-color;i3;"ui_body_background_color;{ ;["background;i3:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"u[o:Sass::Script::Operation
+:
+@linei4:@operand2o:Sass::Script::String	:@value"	null;i4:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-border-color;i4:@underscored_name"ui_body_border_color;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-border-color;i4;"ui_body_border_color;{ ;["border-color;i4:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"R[o:Sass::Script::Operation
+:
+@linei5:@operand2o:Sass::Script::String	:@value"	null;i5:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-color;i5:@underscored_name"ui_body_color;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-color;i5;"ui_body_color;{ ;["
+color;i5:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"f[o:Sass::Script::Operation
+:
+@linei6:@operand2o:Sass::Script::String	:@value"	null;i6:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-font-size;i6:@underscored_name"ui_body_font_size;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-font-size;i6;"ui_body_font_size;{ ;["font-size;i6:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"n[o:Sass::Script::Operation
+:
+@linei7:@operand2o:Sass::Script::String	:@value"	null;i7:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-font-weight;i7:@underscored_name"ui_body_font_weight;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-font-weight;i7;"ui_body_font_weight;{ ;["font-size;i7:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;"[o:Sass::Script::Operation
+:
+@linei9:@operand2o:Sass::Script::String	:@value"	null;i9:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-border-width;i9:@underscored_name"ui_body_border_width;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-border-width;i:;"ui_body_border_width;{ ;["border-width;i::@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu:Sass::Tree::IfNodeu[o:Sass::Script::Operation
+:
+@linei;:@operand2o:Sass::Script::String	:@value"	null;i;:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-border-style;i;:@underscored_name"ui_body_border_style;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-border-style;i;;"ui_body_border_style;{ ;["border-style;i;:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@;[	".o; 	;"prefix;i2;!"prefix;{ "panel-body-o; 	;"ui-label;i2;!"ui_label;{ o;;i?;T;	[o;;iA;T;	[u;"u[o:Sass::Script::Operation
+:
+@lineiB:@operand2o:Sass::Script::String	:@value"	null;iB:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-border-color;iB:@underscored_name"ui_body_border_color;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-border-color;iB;"ui_body_border_color;{ ;["border-color;iB:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@;[".o; 	;"prefix;i@;!"prefix;{ "window-header-o; 	;"ui-label;i@;!"ui_label;{ ",
+        .o; 	;"prefix;iA;!"prefix;{ "panel-header-o; 	;"ui-label;iA;!"ui_label;{ ;i ;@;[".o; 	;"prefix;i?;!"prefix;{ "panel-collapsedo;;iF;T;	[u;"u[o:Sass::Script::Operation
+:
+@lineiG:@operand2o:Sass::Script::String	:@value"	null;iG:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-body-border-color;iG:@underscored_name"ui_body_border_color;@	0[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"ui-body-border-color;iG;"ui_body_border_color;{ ;["border-color;iG:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@;[
+".o; 	;"prefix;iF;!"prefix;{ "panel-header-o; 	;"ui-label;iF;!"ui_label;{ "-verticalu;"[o:Sass::Script::Operation
+:
+@lineiJ:@operand2o:Sass::Script::String	:@value"	null;iJ:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-base-color;iJ:@underscored_name"ui_base_color;@	0[u:Sass::Tree::IfNode[o:Sass::Script::Operation
+:
+@lineiK:@operand2o:Sass::Script::Variable	:
+@name"compile-all;iK:@underscored_name"compile_all:@options{ :@operator:or;@
+:@operand1o;	;	"supports-gradients;iK;
+"supports_gradients;@
+0[o:Sass::Tree::RuleNode;iM:@has_childrenT:@children[o:Sass::Tree::MixinNode:@keywords{ ;	"background-gradient;iN:
+@args[o;	;	"ui-header-background-color;iN;
+"ui_header_background_color;{ o;	;	""ui-header-background-gradient;iN;
+""ui_header_background_gradient;@o:Sass::Script::String	:@value"
+right;iN:
+@type:identifier;@;[ ;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets:
+@tabsi ;@:
+@rule[".o;	;	"prefix;iL;
+"prefix;{ "panel-header-o;	;	"ui-label;iL;
+"ui_label;{ "-left,
+            .o;	;	"prefix;iM;
+"prefix;{ "panel-header-o;	;	"ui-label;iM;
+"ui_label;{ "-rightu;"©%[o:Sass::Script::Operation
+:
+@lineiS:@operand2o:Sass::Script::String	:@value"	null;iS:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-border-radius;iS:@underscored_name"ui_border_radius;@	u:Sass::Tree::IfNode&[00[o:Sass::Tree::RuleNode:
+@lineiu:@has_childrenT:@children[	o; ;iv;T;[o:Sass::Tree::MixinNode:@keywords{ :
+@name"border-bottom-radius;iw:
+@args[o:Sass::Script::Variable	;"ui-border-radius;iw:@underscored_name"ui_border_radius:@options{ ;[ ;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets:
+@tabsi ;@:
+@rule[
+".o;	;"prefix;iv;"prefix;{ "panel-header-o;	;"ui-label;iv;"ui_label;{ "	-topo; ;iz;T;[o;	;
+{ ;"border-left-radius;i{;[o;	;"ui-border-radius;i{;"ui_border_radius;{ ;[ ;@;i ;@;[
+".o;	;"prefix;iz;"prefix;{ "panel-header-o;	;"ui-label;iz;"ui_label;{ "-righto; ;i~;T;[o;	;
+{ ;"border-top-radius;i;[o;	;"ui-border-radius;i;"ui_border_radius;{ ;[ ;@;i ;@;[
+".o;	;"prefix;i~;"prefix;{ "panel-header-o;	;"ui-label;i~;"ui_label;{ "-bottomo; ;i‚;T;[o;	;
+{ ;"border-right-radius;iƒ;[o;	;"ui-border-radius;iƒ;"ui_border_radius;{ ;[ ;@;i ;@;[
+".o;	;"prefix;i‚;"prefix;{ "panel-header-o;	;"ui-label;i‚;"ui_label;{ "
+-left;i ;@;[".o;	;"prefix;iu;"prefix;{ "panel-collapsedo; ;i‡;T;[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo:Sass::Script::String;"top right:
+@type:identifier;["background-position;iˆ;[ ;i :@importantF;@;i ;@;[".o;	;"prefix;i‡;"prefix;{ "
+nlg .o;	;"prefix;i‡;"prefix;{ "panel-header-o;	;"ui-label;i‡;"ui_label;{ "-righto; ;i‹;T;[o;	;
+{ ;"inner-border;iŒ;[o:Sass::Script::List	:@separator:
+space;[	o:Sass::Script::Number:@numerator_units["px;i;iŒ:@original"1px:@denominator_units[ ;{ o; ;![ ;i ;iŒ;""0;#[ ;@o; ;![ ;i ;iŒ;""0;#@”;@o; ;![ ;i ;iŒ;""0;#@”;@;iŒ;@o;	;"!ui-header-inner-border-color;iŒ;"!ui_header_inner_border_color;@;[ ;@;i ;@;[
+".o;	;"prefix;i‹;"prefix;{ "panel-header-o;	;"ui-label;i‹;"ui_label;{ "	-topo; ;i;T;[o;	;
+{ ;"inner-border;i;[o;	;;;[	o; ;![ ;i ;i;""0;#@”;{ o; ;!["px;i;i;""1px;#[ ;@¶o; ;![ ;i ;i;""0;#@”;@¶o; ;![ ;i ;i;""0;#@”;@¶;i;@¶o;	;"!ui-header-inner-border-color;i;"!ui_header_inner_border_color;@¶;[ ;@;i ;@;[
+".o;	;"prefix;i;"prefix;{ "panel-header-o;	;"ui-label;i;"ui_label;{ "-righto; ;i“;T;[o;	;
+{ ;"inner-border;i”;[o;	;;;[o; ;![ ;i ;i”;""0;#@”;{ o; ;![ ;i ;i”;""0;#@”;@Ýo; ;!["px;i;i”;""1px;#[ ;@Ý;i”;@Ýo;	;"!ui-header-inner-border-color;i”;"!ui_header_inner_border_color;@Ý;[ ;@;i ;@;[
+".o;	;"prefix;i“;"prefix;{ "panel-header-o;	;"ui-label;i“;"ui_label;{ "-bottomo; ;i—;T;[o;	;
+{ ;"inner-border;i˜;[o;	;;;[	o; ;![ ;i ;i˜;""0;#@”;{ o; ;![ ;i ;i˜;""0;#@”;@o; ;![ ;i ;i˜;""0;#@”;@o; ;!["px;i;i˜;""1px;#[ ;@;i˜;@o;	;"!ui-header-inner-border-color;i˜;"!ui_header_inner_border_color;@;[ ;@;i ;@;[
+".o;	;"prefix;i—;"prefix;{ "panel-header-o;	;"ui-label;i—;"ui_label;{ "
+-left[o:Sass::Tree::MixinNode:@keywords{
+"paddingo;	;"panel-frame-padding;i[;"panel_frame_padding;{ "border_radiuso;	;"ui-border-radius;iY;"ui_border_radius;@"background_coloro;	;"ui-body-background-color;i\;"ui_body_background_color;@"uio:&Sass::Script::StringInterpolation
+:	@mido;	;"ui-label;iV;"ui_label;@;iV:@beforeo;	;	" ;iV;
+:string;@:@aftero;	;	" ;iV;
+;;@;@"border_widtho;	;"ui-border-width;iZ;"ui_border_width;@;"x-frame;i]:
+@args[o;	;	"
+panel;iU;
+;;@:@children[ ;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;{ ;"x-frame;i`;[o;	;	"panel-header;i`;
+;;{ o;
+;o;	;"ui-label;i`;"ui_label;@9;i`;o;	;	" ;i`;
+;;@9;o;	;	"	-top;i`;
+;;@9;@9o:Sass::Script::List	:@separator:
+space;	[	o:Sass::Script::Funcall
+;{ ;"top;i`;[o;	;"ui-border-radius;i`;"ui_border_radius;@9;@9o;#
+;{ ;"
+right;i`;[o;	;"ui-border-radius;i`;"ui_border_radius;@9;@9o:Sass::Script::Number:@numerator_units[ ;	i ;i`:@original"0:@denominator_units[ ;@9o;$;%[ ;	i ;i`;&"0;'@U;@9;i`;@9o;	;"ui-border-width;i`;"ui_border_width;@9o; 	;!;";	[	o;$;%["px;	i	;i`;&"4px;'[ ;@9o;$;%["px;	i
+;i`;&"5px;'[ ;@9o;$;%["px;	i	;i`;&"4px;'[ ;@9o;$;%["px;	i
+;i`;&"5px;'[ ;@9;i`;@9o;	;"ui-header-background-color;i`;"ui_header_background_color;@9o;	;""ui-header-background-gradient;i`;""ui_header_background_gradient;@9;[ ;@0o;;{ ;"x-frame;ia;[o;	;	"panel-header;ia;
+;;{ o;
+;o;	;"ui-label;ia;"ui_label;@;ia;o;	;	" ;ia;
+;;@;o;	;	"-right;ia;
+;;@;@o; 	;!;";	[	o;$;%[ ;	i ;ia;&"0;'@U;@o;#
+;{ ;"
+right;ia;[o;	;"ui-border-radius;ia;"ui_border_radius;@;@o;#
+;{ ;"bottom;ia;[o;	;"ui-border-radius;ia;"ui_border_radius;@;@o;$;%[ ;	i ;ia;&"0;'@U;@;ia;@o;	;"ui-border-width;ia;"ui_border_width;@o; 	;!;";	[	o;$;%["px;	i	;ia;&"4px;'[ ;@o;$;%["px;	i
+;ia;&"5px;'[ ;@o;$;%["px;	i	;ia;&"4px;'[ ;@o;$;%["px;	i
+;ia;&"5px;'[ ;@;ia;@o;	;"ui-header-background-color;ia;"ui_header_background_color;@o;	;""ui-header-background-gradient;ia;""ui_header_background_gradient;@o:Sass::Script::Bool;	F;ia;@o;	;	"
+right;ia;
+;;@;[ ;@0o;;{ ;"x-frame;ib;[o;	;	"panel-header;ib;
+;;{ o;
+;o;	;"ui-label;ib;"ui_label;@Â;ib;o;	;	" ;ib;
+;;@Â;o;	;	"-bottom;ib;
+;;@Â;@Âo; 	;!;";	[	o;$;%[ ;	i ;ib;&"0;'@U;@Âo;$;%[ ;	i ;ib;&"0;'@U;@Âo;#
+;{ ;"bottom;ib;[o;	;"ui-border-radius;ib;"ui_border_radius;@Â;@Âo;#
+;{ ;"	left;ib;[o;	;"ui-border-radius;ib;"ui_border_radius;@Â;@Â;ib;@Âo;	;"ui-border-width;ib;"ui_border_width;@Âo; 	;!;";	[	o;$;%["px;	i	;ib;&"4px;'[ ;@Âo;$;%["px;	i
+;ib;&"5px;'[ ;@Âo;$;%["px;	i	;ib;&"4px;'[ ;@Âo;$;%["px;	i
+;ib;&"5px;'[ ;@Â;ib;@Âo;	;"ui-header-background-color;ib;"ui_header_background_color;@Âo;	;""ui-header-background-gradient;ib;""ui_header_background_gradient;@Â;[ ;@0o;;{ ;"x-frame;ic;[o;	;	"panel-header;ic;
+;;{ o;
+;o;	;"ui-label;ic;"ui_label;@;ic;o;	;	" ;ic;
+;;@;o;	;	"
+-left;ic;
+;;@;@o; 	;!;";	[	o;#
+;{ ;"top;ic;[o;	;"ui-border-radius;ic;"ui_border_radius;@;@o;$;%[ ;	i ;ic;&"0;'@U;@o;$;%[ ;	i ;ic;&"0;'@U;@o;#
+;{ ;"	left;ic;[o;	;"ui-border-radius;ic;"ui_border_radius;@;@;ic;@o;	;"ui-border-width;ic;"ui_border_width;@o; 	;!;";	[	o;$;%["px;	i	;ic;&"4px;'[ ;@o;$;%["px;	i
+;ic;&"5px;'[ ;@o;$;%["px;	i	;ic;&"4px;'[ ;@o;$;%["px;	i
+;ic;&"5px;'[ ;@;ic;@o;	;"ui-header-background-color;ic;"ui_header_background_color;@o;	;""ui-header-background-gradient;ic;""ui_header_background_gradient;@o;(;	F;ic;@o;	;	"
+right;ic;
+;;@;[ ;@0o:Sass::Tree::RuleNode;ie:@has_childrenT;[o;;{ ;"inner-border;if;[o; 	;!;";	[	o;$;%["px;	i;if;&"1px;'[ ;{ o;$;%["px;	i;if;&"1px;'[ ;@Vo;$;%[ ;	i ;if;&"0;'@U;@Vo;$;%["px;	i;if;&"1px;'[ ;@V;if;@Vo;	;"!ui-header-inner-border-color;if;"!ui_header_inner_border_color;@V;[ ;@0:
+@tabsi ;@0:
+@rule[
+".o;	;"prefix;ie;"prefix;{ "panel-header-o;	;"ui-label;ie;"ui_label;{ "	-topo;);ii;*T;[o;;{ ;"inner-border;ij;[o; 	;!;";	[	o;$;%["px;	i;ij;&"1px;'[ ;{ o;$;%["px;	i;ij;&"1px;'[ ;@o;$;%["px;	i;ij;&"1px;'[ ;@o;$;%[ ;	i ;ij;&"0;'@U;@;ij;@o;	;"!ui-header-inner-border-color;ij;"!ui_header_inner_border_color;@;[ ;@0;+i ;@0;,[
+".o;	;"prefix;ii;"prefix;{ "panel-header-o;	;"ui-label;ii;"ui_label;{ "-righto;);im;*T;[o;;{ ;"inner-border;in;[o; 	;!;";	[	o;$;%[ ;	i ;in;&"0;'@U;{ o;$;%["px;	i;in;&"1px;'[ ;@ªo;$;%["px;	i;in;&"1px;'[ ;@ªo;$;%["px;	i;in;&"1px;'[ ;@ª;in;@ªo;	;"!ui-header-inner-border-color;in;"!ui_header_inner_border_color;@ª;[ ;@0;+i ;@0;,[
+".o;	;"prefix;im;"prefix;{ "panel-header-o;	;"ui-label;im;"ui_label;{ "-bottomo;);iq;*T;[o;;{ ;"inner-border;ir;[o; 	;!;";	[	o;$;%["px;	i;ir;&"1px;'[ ;{ o;$;%[ ;	i ;ir;&"0;'@U;@×o;$;%["px;	i;ir;&"1px;'[ ;@×o;$;%["px;	i;ir;&"1px;'[ ;@×;ir;@×o;	;"!ui-header-inner-border-color;ir;"!ui_header_inner_border_color;@×;[ ;@0;+i ;@0;,[
+".o;	;"prefix;iq;"prefix;{ "panel-header-o;	;"ui-label;iq;"ui_label;{ "
+-lefto;;iœ;T;	[o;;;;o;;"bottom left;;;["background-position;i;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;iœ;!"prefix;{ "
+nlg .o; 	;"prefix;iœ;!"prefix;{ "panel-header-o; 	;"ui-label;iœ;!"ui_label;{ "-bottomu;"$[o:Sass::Script::Operation
+:
+@linei :@operand2o:Sass::Script::String	:@value"	null;i :
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"ui-border-radius;i :@underscored_name"ui_border_radius;@	0[o:Sass::Tree::RuleNode;i¡:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o:Sass::Script::List	:@separator:
+space;	[o:Sass::Script::Number:@numerator_units["px;	i;i¢:@original"1px:@denominator_units[ ;{ o;	;	"!important;i¢;
+;;@;i¢;@;["border-bottom-width;i¢;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"Œ/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets; i ;@:
+@rule[".o;	;"prefix;i¡;"prefix;{ "panel .o;	;"prefix;i¡;"prefix;{ "panel-header-o;	;"ui-label;i¡;"ui_label;{ "	-topo;;i¥;T;[o;;;;	o;	;;;	[o;;["px;	i;i¦;"1px;[ ;{ o;	;	"!important;i¦;
+;;@<;i¦;@<;["border-left-width;i¦;[ ; i ;!F;@; i ;@;%[".o;	;"prefix;i¥;"prefix;{ "panel .o;	;"prefix;i¥;"prefix;{ "panel-header-o;	;"ui-label;i¥;"ui_label;{ "-righto;;i©;T;[o;;;;	o;	;;;	[o;;["px;	i;iª;"1px;[ ;{ o;	;	"!important;iª;
+;;@];iª;@];["border-top-width;iª;[ ; i ;!F;@; i ;@;%[".o;	;"prefix;i©;"prefix;{ "panel .o;	;"prefix;i©;"prefix;{ "panel-header-o;	;"ui-label;i©;"ui_label;{ "-bottomo;;i­;T;[o;;;;	o;	;;;	[o;;["px;	i;i®;"1px;[ ;{ o;	;	"!important;i®;
+;;@~;i®;@~;["border-right-width;i®;[ ; i ;!F;@; i ;@;%[".o;	;"prefix;i­;"prefix;{ "panel .o;	;"prefix;i­;"prefix;{ "panel-header-o;	;"ui-label;i­;"ui_label;{ "
+-lefto;;i±;T;[o:Sass::Tree::MixinNode:@keywords{ ;"border-radius;i²:
+@args[o;	;"ui-border-radius;i²;"ui_border_radius;{ ;[ ;@; i ;@;%[
+".o;	;"prefix;i±;"prefix;{ "panel-header-o;	;"ui-label;i±;"ui_label;{ "-collapsedo;&;'{ ;"x-frame;iµ;([o;	;	"panel-header;iµ;
+:string;{ o:&Sass::Script::StringInterpolation
+:	@mido;	;"ui-label;iµ;"ui_label;@­;iµ:@beforeo;	;	" ;iµ;
+;);@­:@aftero;	;	"-collapsed-top;iµ;
+;);@­;@­o;	;;;	[	o:Sass::Script::Funcall
+;'{ ;"top;iµ;([o;	;"ui-border-radius;iµ;"ui_border_radius;@­;@­o;.
+;'{ ;"
+right;iµ;([o;	;"ui-border-radius;iµ;"ui_border_radius;@­;@­o;.
+;'{ ;"bottom;iµ;([o;	;"ui-border-radius;iµ;"ui_border_radius;@­;@­o;.
+;'{ ;"	left;iµ;([o;	;"ui-border-radius;iµ;"ui_border_radius;@­;@­;iµ;@­o;	;"ui-border-width;iµ;"ui_border_width;@­o;	;;;	[	o;;["px;	i	;iµ;"4px;[ ;@­o;;["px;	i
+;iµ;"5px;[ ;@­o;;["px;	i	;iµ;"4px;[ ;@­o;;["px;	i
+;iµ;"5px;[ ;@­;iµ;@­o;	;"ui-header-background-color;iµ;"ui_header_background_color;@­o;	;""ui-header-background-gradient;iµ;""ui_header_background_gradient;@­;[ ;@o;&;'{ ;"x-frame;i¶;([o;	;	"panel-header;i¶;
+;);{ o;*
+;+o;	;"ui-label;i¶;"ui_label;@ú;i¶;,o;	;	" ;i¶;
+;);@ú;-o;	;	"-collapsed-right;i¶;
+;);@ú;@úo;	;;;	[	o;.
+;'{ ;"top;i¶;([o;	;"ui-border-radius;i¶;"ui_border_radius;@ú;@úo;.
+;'{ ;"
+right;i¶;([o;	;"ui-border-radius;i¶;"ui_border_radius;@ú;@úo;.
+;'{ ;"bottom;i¶;([o;	;"ui-border-radius;i¶;"ui_border_radius;@ú;@úo;.
+;'{ ;"	left;i¶;([o;	;"ui-border-radius;i¶;"ui_border_radius;@ú;@ú;i¶;@úo;	;"ui-border-width;i¶;"ui_border_width;@úo;	;;;	[	o;;["px;	i	;i¶;"4px;[ ;@úo;;["px;	i
+;i¶;"5px;[ ;@úo;;["px;	i	;i¶;"4px;[ ;@úo;;["px;	i
+;i¶;"5px;[ ;@ú;i¶;@úo;	;"ui-header-background-color;i¶;"ui_header_background_color;@úo;	;""ui-header-background-gradient;i¶;""ui_header_background_gradient;@úo:Sass::Script::Bool;	F;i¶;@úo;	;	"
+right;i¶;
+;;@ú;[ ;@o;&;'{ ;"x-frame;i·;([o;	;	"panel-header;i·;
+;);{ o;*
+;+o;	;"ui-label;i·;"ui_label;@J;i·;,o;	;	" ;i·;
+;);@J;-o;	;	"-collapsed-bottom;i·;
+;);@J;@Jo;	;;;	[	o;.
+;'{ ;"top;i·;([o;	;"ui-border-radius;i·;"ui_border_radius;@J;@Jo;.
+;'{ ;"
+right;i·;([o;	;"ui-border-radius;i·;"ui_border_radius;@J;@Jo;.
+;'{ ;"bottom;i·;([o;	;"ui-border-radius;i·;"ui_border_radius;@J;@Jo;.
+;'{ ;"	left;i·;([o;	;"ui-border-radius;i·;"ui_border_radius;@J;@J;i·;@Jo;	;"ui-border-width;i·;"ui_border_width;@Jo;	;;;	[	o;;["px;	i	;i·;"4px;[ ;@Jo;;["px;	i
+;i·;"5px;[ ;@Jo;;["px;	i	;i·;"4px;[ ;@Jo;;["px;	i
+;i·;"5px;[ ;@J;i·;@Jo;	;"ui-header-background-color;i·;"ui_header_background_color;@Jo;	;""ui-header-background-gradient;i·;""ui_header_background_gradient;@J;[ ;@o;&;'{ ;"x-frame;i¸;([o;	;	"panel-header;i¸;
+;);{ o;*
+;+o;	;"ui-label;i¸;"ui_label;@—;i¸;,o;	;	" ;i¸;
+;);@—;-o;	;	"-collapsed-left;i¸;
+;);@—;@—o;	;;;	[	o;.
+;'{ ;"top;i¸;([o;	;"ui-border-radius;i¸;"ui_border_radius;@—;@—o;.
+;'{ ;"
+right;i¸;([o;	;"ui-border-radius;i¸;"ui_border_radius;@—;@—o;.
+;'{ ;"bottom;i¸;([o;	;"ui-border-radius;i¸;"ui_border_radius;@—;@—o;.
+;'{ ;"	left;i¸;([o;	;"ui-border-radius;i¸;"ui_border_radius;@—;@—;i¸;@—o;	;"ui-border-width;i¸;"ui_border_width;@—o;	;;;	[	o;;["px;	i	;i¸;"4px;[ ;@—o;;["px;	i
+;i¸;"5px;[ ;@—o;;["px;	i	;i¸;"4px;[ ;@—o;;["px;	i
+;i¸;"5px;[ ;@—;i¸;@—o;	;"ui-header-background-color;i¸;"ui_header_background_color;@—o;	;""ui-header-background-gradient;i¸;""ui_header_background_gradient;@—o;/;	F;i¸;@—o;	;	"
+right;i¸;
+;;@—;[ ;@o;
+;"*/*background positioning of images */;i ;i»;[ ;	[ ;0;@o;;i¾;T;	[o;;;;o;;"right 0;;;["background-position;i¿;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;i¼;!"prefix;{ "panel-header-o; 	;"ui-label;i¼;!"ui_label;{ "-right-tc,
+    .o; 	;"prefix;i½;!"prefix;{ "panel-header-o; 	;"ui-label;i½;!"ui_label;{ "-right-mc,
+    .o; 	;"prefix;i¾;!"prefix;{ "panel-header-o; 	;"ui-label;i¾;!"ui_label;{ "-right-bco;;iÄ;T;	[o;;;;o;;"0 bottom;;;["background-position;iÅ;	[ ;i ;F;@;i ;@;[".o; 	;"prefix;iÂ;!"prefix;{ "panel-header-o; 	;"ui-label;iÂ;!"ui_label;{ "-bottom-tc,
+    .o; 	;"prefix;iÃ;!"prefix;{ "panel-header-o; 	;"ui-label;iÃ;!"ui_label;{ "-bottom-mc,
+    .o; 	;"prefix;iÄ;!"prefix;{ "panel-header-o; 	;"ui-label;iÄ;!"ui_label;{ "-bottom-bc;@;@

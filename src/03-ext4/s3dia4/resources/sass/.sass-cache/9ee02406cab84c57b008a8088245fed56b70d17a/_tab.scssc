@@ -1,0 +1,1013 @@
+3.1.0 (Brainy Betty)
+b067c20d38902169246299661e14f5ee7106d189
+o:Sass::Tree::RootNode
+:
+@linei:@has_childrenT:@template"€B/**
+  * @class Ext.Tab
+  */
+@mixin extjs-tab {
+    @include x-frame(
+        $cls: 'tab',
+        $ui: 'default-top',
+        $border-radius: $tab-top-border-radius,
+        $border-width: $tab-top-border-width,
+        $background-color: $tab-base-color,
+        $background-gradient: $tab-background-gradient,
+        $background-direction: top,
+        $table: true
+    );
+
+    @include x-frame(
+        $cls: 'tab',
+        $ui: 'default-bottom',
+        $border-radius: $tab-bottom-border-radius,
+        $border-width: $tab-bottom-border-width,
+        $background-color: $tab-base-color,
+        $background-gradient: $tab-background-gradient,
+        $background-direction: bottom,
+        $table: true
+    );
+
+    .#{$prefix}tab {
+        z-index: 1;
+        margin: 0 0 0 $tab-spacing;
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        white-space: nowrap;
+        height: $tab-height;
+        border-color: $tab-border-color;
+        cursor: pointer;
+        cursor: hand;
+
+        * {
+            cursor: pointer;
+            cursor: hand;
+        }
+
+        em {
+            display: block;
+            padding: 0 6px;
+            line-height: 1px;
+        }
+
+        button {
+            background: none;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            -webkit-appearance: none;
+            font-size: $tab-font-size;
+            @if $tab-font-weight {
+                font-weight: $tab-font-weight;
+            }
+            @if $tab-font-family {
+                $font-family: $tab-font-family;
+            }
+
+            color: $tab-color;
+            outline: 0 none;
+
+            overflow: hidden;
+            overflow-x: visible;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+
+            &::-moz-focus-inner {
+                border: 0;
+                padding: 0;
+            }
+
+            .#{$prefix}tab-inner {
+                background-color: transparent;
+                background-repeat: no-repeat;
+                background-position: 0 -2px;
+                display: block;
+                text-align: center;
+                white-space: nowrap;
+            }
+        }
+
+        img {
+            display: none;
+        }
+    }
+
+    .#{$prefix}tab-disabled {
+        @include opacity(1);
+    }
+
+    .#{$prefix}border-box {
+        .#{$prefix}tab-default-top {
+            height: $tab-height + top($tabbar-top-strip-border-width);
+        }
+        .#{$prefix}tab-default-bottom {
+            height: $tab-height + bottom($tabbar-bottom-strip-border-width);
+        }
+    }
+
+    @if $include-ie {
+        * html .#{$prefix}ie {
+            .#{$prefix}tab button {
+                width: 1px;
+            }
+        }
+
+        .#{$prefix}strict .#{$prefix}ie6,
+        .#{$prefix}strict .#{$prefix}ie7 {
+            .#{$prefix}tab .#{$prefix}frame-mc {
+                height: 100%;
+            }
+        }
+
+        .#{$prefix}ie .#{$prefix}tab-active button:active {
+            position: relative;
+            top: -1px;
+            left: -1px;
+        }
+    }
+
+    $framepad: max(top($tab-top-border-radius), right($tab-top-border-radius)) - top($tab-top-border-width);
+
+    .#{$prefix}tab-default-top {
+        @if $tab-inner-border {
+            @include inner-border(
+                $width: $tab-top-inner-border-width,
+                $color: $tab-inner-border-color
+            );
+        }
+
+        border-bottom: 1px solid $tabbar-strip-border-color !important;
+
+        em {
+            padding-bottom: $framepad;
+        }
+
+        button,
+        .#{$prefix}tab-inner {
+            height: $tab-height - $framepad * 2 - top($tab-top-border-width);
+            line-height: $tab-height - $framepad * 2 - top($tab-top-border-width);
+        }
+    }
+
+    .#{$prefix}nbr .#{$prefix}tab-default-top {
+        border-bottom-width: 1px !important;
+    }
+
+    .#{$prefix}tab-default-top-active {
+        border-bottom-color: $tabbar-strip-background-color !important;
+    }
+
+    $framepad: max(bottom($tab-bottom-border-radius), left($tab-bottom-border-radius)) - bottom($tab-bottom-border-width);
+
+    .#{$prefix}tab-default-bottom {
+        @if $tab-inner-border {
+            @include inner-border(
+                $width: $tab-bottom-inner-border-width,
+                $color: $tab-inner-border-color
+            );
+        }
+
+        border-top: 1px solid $tabbar-strip-border-color !important;
+
+        @include inner-border(
+            $width: $tab-bottom-inner-border-width,
+            $color: $tab-inner-border-color
+        );
+
+        em {
+            padding-top: $framepad;
+        }
+
+        button,
+        .#{$prefix}tab-inner {
+            height: $tab-height - $framepad * 2 - bottom($tab-bottom-border-width);
+            line-height: $tab-height - $framepad * 2 - bottom($tab-bottom-border-width);
+        }
+    }
+
+    .#{$prefix}nbr .#{$prefix}tab-default-bottom {
+        border-top-width: 1px !important;
+    }
+
+    .#{$prefix}tab-default-bottom-active {
+        border-top-color: $tabbar-strip-background-color !important;
+    }
+
+    .#{$prefix}tab-default-disabled {
+        cursor: default;
+
+        * {
+            cursor: default;
+        }
+
+        border-color: $tab-border-color-disabled;
+        @include background-gradient($tab-base-color-disabled, $tab-background-gradient-disabled);
+
+        button {
+            color: $tab-color-disabled !important;
+        }
+    }
+
+    .#{$prefix}tab-icon-text-left {
+        .#{$prefix}tab-inner {
+            padding-left: 20px;
+        }
+    }
+
+    .#{$prefix}tab {
+        button, a {
+            position: relative;
+
+            .#{$prefix}tab-icon {
+                position: absolute;
+                background-repeat: no-repeat;
+                top: 0;
+                left:0;
+                right:auto;
+                bottom:0;
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
+    //over
+    .#{$prefix}tab-over {
+        @if $tab-border-color-over != $tab-border-color {
+            border-color: $tab-border-color-over;
+        }
+
+        button {
+            @if $tab-color-over != $tab-color {
+                color: $tab-color-over;
+            }
+            @if $tab-font-weight-over != $tab-font-weight {
+                font-weight: $tab-font-weight-over;
+            }
+            @if $tab-font-size-over != $tab-font-size {
+                font-size: $tab-font-size-over;
+            }
+            @if $tab-font-family-over != $tab-font-family {
+                font-family: $tab-font-family-over;
+            }
+        }
+    }
+
+    .#{$prefix}tab-top-over {
+        @include background-gradient($tab-base-color-over, $tab-background-gradient-over, top);
+    }
+    .#{$prefix}tab-bottom-over {
+        @include background-gradient($tab-base-color-over, $tab-background-gradient-over, bottom);
+    }
+
+    //active
+    .#{$prefix}tab-active {
+        z-index: 3;
+        @if $tab-border-color-active != $tab-border-color {
+            border-color: $tab-border-color-active;
+        }
+
+        button {
+            @if $tab-color-active != $tab-color {
+                color: $tab-color-active;
+            }
+            @if $tab-font-weight-active != $tab-font-weight {
+                font-weight: $tab-font-weight-active;
+            }
+            @if $tab-font-size-active != $tab-font-size {
+                font-size: $tab-font-size-active;
+            }
+            @if $tab-font-family-active != $tab-font-family {
+                font-family: $tab-font-family-active;
+            }
+        }
+    }
+
+    .#{$prefix}tab-top-active {
+        @include background-gradient($tab-base-color-active, $tab-background-gradient-active, top);
+    }
+    .#{$prefix}tab-bottom-active {
+        @include background-gradient($tab-base-color-active, $tab-background-gradient-active, bottom);
+    }
+
+    //disabled
+    .#{$prefix}tab-disabled {
+        @if $tab-border-color-disabled != $tab-border-color {
+            border-color: $tab-border-color-disabled;
+        }
+
+        button {
+            @if $tab-color-disabled != $tab-color {
+                color: $tab-color-disabled;
+            }
+            @if $tab-font-weight-disabled != $tab-font-weight {
+                font-weight: $tab-font-weight-disabled;
+            }
+            @if $tab-font-size-disabled != $tab-font-size {
+                font-size: $tab-font-size-disabled;
+            }
+            @if $tab-font-family-disabled != $tab-font-family {
+                font-family: $tab-font-family-disabled;
+            }
+        }
+    }
+
+    .#{$prefix}tab-top-disabled {
+        background-image: none;
+        background: transparent;
+        @include background-gradient($tab-base-color-disabled, $tab-background-gradient-disabled, top);
+    }
+    .#{$prefix}tab-bottom-disabled {
+        background-image: none;
+        background: transparent;
+        @include background-gradient($tab-base-color-disabled, $tab-background-gradient-disabled, bottom);
+    }
+
+    @if not $supports-gradients or $compile-all {
+        .#{$prefix}nlg {
+            @if $tab-background-gradient != null {
+                .#{$prefix}tab-top { background-image: theme-background-image($theme-name, 'tab/tab-default-top-bg.gif'); }
+                .#{$prefix}tab-bottom { background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-bg.gif'); }
+            }
+
+            @if $tab-background-gradient-over != null {
+                .#{$prefix}tab-top-over { background-image: theme-background-image($theme-name, 'tab/tab-default-top-over-bg.gif'); }
+                .#{$prefix}tab-bottom-over { background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-over-bg.gif'); }
+            }
+
+            @if $tab-background-gradient-active != null {
+                .#{$prefix}tab-top-active { background-image: theme-background-image($theme-name, 'tab/tab-default-top-active-bg.gif'); }
+                .#{$prefix}tab-bottom-active { background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-active-bg.gif'); }
+            }
+
+            @if $tab-background-gradient-disabled != null {
+                .#{$prefix}tab-top-disabled { background-image: theme-background-image($theme-name, 'tab/tab-default-top-disabled-bg.gif') !important; }
+                .#{$prefix}tab-bottom-disabled { background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-disabled-bg.gif') !important; }
+            }
+        }
+    }
+
+    .#{$prefix}tab-closable em {
+        padding-right: $tab-closable-icon-width + 3;
+    }
+
+    .#{$prefix}tab-close-btn {
+        position: absolute !important;
+        top: $tab-closable-icon-top;
+        right: $tab-closable-icon-right;
+        width: $tab-closable-icon-width;
+        height: $tab-closable-icon-height;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -999px;
+        background: no-repeat;
+        background-image: theme-background-image($theme-name, $tab-closable-icon);
+        @include opacity(.6);
+    }
+    .#{$prefix}tab-close-btn:hover {
+        @include opacity(1);
+    }
+
+    @if not $supports-border-radius or $compile-all {
+        .#{$prefix}nbr {
+            .#{$prefix}tab-top-over {
+                .#{$prefix}frame-tl,
+                .#{$prefix}frame-bl,
+                .#{$prefix}frame-tr,
+                .#{$prefix}frame-br,
+                .#{$prefix}frame-tc,
+                .#{$prefix}frame-bc {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-top-over-corners.gif');
+                }
+                .#{$prefix}frame-ml,
+                .#{$prefix}frame-mr {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-top-over-sides.gif');
+                }
+                @if $tab-background-gradient-over != null {
+                    .#{$prefix}frame-mc {
+                        background-color: $tab-base-color-over;
+                        background-repeat: repeat-x;
+                        background-image: theme-background-image($theme-name, 'tab/tab-default-top-over-bg.gif');
+                    }
+                }
+            }
+
+            .#{$prefix}tab-bottom-over {
+                .#{$prefix}frame-tl,
+                .#{$prefix}frame-bl,
+                .#{$prefix}frame-tr,
+                .#{$prefix}frame-br,
+                .#{$prefix}frame-tc,
+                .#{$prefix}frame-bc {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-over-corners.gif');
+                }
+                .#{$prefix}frame-ml,
+                .#{$prefix}frame-mr {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-over-sides.gif');
+                }
+                @if $tab-background-gradient-over != null {
+                    .#{$prefix}frame-mc {
+                        background-color: $tab-base-color-over;
+                        background-repeat: repeat-x;
+                        background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-over-bg.gif');
+                    }
+                }
+            }
+
+            .#{$prefix}tab-top-active {
+                .#{$prefix}frame-tl,
+                .#{$prefix}frame-bl,
+                .#{$prefix}frame-tr,
+                .#{$prefix}frame-br,
+                .#{$prefix}frame-tc,
+                .#{$prefix}frame-bc {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-top-active-corners.gif');
+                }
+                .#{$prefix}frame-ml,
+                .#{$prefix}frame-mr {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-top-active-sides.gif');
+                }
+                @if $tab-background-gradient-active != null {
+                    .#{$prefix}frame-mc {
+                        background-color: $tab-base-color-active;
+                        background-repeat: repeat-x;
+                        background-image: theme-background-image($theme-name, 'tab/tab-default-top-active-bg.gif');
+                    }
+                }
+            }
+
+            .#{$prefix}tab-bottom-active {
+                .#{$prefix}frame-tl,
+                .#{$prefix}frame-bl,
+                .#{$prefix}frame-tr,
+                .#{$prefix}frame-br,
+                .#{$prefix}frame-tc,
+                .#{$prefix}frame-bc {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-active-corners.gif');
+                }
+                .#{$prefix}frame-ml,
+                .#{$prefix}frame-mr {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-active-sides.gif');
+                }
+                @if $tab-background-gradient-active != null {
+                    .#{$prefix}frame-mc {
+                        background-color: $tab-base-color-active;
+                        background-repeat: repeat-x;
+                        background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-active-bg.gif');
+                    }
+                }
+            }
+
+            .#{$prefix}tab-top-disabled {
+                .#{$prefix}frame-tl,
+                .#{$prefix}frame-bl,
+                .#{$prefix}frame-tr,
+                .#{$prefix}frame-br,
+                .#{$prefix}frame-tc,
+                .#{$prefix}frame-bc {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-top-disabled-corners.gif');
+                }
+                .#{$prefix}frame-ml,
+                .#{$prefix}frame-mr {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-top-disabled-sides.gif');
+                }
+                @if $tab-background-gradient-disabled != null {
+                    .#{$prefix}frame-mc {
+                        background-repeat: repeat-x;
+                        background-image: theme-background-image($theme-name, 'tab/tab-default-top-disabled-bg.gif');
+                    }
+                }
+            }
+
+            .#{$prefix}tab-bottom-disabled {
+                .#{$prefix}frame-tl,
+                .#{$prefix}frame-bl,
+                .#{$prefix}frame-tr,
+                .#{$prefix}frame-br,
+                .#{$prefix}frame-tc,
+                .#{$prefix}frame-bc {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-disabled-corners.gif');
+                }
+                .#{$prefix}frame-ml,
+                .#{$prefix}frame-mr {
+                    background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-disabled-sides.gif');
+                }
+                @if $tab-background-gradient-disabled != null {
+                    .#{$prefix}frame-mc {
+                        background-repeat: repeat-x;
+                        background-image: theme-background-image($theme-name, 'tab/tab-default-bottom-disabled-bg.gif');
+                    }
+                }
+            }
+        }
+    }
+}
+:@children[o:Sass::Tree::CommentNode:@value" /**
+  * @class Ext.Tab
+  */:@silent0;i:@lines[ ;	[ :
+@loud0:@options{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso:Sass::Tree::MixinDefNode:
+@name"extjs-tab;i	:
+@args[ ;T;	['o:Sass::Tree::MixinNode:@keywords{"background_gradiento:Sass::Script::Variable	;"tab-background-gradient;i:@underscored_name"tab_background_gradient;{ "
+tableo:Sass::Script::Bool;T;i;@"background_directiono:Sass::Script::String	;"top;i:
+@type:identifier;@"border_radiuso;	;"tab-top-border-radius;i;"tab_top_border_radius;@"uio;	;"default-top;i;:string;@"background_coloro;	;"tab-base-color;i;"tab_base_color;@"border_widtho;	;"tab-top-border-width;i;"tab_top_border_width;@"clso;	;"tab;i;;;@;"x-frame;i;[ ;	[ ;@o;;{"background_gradiento;	;"tab-background-gradient;i;"tab_background_gradient;{ "
+tableo;;T;i;@:"background_directiono;	;"bottom;i;;;@:"border_radiuso;	;"tab-bottom-border-radius;i;"tab_bottom_border_radius;@:"uio;	;"default-bottom;i;;;@:"background_coloro;	;"tab-base-color;i;"tab_base_color;@:"border_widtho;	;"tab-bottom-border-width;i;"tab_bottom_border_width;@:"clso;	;"tab;i;;;@:;"x-frame;i;[ ;	[ ;@o:Sass::Tree::RuleNode;i ;T;	[o:Sass::Tree::PropNode:@prop_syntax:new;o;;"1;;;["z-index;i!;	[ :
+@tabsi :@importantF;@o; ;!;";o:Sass::Script::List	:@separator:
+space;[	o:Sass::Script::Number:@numerator_units[ ;i ;i":@original"0:@denominator_units[ ;{ o;(;)[ ;i ;i";*"0;+@c;@do;(;)[ ;i ;i";*"0;+@c;@do;	;"tab-spacing;i";"tab_spacing;@d;i";@d;["margin;i";	[ ;#i ;$F;@o; ;!;";o;;"inline-block;;;["display;i#;	[ ;#i ;$F;@o; ;!;";o;;"1;;;["	zoom;i$;	[ ;#i ;$F;@o; ;!;";o;;"inline;;;["*display;i%;	[ ;#i ;$F;@o; ;!;";o;;"nowrap;;;["white-space;i&;	[ ;#i ;$F;@o; ;!;";o;	;"tab-height;i';"tab_height;{ ;["height;i';	[ ;#i ;$F;@o; ;!;";o;	;"tab-border-color;i(;"tab_border_color;{ ;["border-color;i(;	[ ;#i ;$F;@o; ;!;";o;;"pointer;;;["cursor;i);	[ ;#i ;$F;@o; ;!;";o;;"	hand;;;["cursor;i*;	[ ;#i ;$F;@o;:@parsed_ruleso:"Sass::Selector::CommaSequence:@filename" ;i,:@members[o:Sass::Selector::Sequence;/[o:#Sass::Selector::SimpleSequence;.@¢;i,;/[o:Sass::Selector::Universal;.@¢;i,:@namespace0;i,;T;	[o; ;!;";o;;"pointer;;;["cursor;i-;	[ ;#i ;$F;@o; ;!;";o;;"	hand;;;["cursor;i.;	[ ;#i ;$F;@;#i ;@:
+@rule["*o;;,o;-;." ;i1;/[o;0;/[o;1;.@∫;i1;/[o:Sass::Selector::Element	;.@∫;["em;i1;30;i1;T;	[o; ;!;";o;;"
+block;;;["display;i2;	[ ;#i ;$F;@o; ;!;";o;;"
+0 6px;;;["padding;i3;	[ ;#i ;$F;@o; ;!;";o;;"1px;;;["line-height;i4;	[ ;#i ;$F;@;#i ;@;4["emo;;,o;-;." ;i7;/[o;0;/[o;1;.@⁄;i7;/[o;5	;.@⁄;["button;i7;30;i7;T;	[o; ;!;";o;;"	none;;;["background;i8;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["border;i9;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["padding;i:;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["margin;i;;	[ ;#i ;$F;@o; ;!;";o;;"	none;;;["-webkit-appearance;i<;	[ ;#i ;$F;@o; ;!;";o;	;"tab-font-size;i=;"tab_font_size;{ ;["font-size;i=;	[ ;#i ;$F;@u:Sass::Tree::IfNode“[o:Sass::Script::Variable	:
+@name"tab-font-weight:
+@linei>:@underscored_name"tab_font_weight:@options{ 0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo; 	;"tab-font-weight;i?;"tab_font_weight;	{ ;["font-weight;i?:@children[ :
+@tabsi :@importantF;	{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6µ[o:Sass::Script::Variable	:
+@name"tab-font-family:
+@lineiA:@underscored_name"tab_font_family:@options{ 0[o:Sass::Tree::VariableNode:
+@expro; 	;"tab-font-family;iB;"tab_font_family;	{ ;"font-family;iB:@children[ :@guarded0;	{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso; ;!;";o;	;"tab-color;iE;"tab_color;{ ;["
+color;iE;	[ ;#i ;$F;@o; ;!;";o;;"0 none;;;["outline;iF;	[ ;#i ;$F;@o; ;!;";o;;"hidden;;;["overflow;iH;	[ ;#i ;$F;@o; ;!;";o;;"visible;;;["overflow-x;iI;	[ ;#i ;$F;@o; ;!;";o;;"ellipsis;;;["-o-text-overflow;iJ;	[ ;#i ;$F;@o; ;!;";o;;"ellipsis;;;["text-overflow;iK;	[ ;#i ;$F;@o;;,o;-;." ;iM;/[o;0;/[o;1;.@4;iM;/[o:Sass::Selector::Parent;.@4;iMo:Sass::Selector::Pseudo
+;.@4;["-moz-focus-inner;iM:	@arg0;:element;iM;T;	[o; ;!;";o;;"0;;;["border;iN;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["padding;iO;	[ ;#i ;$F;@;#i ;@;4["&::-moz-focus-innero;;iR;T;	[o; ;!;";o;;"transparent;;;["background-color;iS;	[ ;#i ;$F;@o; ;!;";o;;"no-repeat;;;["background-repeat;iT;	[ ;#i ;$F;@o; ;!;";o;%	;&;';[o;(;)[ ;i ;iU;*"0;+@c;{ o;(;)["px;i˘;iU;*"	-2px;+[ ;@a;iU;@a;["background-position;iU;	[ ;#i ;$F;@o; ;!;";o;;"
+block;;;["display;iV;	[ ;#i ;$F;@o; ;!;";o;;"center;;;["text-align;iW;	[ ;#i ;$F;@o; ;!;";o;;"nowrap;;;["white-space;iX;	[ ;#i ;$F;@;#i ;@;4[".o;	;"prefix;iR;"prefix;{ "tab-inner;#i ;@;4["buttono;;,o;-;." ;i\;/[o;0;/[o;1;.@á;i\;/[o;5	;.@á;["img;i\;30;i\;T;	[o; ;!;";o;;"	none;;;["display;i];	[ ;#i ;$F;@;#i ;@;4["img;#i ;@;4[".o;	;"prefix;i ;"prefix;{ "tabo;;ia;T;	[o;;{ ;"opacity;ib;[o;(;)[ ;i;ib;*"1;+@c;{ ;	[ ;@;#i ;@;4[".o;	;"prefix;ia;"prefix;{ "tab-disabledo;;ie;T;	[o;;if;T;	[o; ;!;";o:Sass::Script::Operation
+;ig:@operand2o:Sass::Script::Funcall
+;{ ;"top;ig;[o;	;""tabbar-top-strip-border-width;ig;""tabbar_top_strip_border_width;{ ;@ø:@operator:	plus;@ø:@operand1o;	;"tab-height;ig;"tab_height;@ø;["height;ig;	[ ;#i ;$F;@;#i ;@;4[".o;	;"prefix;if;"prefix;{ "tab-default-topo;;ii;T;	[o; ;!;";o;;
+;ij;<o;=
+;{ ;"bottom;ij;[o;	;"%tabbar-bottom-strip-border-width;ij;"%tabbar_bottom_strip_border_width;{ ;@ÿ;>;?;@ÿ;@o;	;"tab-height;ij;"tab_height;@ÿ;["height;ij;	[ ;#i ;$F;@;#i ;@;4[".o;	;"prefix;ii;"prefix;{ "tab-default-bottom;#i ;@;4[".o;	;"prefix;ie;"prefix;{ "border-boxu;6{[o:Sass::Script::Variable	:
+@name"include-ie:
+@linein:@underscored_name"include_ie:@options{ 0[o:Sass::Tree::RuleNode;io:@has_childrenT:@children[o;
+;ip;T;[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo:Sass::Script::String;"1px:
+@type:identifier;["
+width;iq;[ :
+@tabsi :@importantF;	{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;	@:
+@rule[".o; 	;"prefix;ip;"prefix;	{ "tab button;i ;	@;["* html .o; 	;"prefix;io;"prefix;	{ "ieo;
+;iv;T;[o;
+;iw;T;[o;;;;o;;"	100%;;;["height;ix;[ ;i ;F;	@;i ;	@;[
+".o; 	;"prefix;iw;"prefix;	{ "
+tab .o; 	;"prefix;iw;"prefix;	{ "frame-mc;i ;	@;[".o; 	;"prefix;iu;"prefix;	{ "strict .o; 	;"prefix;iu;"prefix;	{ "ie6,
+        .o; 	;"prefix;iv;"prefix;	{ "strict .o; 	;"prefix;iv;"prefix;	{ "ie7o;
+;i|;T;[o;;;;o;;"relative;;;["position;i};[ ;i ;F;	@o;;;;o:Sass::Script::Number:@numerator_units["px;i˙;i~:@original"	-1px:@denominator_units[ ;	{ ;["top;i~;[ ;i ;F;	@o;;;;o;;["px;i˙;i;"	-1px;[ ;	{ ;["	left;i;[ ;i ;F;	@;i ;	@;[
+".o; 	;"prefix;i|;"prefix;	{ "	ie .o; 	;"prefix;i|;"prefix;	{ "tab-active button:activeo:Sass::Tree::VariableNode:
+@expro;;
+;i~;<o;=
+;{ ;"top;i~;[o;	;"tab-top-border-width;i~;"tab_top_border_width;{ ;@˜;>:
+minus;@˜;@o;=
+;{ ;"max;i~;[o;=
+;{ ;"top;i~;[o;	;"tab-top-border-radius;i~;"tab_top_border_radius;@˜;@˜o;=
+;{ ;"
+right;i~;[o;	;"tab-top-border-radius;i~;"tab_top_border_radius;@˜;@˜;@˜;"framepad;i~;	[ :@guarded0;@o;;iÄ;T;	[	u;6![o:Sass::Script::Variable	:
+@name"tab-inner-border:
+@lineiÅ:@underscored_name"tab_inner_border:@options{ 0[o:Sass::Tree::MixinNode:@keywords{"
+coloro; 	;"tab-inner-border-color;iÑ;"tab_inner_border_color;	{ "
+widtho; 	;"tab-top-inner-border-width;iÉ;"tab_top_inner_border_width;	@;"inner-border;iÖ:
+@args[ :@children[ ;	{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso; ;!;";o;%	;&;';[	o;(;)["px;i;ià;*"1px;+[ ;{ o;	;"
+solid;ià;;;@o;	;"tabbar-strip-border-color;ià;"tabbar_strip_border_color;@o;	;"!important;ià;;;@;ià;@;["border-bottom;ià;	[ ;#i ;$F;@o;;,o;-;." ;iä;/[o;0;/[o;1;.@$;iä;/[o;5	;.@$;["em;iä;30;iä;T;	[o; ;!;";o;	;"framepad;iã;"framepad;{ ;["padding-bottom;iã;	[ ;#i ;$F;@;#i ;@;4["emo;;iè;T;	[o; ;!;";o;;
+;iê;<o;=
+;{ ;"top;iê;[o;	;"tab-top-border-width;iê;"tab_top_border_width;{ ;@C;>;C;@C;@o;;
+;iê;<o;;
+;iê;<o;(;)[ ;i;iê;*"2;+@c;@C;>:
+times;@C;@o;	;"framepad;iê;"framepad;@C;>;C;@C;@o;	;"tab-height;iê;"tab_height;@C;["height;iê;	[ ;#i ;$F;@o; ;!;";o;;
+;ië;<o;=
+;{ ;"top;ië;[o;	;"tab-top-border-width;ië;"tab_top_border_width;{ ;@[;>;C;@[;@o;;
+;ië;<o;;
+;ië;<o;(;)[ ;i;ië;*"2;+@c;@[;>;E;@[;@o;	;"framepad;ië;"framepad;@[;>;C;@[;@o;	;"tab-height;ië;"tab_height;@[;["line-height;ië;	[ ;#i ;$F;@;#i ;@;4["button,
+        .o;	;"prefix;iè;"prefix;{ "tab-inner;#i ;@;4[".o;	;"prefix;iÄ;"prefix;{ "tab-default-topo;;iï;T;	[o; ;!;";o;%	;&;';[o;(;)["px;i;iñ;*"1px;+[ ;{ o;	;"!important;iñ;;;@Ç;iñ;@Ç;["border-bottom-width;iñ;	[ ;#i ;$F;@;#i ;@;4[
+".o;	;"prefix;iï;"prefix;{ "
+nbr .o;	;"prefix;iï;"prefix;{ "tab-default-topo;;iô;T;	[o; ;!;";o;%	;&;';[o;	;""tabbar-strip-background-color;iö;""tabbar_strip_background_color;{ o;	;"!important;iö;;;@ú;iö;@ú;["border-bottom-color;iö;	[ ;#i ;$F;@;#i ;@;4[".o;	;"prefix;iô;"prefix;{ "tab-default-top-activeo;A;Bo;;
+;iù;<o;=
+;{ ;"bottom;iù;[o;	;"tab-bottom-border-width;iù;"tab_bottom_border_width;{ ;@≤;>;C;@≤;@o;=
+;{ ;"max;iù;[o;=
+;{ ;"bottom;iù;[o;	;"tab-bottom-border-radius;iù;"tab_bottom_border_radius;@≤;@≤o;=
+;{ ;"	left;iù;[o;	;"tab-bottom-border-radius;iù;"tab_bottom_border_radius;@≤;@≤;@≤;"framepad;iù;	[ ;D0;@o;;iü;T;	[
+u;6'[o:Sass::Script::Variable	:
+@name"tab-inner-border:
+@linei†:@underscored_name"tab_inner_border:@options{ 0[o:Sass::Tree::MixinNode:@keywords{"
+coloro; 	;"tab-inner-border-color;i£;"tab_inner_border_color;	{ "
+widtho; 	;""tab-bottom-inner-border-width;i¢;""tab_bottom_inner_border_width;	@;"inner-border;i§:
+@args[ :@children[ ;	{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso; ;!;";o;%	;&;';[	o;(;)["px;i;iß;*"1px;+[ ;{ o;	;"
+solid;iß;;;@“o;	;"tabbar-strip-border-color;iß;"tabbar_strip_border_color;@“o;	;"!important;iß;;;@“;iß;@“;["border-top;iß;	[ ;#i ;$F;@o;;{"
+coloro;	;"tab-inner-border-color;i´;"tab_inner_border_color;{ "
+widtho;	;""tab-bottom-inner-border-width;i™;""tab_bottom_inner_border_width;@„;"inner-border;i¨;[ ;	[ ;@o;;,o;-;." ;iÆ;/[o;0;/[o;1;.@Ì;iÆ;/[o;5	;.@Ì;["em;iÆ;30;iÆ;T;	[o; ;!;";o;	;"framepad;iØ;"framepad;{ ;["padding-top;iØ;	[ ;#i ;$F;@;#i ;@;4["emo;;i≥;T;	[o; ;!;";o;;
+;i¥;<o;=
+;{ ;"bottom;i¥;[o;	;"tab-bottom-border-width;i¥;"tab_bottom_border_width;{ ;@;>;C;@;@o;;
+;i¥;<o;;
+;i¥;<o;(;)[ ;i;i¥;*"2;+@c;@;>;E;@;@o;	;"framepad;i¥;"framepad;@;>;C;@;@o;	;"tab-height;i¥;"tab_height;@;["height;i¥;	[ ;#i ;$F;@o; ;!;";o;;
+;iµ;<o;=
+;{ ;"bottom;iµ;[o;	;"tab-bottom-border-width;iµ;"tab_bottom_border_width;{ ;@$;>;C;@$;@o;;
+;iµ;<o;;
+;iµ;<o;(;)[ ;i;iµ;*"2;+@c;@$;>;E;@$;@o;	;"framepad;iµ;"framepad;@$;>;C;@$;@o;	;"tab-height;iµ;"tab_height;@$;["line-height;iµ;	[ ;#i ;$F;@;#i ;@;4["button,
+        .o;	;"prefix;i≥;"prefix;{ "tab-inner;#i ;@;4[".o;	;"prefix;iü;"prefix;{ "tab-default-bottomo;;iπ;T;	[o; ;!;";o;%	;&;';[o;(;)["px;i;i∫;*"1px;+[ ;{ o;	;"!important;i∫;;;@K;i∫;@K;["border-top-width;i∫;	[ ;#i ;$F;@;#i ;@;4[
+".o;	;"prefix;iπ;"prefix;{ "
+nbr .o;	;"prefix;iπ;"prefix;{ "tab-default-bottomo;;iΩ;T;	[o; ;!;";o;%	;&;';[o;	;""tabbar-strip-background-color;iæ;""tabbar_strip_background_color;{ o;	;"!important;iæ;;;@e;iæ;@e;["border-top-color;iæ;	[ ;#i ;$F;@;#i ;@;4[".o;	;"prefix;iΩ;"prefix;{ "tab-default-bottom-activeo;;i¡;T;	[
+o; ;!;";o;;"default;;;["cursor;i¬;	[ ;#i ;$F;@o;;,o;-;." ;iƒ;/[o;0;/[o;1;.@|;iƒ;/[o;2;.@|;iƒ;30;iƒ;T;	[o; ;!;";o;;"default;;;["cursor;i≈;	[ ;#i ;$F;@;#i ;@;4["*o; ;!;";o;	;"tab-border-color-disabled;i»;"tab_border_color_disabled;{ ;["border-color;i»;	[ ;#i ;$F;@o;;{ ;"background-gradient;i…;[o;	;"tab-base-color-disabled;i…;"tab_base_color_disabled;{ o;	;"%tab-background-gradient-disabled;i…;"%tab_background_gradient_disabled;@õ;	[ ;@o;;,o;-;." ;iÀ;/[o;0;/[o;1;.@¢;iÀ;/[o;5	;.@¢;["button;iÀ;30;iÀ;T;	[o; ;!;";o;%	;&;';[o;	;"tab-color-disabled;iÃ;"tab_color_disabled;{ o;	;"!important;iÃ;;;@≤;iÃ;@≤;["
+color;iÃ;	[ ;#i ;$F;@;#i ;@;4["button;#i ;@;4[".o;	;"prefix;i¡;"prefix;{ "tab-default-disabledo;;i–;T;	[o;;i—;T;	[o; ;!;";o;;"	20px;;;["padding-left;i“;	[ ;#i ;$F;@;#i ;@;4[".o;	;"prefix;i—;"prefix;{ "tab-inner;#i ;@;4[".o;	;"prefix;i–;"prefix;{ "tab-icon-text-lefto;;i÷;T;	[o;;,o;-;." ;i◊;/[o;0;/[o;1;.@›;i◊;/[o;5	;.@›;["button;i◊;30o;0;/[o;1;.@›;i◊;/[o;5	;.@›;["a;i◊;30;i◊;T;	[o; ;!;";o;;"relative;;;["position;iÿ;	[ ;#i ;$F;@o;;i⁄;T;	[o; ;!;";o;;"absolute;;;["position;i€;	[ ;#i ;$F;@o; ;!;";o;;"no-repeat;;;["background-repeat;i‹;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["top;i›;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["	left;iﬁ;	[ ;#i ;$F;@o; ;!;";o;;"	auto;;;["
+right;iﬂ;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["bottom;i‡;	[ ;#i ;$F;@o; ;!;";o;;"	18px;;;["
+width;i·;	[ ;#i ;$F;@o; ;!;";o;;"	18px;;;["height;i‚;	[ ;#i ;$F;@;#i ;@;4[".o;	;"prefix;i⁄;"prefix;{ "tab-icon;#i ;@;4["button, a;#i ;@;4[".o;	;"prefix;i÷;"prefix;{ "tabo;
+;"/*over */;i ;iÁ;[ ;	[ ;0;@o;;iË;T;	[u;6m[o:Sass::Script::Operation
+:
+@lineiÈ:@operand2o:Sass::Script::Variable	:
+@name"tab-border-color;iÈ:@underscored_name"tab_border_color:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-border-color-over;iÈ;
+"tab_border_color_over;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-border-color-over;iÍ;
+"tab_border_color_over;{ ;	["border-color;iÍ:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;,o;-;." ;iÌ;/[o;0;/[o;1;.@?;iÌ;/[o;5	;.@?;["button;iÌ;30;iÌ;T;	[	u;6<[o:Sass::Script::Operation
+:
+@lineiÓ:@operand2o:Sass::Script::Variable	:
+@name"tab-color;iÓ:@underscored_name"tab_color:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-color-over;iÓ;
+"tab_color_over;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-color-over;iÔ;
+"tab_color_over;{ ;	["
+color;iÔ:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6f[o:Sass::Script::Operation
+:
+@lineiÒ:@operand2o:Sass::Script::Variable	:
+@name"tab-font-weight;iÒ:@underscored_name"tab_font_weight:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-weight-over;iÒ;
+"tab_font_weight_over;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-weight-over;iÚ;
+"tab_font_weight_over;{ ;	["font-weight;iÚ:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6X[o:Sass::Script::Operation
+:
+@lineiÙ:@operand2o:Sass::Script::Variable	:
+@name"tab-font-size;iÙ:@underscored_name"tab_font_size:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-size-over;iÙ;
+"tab_font_size_over;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-size-over;iı;
+"tab_font_size_over;{ ;	["font-size;iı:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6f[o:Sass::Script::Operation
+:
+@linei˜:@operand2o:Sass::Script::Variable	:
+@name"tab-font-family;i˜:@underscored_name"tab_font_family:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-family-over;i˜;
+"tab_font_family_over;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-family-over;i¯;
+"tab_font_family_over;{ ;	["font-family;i¯:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;#i ;@;4["button;#i ;@;4[".o;	;"prefix;iË;"prefix;{ "tab-overo;;i˝;T;	[o;;{ ;"background-gradient;i˛;[o;	;"tab-base-color-over;i˛;"tab_base_color_over;{ o;	;"!tab-background-gradient-over;i˛;"!tab_background_gradient_over;@_o;	;"top;i˛;;;@_;	[ ;@;#i ;@;4[".o;	;"prefix;i˝;"prefix;{ "tab-top-overo;;i ;T;	[o;;{ ;"background-gradient;i;[o;	;"tab-base-color-over;i;"tab_base_color_over;{ o;	;"!tab-background-gradient-over;i;"!tab_background_gradient_over;@vo;	;"bottom;i;;;@v;	[ ;@;#i ;@;4[".o;	;"prefix;i ;"prefix;{ "tab-bottom-overo;
+;"/*active */;i ;i;[ ;	[ ;0;@o;;i;T;	[o; ;!;";o;;"3;;;["z-index;i;	[ ;#i ;$F;@u;6z[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::Variable	:
+@name"tab-border-color;i:@underscored_name"tab_border_color:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-border-color-active;i;
+"tab_border_color_active;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-border-color-active;i;
+"tab_border_color_active;{ ;	["border-color;i:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;,o;-;." ;i;/[o;0;/[o;1;.@ì;i;/[o;5	;.@ì;["button;i;30;i;T;	[	u;6I[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::Variable	:
+@name"tab-color;i:@underscored_name"tab_color:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-color-active;i;
+"tab_color_active;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-color-active;i;
+"tab_color_active;{ ;	["
+color;i:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6s[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::Variable	:
+@name"tab-font-weight;i:@underscored_name"tab_font_weight:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-weight-active;i;
+"tab_font_weight_active;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-weight-active;i;
+"tab_font_weight_active;{ ;	["font-weight;i:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6e[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::Variable	:
+@name"tab-font-size;i:@underscored_name"tab_font_size:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-size-active;i;
+"tab_font_size_active;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-size-active;i;
+"tab_font_size_active;{ ;	["font-size;i:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6s[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::Variable	:
+@name"tab-font-family;i:@underscored_name"tab_font_family:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-family-active;i;
+"tab_font_family_active;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-family-active;i;
+"tab_font_family_active;{ ;	["font-family;i:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;#i ;@;4["button;#i ;@;4[".o;	;"prefix;i;"prefix;{ "tab-activeo;;i;T;	[o;;{ ;"background-gradient;i;[o;	;"tab-base-color-active;i;"tab_base_color_active;{ o;	;"#tab-background-gradient-active;i;"#tab_background_gradient_active;@≥o;	;"top;i;;;@≥;	[ ;@;#i ;@;4[".o;	;"prefix;i;"prefix;{ "tab-top-activeo;;i;T;	[o;;{ ;"background-gradient;i;[o;	;"tab-base-color-active;i;"tab_base_color_active;{ o;	;"#tab-background-gradient-active;i;"#tab_background_gradient_active;@ o;	;"bottom;i;;;@ ;	[ ;@;#i ;@;4[".o;	;"prefix;i;"prefix;{ "tab-bottom-activeo;
+;"/*disabled */;i ;i";[ ;	[ ;0;@o;;i#;T;	[u;6Ç[o:Sass::Script::Operation
+:
+@linei$:@operand2o:Sass::Script::Variable	:
+@name"tab-border-color;i$:@underscored_name"tab_border_color:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-border-color-disabled;i$;
+"tab_border_color_disabled;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-border-color-disabled;i%;
+"tab_border_color_disabled;{ ;	["border-color;i%:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;,o;-;." ;i(;/[o;0;/[o;1;.@·;i(;/[o;5	;.@·;["button;i(;30;i(;T;	[	u;6Q[o:Sass::Script::Operation
+:
+@linei):@operand2o:Sass::Script::Variable	:
+@name"tab-color;i):@underscored_name"tab_color:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-color-disabled;i);
+"tab_color_disabled;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-color-disabled;i*;
+"tab_color_disabled;{ ;	["
+color;i*:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6{[o:Sass::Script::Operation
+:
+@linei,:@operand2o:Sass::Script::Variable	:
+@name"tab-font-weight;i,:@underscored_name"tab_font_weight:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-weight-disabled;i,;
+"tab_font_weight_disabled;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-weight-disabled;i-;
+"tab_font_weight_disabled;{ ;	["font-weight;i-:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6m[o:Sass::Script::Operation
+:
+@linei/:@operand2o:Sass::Script::Variable	:
+@name"tab-font-size;i/:@underscored_name"tab_font_size:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-size-disabled;i/;
+"tab_font_size_disabled;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-size-disabled;i0;
+"tab_font_size_disabled;{ ;	["font-size;i0:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetsu;6{[o:Sass::Script::Operation
+:
+@linei2:@operand2o:Sass::Script::Variable	:
+@name"tab-font-family;i2:@underscored_name"tab_font_family:@options{ :@operator:neq;@
+:@operand1o;	;	"tab-font-family-disabled;i2;
+"tab_font_family_disabled;@
+0[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo;	;	"tab-font-family-disabled;i3;
+"tab_font_family_disabled;{ ;	["font-family;i3:@children[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;#i ;@;4["button;#i ;@;4[".o;	;"prefix;i#;"prefix;{ "tab-disabledo;;i8;T;	[o; ;!;";o;;"	none;;;["background-image;i9;	[ ;#i ;$F;@o; ;!;";o;;"transparent;;;["background;i:;	[ ;#i ;$F;@o;;{ ;"background-gradient;i;;[o;	;"tab-base-color-disabled;i;;"tab_base_color_disabled;{ o;	;"%tab-background-gradient-disabled;i;;"%tab_background_gradient_disabled;@o;	;"top;i;;;;@;	[ ;@;#i ;@;4[".o;	;"prefix;i8;"prefix;{ "tab-top-disabledo;;i=;T;	[o; ;!;";o;;"	none;;;["background-image;i>;	[ ;#i ;$F;@o; ;!;";o;;"transparent;;;["background;i?;	[ ;#i ;$F;@o;;{ ;"background-gradient;i@;[o;	;"tab-base-color-disabled;i@;"tab_base_color_disabled;{ o;	;"%tab-background-gradient-disabled;i@;"%tab_background_gradient_disabled;@0o;	;"bottom;i@;;;@0;	[ ;@;#i ;@;4[".o;	;"prefix;i=;"prefix;{ "tab-bottom-disabledu;6n[o:Sass::Script::Operation
+:
+@lineiC:@operand2o:Sass::Script::Variable	:
+@name"compile-all;iC:@underscored_name"compile_all:@options{ :@operator:or;@
+:@operand1o:!Sass::Script::UnaryOperation	;iC:@operando;	;	"supports-gradients;iC;
+"supports_gradients;@
+;:not;@
+0[o:Sass::Tree::RuleNode;iD:@has_childrenT:@children[	u:Sass::Tree::IfNodeu[o:Sass::Script::Operation
+:
+@lineiE:@operand2o:Sass::Script::String	:@value"	null;iE:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"tab-background-gradient;iE:@underscored_name"tab_background_gradient;@	0[o:Sass::Tree::RuleNode;iF:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;iF:
+@args[o;	;"theme-name;iF;"theme_name;{ o;	;	"tab/tab-default-top-bg.gif;iF;
+:string;@;@;["background-image;iF;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@:
+@rule[".o;	;"prefix;iF;"prefix;{ "tab-topo;;iG;T;[o;;;;	o;
+;{ ;"theme-background-image;iG;[o;	;"theme-name;iG;"theme_name;{ o;	;	""tab/tab-default-bottom-bg.gif;iG;
+;;@2;@2;["background-image;iG;[ ;i ;F;@;i ;@;"[".o;	;"prefix;iG;"prefix;{ "tab-bottomu;ì[o:Sass::Script::Operation
+:
+@lineiJ:@operand2o:Sass::Script::String	:@value"	null;iJ:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"!tab-background-gradient-over;iJ:@underscored_name"!tab_background_gradient_over;@	0[o:Sass::Tree::RuleNode;iK:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;iK:
+@args[o;	;"theme-name;iK;"theme_name;{ o;	;	"$tab/tab-default-top-over-bg.gif;iK;
+:string;@;@;["background-image;iK;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@:
+@rule[".o;	;"prefix;iK;"prefix;{ "tab-top-overo;;iL;T;[o;;;;	o;
+;{ ;"theme-background-image;iL;[o;	;"theme-name;iL;"theme_name;{ o;	;	"'tab/tab-default-bottom-over-bg.gif;iL;
+;;@2;@2;["background-image;iL;[ ;i ;F;@;i ;@;"[".o;	;"prefix;iL;"prefix;{ "tab-bottom-overu;ü[o:Sass::Script::Operation
+:
+@lineiO:@operand2o:Sass::Script::String	:@value"	null;iO:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"#tab-background-gradient-active;iO:@underscored_name"#tab_background_gradient_active;@	0[o:Sass::Tree::RuleNode;iP:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;iP:
+@args[o;	;"theme-name;iP;"theme_name;{ o;	;	"&tab/tab-default-top-active-bg.gif;iP;
+:string;@;@;["background-image;iP;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@:
+@rule[".o;	;"prefix;iP;"prefix;{ "tab-top-activeo;;iQ;T;[o;;;;	o;
+;{ ;"theme-background-image;iQ;[o;	;"theme-name;iQ;"theme_name;{ o;	;	")tab/tab-default-bottom-active-bg.gif;iQ;
+;;@2;@2;["background-image;iQ;[ ;i ;F;@;i ;@;"[".o;	;"prefix;iQ;"prefix;{ "tab-bottom-activeu;8[o:Sass::Script::Operation
+:
+@lineiT:@operand2o:Sass::Script::String	:@value"	null;iT:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"%tab-background-gradient-disabled;iT:@underscored_name"%tab_background_gradient_disabled;@	0[o:Sass::Tree::RuleNode;iU:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o:Sass::Script::List	:@separator:
+space;	[o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;iU:
+@args[o;	;"theme-name;iU;"theme_name;{ o;	;	"(tab/tab-default-top-disabled-bg.gif;iU;
+:string;@;@o;	;	"!important;iU;
+;;@;iU;@;["background-image;iU;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets; i ;@":
+@rule[".o;	;"prefix;iU;"prefix;{ "tab-top-disabledo;;iV;T;[o;;;;	o;	;;;	[o;
+;{ ;"theme-background-image;iV;[o;	;"theme-name;iV;"theme_name;{ o;	;	"+tab/tab-default-bottom-disabled-bg.gif;iV;
+;;@8;@8o;	;	"!important;iV;
+;;@8;iV;@8;["background-image;iV;[ ; i ;!F;@"; i ;@";%[".o;	;"prefix;iV;"prefix;{ "tab-bottom-disabled:
+@tabsi ;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets:
+@rule[".o;	;	"prefix;iD;
+"prefix;{ "nlgo;;i[;T;	[o; ;!;";o;;
+;i\;<o;(;)[ ;i;i\;*"3;+@c;{ ;>;?;@F;@o;	;"tab-closable-icon-width;i\;"tab_closable_icon_width;@F;["padding-right;i\;	[ ;#i ;$F;@;#i ;@;4[".o;	;"prefix;i[;"prefix;{ "tab-closable emo;;i_;T;	[o; ;!;";o;%	;&;';[o;	;"absolute;i`;;;{ o;	;"!important;i`;;;@[;i`;@[;["position;i`;	[ ;#i ;$F;@o; ;!;";o;	;"tab-closable-icon-top;ia;"tab_closable_icon_top;{ ;["top;ia;	[ ;#i ;$F;@o; ;!;";o;	;"tab-closable-icon-right;ib;"tab_closable_icon_right;{ ;["
+right;ib;	[ ;#i ;$F;@o; ;!;";o;	;"tab-closable-icon-width;ic;"tab_closable_icon_width;{ ;["
+width;ic;	[ ;#i ;$F;@o; ;!;";o;	;"tab-closable-icon-height;id;"tab_closable_icon_height;{ ;["height;id;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["font-size;ie;	[ ;#i ;$F;@o; ;!;";o;;"0;;;["line-height;if;	[ ;#i ;$F;@o; ;!;";o;(;)["px;i˛¸;ig;*"-999px;+[ ;{ ;["text-indent;ig;	[ ;#i ;$F;@o; ;!;";o;;"no-repeat;;;["background;ih;	[ ;#i ;$F;@o; ;!;";o;=
+;{ ;"theme-background-image;ii;[o;	;"theme-name;ii;"theme_name;{ o;	;"tab-closable-icon;ii;"tab_closable_icon;@•;@•;["background-image;ii;	[ ;#i ;$F;@o;;{ ;"opacity;ij;[o;(;)[ ;f0.59999999999999998 33;ij;*"0.6;+@c;{ ;	[ ;@;#i ;@;4[".o;	;"prefix;i_;"prefix;{ "tab-close-btno;;il;T;	[o;;{ ;"opacity;im;[o;(;)[ ;i;im;*"1;+@c;{ ;	[ ;@;#i ;@;4[".o;	;"prefix;il;"prefix;{ "tab-close-btn:hoveru;6î3[o:Sass::Script::Operation
+:
+@lineip:@operand2o:Sass::Script::Variable	:
+@name"compile-all;ip:@underscored_name"compile_all:@options{ :@operator:or;@
+:@operand1o:!Sass::Script::UnaryOperation	;ip:@operando;	;	"supports-border-radius;ip;
+"supports_border_radius;@
+;:not;@
+0[o:Sass::Tree::RuleNode;iq:@has_childrenT:@children[o;;ir;T;[o;;ix;T;[o:Sass::Tree::PropNode:@prop_syntax:new:@valueo:Sass::Script::Funcall
+:@keywords{ ;	"theme-background-image;iy:
+@args[o;	;	"theme-name;iy;
+"theme_name;{ o:Sass::Script::String	;")tab/tab-default-top-over-corners.gif;iy:
+@type:string;@;@;	["background-image;iy;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheets;i ;@$:
+@rule[".o;	;	"prefix;is;
+"prefix;{ " frame-tl,
+                .o;	;	"prefix;it;
+"prefix;{ " frame-bl,
+                .o;	;	"prefix;iu;
+"prefix;{ " frame-tr,
+                .o;	;	"prefix;iv;
+"prefix;{ " frame-br,
+                .o;	;	"prefix;iw;
+"prefix;{ " frame-tc,
+                .o;	;	"prefix;ix;
+"prefix;{ "frame-bco;;i|;T;[o;;;;o;
+;{ ;	"theme-background-image;i};[o;	;	"theme-name;i};
+"theme_name;{ o;	;"'tab/tab-default-top-over-sides.gif;i};;;@Q;@Q;	["background-image;i};[ ;i ; F;@$;i ;@$;$[
+".o;	;	"prefix;i{;
+"prefix;{ " frame-ml,
+                .o;	;	"prefix;i|;
+"prefix;{ "frame-mru:Sass::Tree::IfNode0[o:Sass::Script::Operation
+:
+@linei:@operand2o:Sass::Script::String	:@value"	null;i:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"!tab-background-gradient-over;i:@underscored_name"!tab_background_gradient_over;@	0[o:Sass::Tree::RuleNode;iÄ:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"tab-base-color-over;iÅ;"tab_base_color_over;{ ;["background-color;iÅ;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;	o;;	"repeat-x;
+;;["background-repeat;iÇ;[ ;i ;F;@o;;;;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;iÉ:
+@args[o;	;"theme-name;iÉ;"theme_name;{ o;	;	"$tab/tab-default-top-over-bg.gif;iÉ;
+:string;@);@);["background-image;iÉ;[ ;i ;F;@;i ;@:
+@rule[".o;	;"prefix;iÄ;"prefix;{ "frame-mc;i ;@$;$[".o;	;	"prefix;ir;
+"prefix;{ "tab-top-overo;;ià;T;[o;;ié;T;[o;;;;o;
+;{ ;	"theme-background-image;iè;[o;	;	"theme-name;iè;
+"theme_name;{ o;	;",tab/tab-default-bottom-over-corners.gif;iè;;;@w;@w;	["background-image;iè;[ ;i ; F;@$;i ;@$;$[".o;	;	"prefix;iâ;
+"prefix;{ " frame-tl,
+                .o;	;	"prefix;iä;
+"prefix;{ " frame-bl,
+                .o;	;	"prefix;iã;
+"prefix;{ " frame-tr,
+                .o;	;	"prefix;iå;
+"prefix;{ " frame-br,
+                .o;	;	"prefix;iç;
+"prefix;{ " frame-tc,
+                .o;	;	"prefix;ié;
+"prefix;{ "frame-bco;;ií;T;[o;;;;o;
+;{ ;	"theme-background-image;iì;[o;	;	"theme-name;iì;
+"theme_name;{ o;	;"*tab/tab-default-bottom-over-sides.gif;iì;;;@¢;@¢;	["background-image;iì;[ ;i ; F;@$;i ;@$;$[
+".o;	;	"prefix;ië;
+"prefix;{ " frame-ml,
+                .o;	;	"prefix;ií;
+"prefix;{ "frame-mru;%3[o:Sass::Script::Operation
+:
+@lineiï:@operand2o:Sass::Script::String	:@value"	null;iï:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"!tab-background-gradient-over;iï:@underscored_name"!tab_background_gradient_over;@	0[o:Sass::Tree::RuleNode;iñ:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"tab-base-color-over;ió;"tab_base_color_over;{ ;["background-color;ió;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;	o;;	"repeat-x;
+;;["background-repeat;iò;[ ;i ;F;@o;;;;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;iô:
+@args[o;	;"theme-name;iô;"theme_name;{ o;	;	"'tab/tab-default-bottom-over-bg.gif;iô;
+:string;@);@);["background-image;iô;[ ;i ;F;@;i ;@:
+@rule[".o;	;"prefix;iñ;"prefix;{ "frame-mc;i ;@$;$[".o;	;	"prefix;ià;
+"prefix;{ "tab-bottom-overo;;iû;T;[o;;i§;T;[o;;;;o;
+;{ ;	"theme-background-image;i•;[o;	;	"theme-name;i•;
+"theme_name;{ o;	;"+tab/tab-default-top-active-corners.gif;i•;;;@»;@»;	["background-image;i•;[ ;i ; F;@$;i ;@$;$[".o;	;	"prefix;iü;
+"prefix;{ " frame-tl,
+                .o;	;	"prefix;i†;
+"prefix;{ " frame-bl,
+                .o;	;	"prefix;i°;
+"prefix;{ " frame-tr,
+                .o;	;	"prefix;i¢;
+"prefix;{ " frame-br,
+                .o;	;	"prefix;i£;
+"prefix;{ " frame-tc,
+                .o;	;	"prefix;i§;
+"prefix;{ "frame-bco;;i®;T;[o;;;;o;
+;{ ;	"theme-background-image;i©;[o;	;	"theme-name;i©;
+"theme_name;{ o;	;")tab/tab-default-top-active-sides.gif;i©;;;@¯;@¯;	["background-image;i©;[ ;i ; F;@$;i ;@$;$[
+".o;	;	"prefix;iß;
+"prefix;{ " frame-ml,
+                .o;	;	"prefix;i®;
+"prefix;{ "frame-mru;%:[o:Sass::Script::Operation
+:
+@linei´:@operand2o:Sass::Script::String	:@value"	null;i´:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"#tab-background-gradient-active;i´:@underscored_name"#tab_background_gradient_active;@	0[o:Sass::Tree::RuleNode;i¨:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"tab-base-color-active;i≠;"tab_base_color_active;{ ;["background-color;i≠;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;	o;;	"repeat-x;
+;;["background-repeat;iÆ;[ ;i ;F;@o;;;;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;iØ:
+@args[o;	;"theme-name;iØ;"theme_name;{ o;	;	"&tab/tab-default-top-active-bg.gif;iØ;
+:string;@);@);["background-image;iØ;[ ;i ;F;@;i ;@:
+@rule[".o;	;"prefix;i¨;"prefix;{ "frame-mc;i ;@$;$[".o;	;	"prefix;iû;
+"prefix;{ "tab-top-activeo;;i¥;T;[o;;i∫;T;[o;;;;o;
+;{ ;	"theme-background-image;iª;[o;	;	"theme-name;iª;
+"theme_name;{ o;	;".tab/tab-default-bottom-active-corners.gif;iª;;;@;@;	["background-image;iª;[ ;i ; F;@$;i ;@$;$[".o;	;	"prefix;iµ;
+"prefix;{ " frame-tl,
+                .o;	;	"prefix;i∂;
+"prefix;{ " frame-bl,
+                .o;	;	"prefix;i∑;
+"prefix;{ " frame-tr,
+                .o;	;	"prefix;i∏;
+"prefix;{ " frame-br,
+                .o;	;	"prefix;iπ;
+"prefix;{ " frame-tc,
+                .o;	;	"prefix;i∫;
+"prefix;{ "frame-bco;;iæ;T;[o;;;;o;
+;{ ;	"theme-background-image;iø;[o;	;	"theme-name;iø;
+"theme_name;{ o;	;",tab/tab-default-bottom-active-sides.gif;iø;;;@N;@N;	["background-image;iø;[ ;i ; F;@$;i ;@$;$[
+".o;	;	"prefix;iΩ;
+"prefix;{ " frame-ml,
+                .o;	;	"prefix;iæ;
+"prefix;{ "frame-mru;%=[o:Sass::Script::Operation
+:
+@linei¡:@operand2o:Sass::Script::String	:@value"	null;i¡:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"#tab-background-gradient-active;i¡:@underscored_name"#tab_background_gradient_active;@	0[o:Sass::Tree::RuleNode;i¬:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o;	;"tab-base-color-active;i√;"tab_base_color_active;{ ;["background-color;i√;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;	o;;	"repeat-x;
+;;["background-repeat;iƒ;[ ;i ;F;@o;;;;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;i≈:
+@args[o;	;"theme-name;i≈;"theme_name;{ o;	;	")tab/tab-default-bottom-active-bg.gif;i≈;
+:string;@);@);["background-image;i≈;[ ;i ;F;@;i ;@:
+@rule[".o;	;"prefix;i¬;"prefix;{ "frame-mc;i ;@$;$[".o;	;	"prefix;i¥;
+"prefix;{ "tab-bottom-activeo;;i ;T;[o;;i–;T;[o;;;;o;
+;{ ;	"theme-background-image;i—;[o;	;	"theme-name;i—;
+"theme_name;{ o;	;"-tab/tab-default-top-disabled-corners.gif;i—;;;@t;@t;	["background-image;i—;[ ;i ; F;@$;i ;@$;$[".o;	;	"prefix;iÀ;
+"prefix;{ " frame-tl,
+                .o;	;	"prefix;iÃ;
+"prefix;{ " frame-bl,
+                .o;	;	"prefix;iÕ;
+"prefix;{ " frame-tr,
+                .o;	;	"prefix;iŒ;
+"prefix;{ " frame-br,
+                .o;	;	"prefix;iœ;
+"prefix;{ " frame-tc,
+                .o;	;	"prefix;i–;
+"prefix;{ "frame-bco;;i‘;T;[o;;;;o;
+;{ ;	"theme-background-image;i’;[o;	;	"theme-name;i’;
+"theme_name;{ o;	;"+tab/tab-default-top-disabled-sides.gif;i’;;;@§;@§;	["background-image;i’;[ ;i ; F;@$;i ;@$;$[
+".o;	;	"prefix;i”;
+"prefix;{ " frame-ml,
+                .o;	;	"prefix;i‘;
+"prefix;{ "frame-mru;%À[o:Sass::Script::Operation
+:
+@linei◊:@operand2o:Sass::Script::String	:@value"	null;i◊:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"%tab-background-gradient-disabled;i◊:@underscored_name"%tab_background_gradient_disabled;@	0[o:Sass::Tree::RuleNode;iÿ:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o;;	"repeat-x;
+;;["background-repeat;iŸ;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;i⁄:
+@args[o;	;"theme-name;i⁄;"theme_name;{ o;	;	"(tab/tab-default-top-disabled-bg.gif;i⁄;
+:string;@!;@!;["background-image;i⁄;[ ;i ;F;@;i ;@:
+@rule[".o;	;"prefix;iÿ;"prefix;{ "frame-mc;i ;@$;$[".o;	;	"prefix;i ;
+"prefix;{ "tab-top-disabledo;;iﬂ;T;[o;;iÂ;T;[o;;;;o;
+;{ ;	"theme-background-image;iÊ;[o;	;	"theme-name;iÊ;
+"theme_name;{ o;	;"0tab/tab-default-bottom-disabled-corners.gif;iÊ;;;@ ;@ ;	["background-image;iÊ;[ ;i ; F;@$;i ;@$;$[".o;	;	"prefix;i‡;
+"prefix;{ " frame-tl,
+                .o;	;	"prefix;i·;
+"prefix;{ " frame-bl,
+                .o;	;	"prefix;i‚;
+"prefix;{ " frame-tr,
+                .o;	;	"prefix;i„;
+"prefix;{ " frame-br,
+                .o;	;	"prefix;i‰;
+"prefix;{ " frame-tc,
+                .o;	;	"prefix;iÂ;
+"prefix;{ "frame-bco;;iÈ;T;[o;;;;o;
+;{ ;	"theme-background-image;iÍ;[o;	;	"theme-name;iÍ;
+"theme_name;{ o;	;".tab/tab-default-bottom-disabled-sides.gif;iÍ;;;@˙;@˙;	["background-image;iÍ;[ ;i ; F;@$;i ;@$;$[
+".o;	;	"prefix;iË;
+"prefix;{ " frame-ml,
+                .o;	;	"prefix;iÈ;
+"prefix;{ "frame-mru;%Œ[o:Sass::Script::Operation
+:
+@lineiÏ:@operand2o:Sass::Script::String	:@value"	null;iÏ:
+@type:identifier:@options{ :@operator:neq;@	:@operand1o:Sass::Script::Variable	:
+@name"%tab-background-gradient-disabled;iÏ:@underscored_name"%tab_background_gradient_disabled;@	0[o:Sass::Tree::RuleNode;iÌ:@has_childrenT:@children[o:Sass::Tree::PropNode:@prop_syntax:new;	o;;	"repeat-x;
+;;["background-repeat;iÓ;[ :
+@tabsi :@importantF;{:importero: Sass::Importers::Filesystem:
+@root"å/home/francho/Dropbox/CentralDeReservas/Curso JS/src/03-ext4/s3dia4/resources/sass/../../../../../ext-4.0.7-gpl/resources/themes/stylesheetso;;;;	o:Sass::Script::Funcall
+:@keywords{ ;"theme-background-image;iÔ:
+@args[o;	;"theme-name;iÔ;"theme_name;{ o;	;	"+tab/tab-default-bottom-disabled-bg.gif;iÔ;
+:string;@!;@!;["background-image;iÔ;[ ;i ;F;@;i ;@:
+@rule[".o;	;"prefix;iÌ;"prefix;{ "frame-mc;i ;@$;$[".o;	;	"prefix;iﬂ;
+"prefix;{ "tab-bottom-disabled;i ;@$;$[".o;	;	"prefix;iq;
+"prefix;{ "nbr;@;@
