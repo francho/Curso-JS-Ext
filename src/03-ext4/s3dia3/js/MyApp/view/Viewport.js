@@ -27,7 +27,6 @@ Ext.define('MyApp.view.Viewport', {
             items : [ Ext.create('MyApp.view.Tabpanel')]
         }];
 
-
         me.callParent();
     },
 
@@ -40,6 +39,6 @@ Ext.define('MyApp.view.Viewport', {
                 {text:'Productos', itemId:'productos'}, // itemId es contextual y se puede repetir. Se suele usar para encontrar componentes también
                 {text:'Inventarios', itemId:'inventario'}
             ]
-        }
+        };
     }
 });

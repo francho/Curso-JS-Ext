@@ -24,18 +24,18 @@ Ext.define('MyApp.controller.Home', {
         var me = this;
 
         // Asigna este selector con los eventos definidos al bus de eventos de la aplicación
-        this.control({
+        me.control({
             'viewport toolbar[dock=top] button menu menuitem[action=usuarios]' : {
-                click : this.showUsuarios
+                click : me.showUsuarios
             },
             'viewport toolbar[dock=top] button menu #productos' : {
-                click : this.showProductos
+                click : me.showProductos
             },
             'viewport toolbar[dock=top] button menu #inventario' : {
-                click : this.showInventario
+                click : me.showInventario
             },
             'viewport toolbar[dock=top] #salir' : {
-                click : this.salir
+                click : me.salir
             }
         });
 
@@ -52,9 +52,7 @@ Ext.define('MyApp.controller.Home', {
 
     showProductos : function() {
         // Accede a las referencias definidas en ref (por cada una crea un método get)
-        var tabpanel  = this.getMain();
-
-        var tab = tabpanel.createTabIfNotExist({
+        this.getMain().createTabIfNotExist({
             title : 'Productos',
             xtype : 'productostab',
             closable : true

@@ -11,3 +11,4 @@ Ext.ComponentQuery.query('viewport toolbar[dock=top] button menu #productos');
 toolbar = Ext.ComponentQuery.query('viewport toolbar[dock=top]');
 toolbar.down('button menu'); // Sólo busca en los hijos
 toolbar.up('button'); // Sólo busca en los padres
+

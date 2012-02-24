@@ -68,6 +68,5 @@ Ext.define('MyApp.controller.Productos', {
             }
         }
     }
-
-
 });
+
