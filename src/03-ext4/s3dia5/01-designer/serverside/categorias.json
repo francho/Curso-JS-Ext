@@ -1,0 +1,23 @@
+{
+    "success":true,
+    "categorias":[
+        {
+            "id":1,
+            "nombre":"Hogar"
+        },
+        {
+            "id":2,
+            "nombre":"Ocio",
+
+            "categorias":[
+                {
+                    "id":3,
+                    "nombre":"Pelis"
+                }, {
+                    "id":4,
+                    "nombre":"Juegos"
+                }
+            ]
+        }
+    ]
+}

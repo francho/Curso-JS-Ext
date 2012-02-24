@@ -16,4 +16,4 @@ Ext.define('MyApp.model.Producto', {
         'precio',
         'inventario'
     ]
-});      5
+});

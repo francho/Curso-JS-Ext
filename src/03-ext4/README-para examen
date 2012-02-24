@@ -6,9 +6,21 @@ Porque así funcionará el autoload
 
 * Muy importante Ext.ComponentQuery
 
+* mixins : herencia múltiple
+
 
 Ext.ComponentQuery.query('viewport toolbar[dock=top] button menu #productos');
 toolbar = Ext.ComponentQuery.query('viewport toolbar[dock=top]');
 toolbar.down('button menu'); // Sólo busca en los hijos
 toolbar.up('button'); // Sólo busca en los padres
 
+Ciclo de vida
+onRender
+afterRender
+onAdded
+onRemoved
+onShow
+onHide
+onDisable
+onEnable
+onDestroy
