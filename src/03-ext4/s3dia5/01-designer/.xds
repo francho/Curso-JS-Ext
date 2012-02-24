@@ -1,0 +1,79 @@
+{
+    "name": "",
+    "settings": {
+        "urlPrefix": "http://francho.fch/src/03-ext4/s3dia5/01-designer/",
+        "directAPI": "",
+        "spacesToIndent": 4,
+        "codeGenFormat": "Class",
+        "exportPath": "",
+        "extPath": "../../../../ext-4.0.7-gpl/",
+        "senchaIoKey": "",
+        "senchaIoPath": "http://extjs.cachefly.net/designer/IO/",
+        "lineEnding": "LF",
+        "instantiateStore": true,
+        "genTimestamps": false,
+        "saveOnDeploy": false,
+        "appName": "MyApp",
+        "mapsAPI": "http://maps.google.com/maps/api/js?sensor=true",
+        "cssPath": ""
+    },
+    "xdsVersion": "2.0.0",
+    "framework": "ext40",
+    "topInstanceFileMap": {
+        "07e6f44c-9c3f-4487-b8d6-e2049a45accc": {
+            "paths": [
+                "app/view/ProductosWindow.js",
+                "app/view/ui/ProductosWindow.js",
+                "app/view/Viewport.js"
+            ],
+            "className": "ProductosWindow"
+        },
+        "bea29903-3a7d-401f-9480-83b5516e65c1": {
+            "paths": [
+                "app/view/Categorias.js",
+                "app/view/ui/Categorias.js"
+            ],
+            "className": "Categorias"
+        },
+        "8f5b97ec-2fb6-4da0-9c04-3d1b356b4823": {
+            "paths": [
+                "app/view/ProductosGrid.js",
+                "app/view/ui/ProductosGrid.js"
+            ],
+            "className": "ProductosGrid"
+        },
+        "71825195-d206-4e9d-b3e7-eaf65e954d59": {
+            "paths": [
+                "app/view/ProductosForm.js",
+                "app/view/ui/ProductosForm.js"
+            ],
+            "className": "ProductosForm"
+        },
+        "f659a5ae-8721-491b-b053-5d31680d80e7": {
+            "paths": [
+                "app/store/CategoriasStore.js",
+                "app/store/base/CategoriasStore.js"
+            ],
+            "className": "CategoriasStore"
+        },
+        "cb80e250-c55e-4a76-8c61-8a3f99eb781a": {
+            "paths": [
+                "app/store/ProductosStore.js",
+                "app/store/base/ProductosStore.js"
+            ],
+            "className": "ProductosStore"
+        },
+        "2e5ee29e-6cd1-4a89-95da-fa51e5ff237f": {
+            "paths": [
+                "app/controller/MyController.js"
+            ],
+            "className": "MyController"
+        }
+    },
+    "expandedState": {
+        "data": true,
+        "model": true,
+        "component": true,
+        "controller": true
+    }
+}

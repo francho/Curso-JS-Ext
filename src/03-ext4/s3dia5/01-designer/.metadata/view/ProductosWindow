@@ -1,0 +1,102 @@
+{
+    "id": "ExtBox1-ext-gen2539",
+    "type": "window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "height": 610,
+        "hidden": false,
+        "width": 675,
+        "layout": "border",
+        "collapseFirst": false,
+        "title": "Productos",
+        "designer|userClassName": "ProductosWindow",
+        "designer|userAlias": "productoswindow"
+    },
+    "customConfigs": [],
+    "designerId": "07e6f44c-9c3f-4487-b8d6-e2049a45accc",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen7866",
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "west",
+                "width": 147,
+                "collapsed": false,
+                "collapsible": true,
+                "title": "Categorias",
+                "root": null,
+                "rootVisible": false
+            },
+            "customConfigs": [],
+            "iconCls": "icon-linkedinstance",
+            "expanded": true,
+            "masterInstanceId": "ExtBox1-ext-gen6763"
+        },
+        {
+            "id": "ExtBox1-ext-gen10726",
+            "type": "panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "vbox",
+                "title": "",
+                "designer|userClassName": "MyPanel",
+                "container|align": "stretch",
+                "layout|region": "center"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen19194",
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 3,
+                        "height": 287,
+                        "title": " "
+                    },
+                    "customConfigs": [],
+                    "iconCls": "icon-linkedinstance",
+                    "expanded": true,
+                    "masterInstanceId": "ExtBox1-ext-gen17219"
+                },
+                {
+                    "id": "ExtBox1-ext-gen36454",
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "customConfigs": [],
+                    "iconCls": "icon-linkedinstance",
+                    "expanded": true,
+                    "masterInstanceId": "ExtBox1-ext-gen18024"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,134 @@
+{
+    "id": "ExtBox1-ext-gen18024",
+    "type": "form",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "layout": "vbox",
+        "bodyPadding": 10,
+        "title": "Producto",
+        "designer|userClassName": "ProductosForm",
+        "designer|userAlias": "productosform",
+        "container|align": "stretch"
+    },
+    "customConfigs": [],
+    "designerId": "71825195-d206-4e9d-b3e7-eaf65e954d59",
+    "$viewOrder": 3,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen27043",
+            "type": "textfield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nombre",
+                "fieldLabel": "Nombre",
+                "designer|userClassName": "MyTextField",
+                "layout|flex": 1
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen30633",
+            "type": "fieldcontainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 120,
+                "layout": "hbox",
+                "fieldLabel": "Label",
+                "designer|userClassName": "MyFieldContainer",
+                "container|align": "stretch",
+                "layout|flex": 1
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen30216",
+                    "type": "numberfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "padding": "",
+                        "name": "precio",
+                        "fieldLabel": "precio",
+                        "designer|userClassName": "MyNumberField1",
+                        "layout|flex": 1,
+                        "layout|margins": "0 5 0 0"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                },
+                {
+                    "id": "ExtBox1-ext-gen29878",
+                    "type": "numberfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "margin": "",
+                        "name": "existencias",
+                        "fieldLabel": "Existencias",
+                        "designer|userClassName": "MyNumberField",
+                        "layout|flex": 1,
+                        "layout|margins": ""
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        },
+        {
+            "id": "ExtBox1-ext-gen35178",
+            "type": "toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToolbar",
+                "layout|flex": 1,
+                "dock": "top"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen35471",
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "guardar",
+                        "text": "guardar",
+                        "designer|userClassName": "MyButton",
+                        "layout|flex": null
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        }
+    ]
+}

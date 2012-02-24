@@ -1,0 +1,55 @@
+{
+    "id": "ExtBox1-ext-gen38277",
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|init": "",
+        "designer|userClassName": "MyController"
+    },
+    "customConfigs": [],
+    "designerId": "2e5ee29e-6cd1-4a89-95da-fa51e5ff237f",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen40019",
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadForm",
+                "implHandler": "        this.getForm().loadRecord(record);",
+                "name": "itemdblclick",
+                "scope": "me",
+                "designer|targetType": "Ext.grid.Panel",
+                "designer|controlQuery": "productoswindow productosgrid",
+                "designer|userClassName": "loadForm"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen40870",
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "form",
+                "selector": "productoswindow productofor",
+                "designer|userClassName": "form"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}

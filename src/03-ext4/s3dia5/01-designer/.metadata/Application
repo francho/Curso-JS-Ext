@@ -1,0 +1,32 @@
+{
+    "id": "ExtBox1-ext-gen2239",
+    "type": "application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Categoria",
+            "Producto"
+        ],
+        "stores": [
+            "CategoriasStore",
+            "ProductosStore"
+        ],
+        "views": [
+            "ProductosWindow",
+            "Categorias",
+            "ProductosGrid",
+            "ProductosForm"
+        ],
+        "autoCreateViewport": true,
+        "name": "MyApp",
+        "designer|launch": ""
+    },
+    "customConfigs": [],
+    "designerId": "application",
+    "$viewOrder": 0,
+    "expanded": true
+}

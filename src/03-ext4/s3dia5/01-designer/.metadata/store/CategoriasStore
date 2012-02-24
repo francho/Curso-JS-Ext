@@ -1,0 +1,59 @@
+{
+    "id": "ExtBox1-ext-gen13847",
+    "type": "treestore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "storeId": "CategoriasStore",
+        "model": "Categoria",
+        "clearOnLoad": false,
+        "defaultRootId": 1,
+        "defaultRootProperty": "id",
+        "folderSort": true,
+        "nodeParam": "nombre",
+        "designer|userClassName": "CategoriasStore"
+    },
+    "customConfigs": [],
+    "designerId": "f659a5ae-8721-491b-b053-5d31680d80e7",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen13853",
+            "type": "ajaxproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "serverside/categorias.json",
+                "designer|userClassName": "MyAjaxProxy1"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen13860",
+                    "type": "jsonreader",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": "id",
+                        "root": "categorias",
+                        "designer|userClassName": "MyJsonReader"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        }
+    ]
+}
