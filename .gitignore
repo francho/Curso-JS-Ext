@@ -2,7 +2,12 @@ ext-4.0.7-gpl
 ext-4.0.7-gpl/*
 ext-3.4.0
 ext-3.4.0/*
+sencha-touch-2-b3
+sencha-touch-2-b3/*
+sencha-touch-1.1.1
+sencha-touch-1.1.1/*
 index.html
 gato-atropellado.jpg
 .idea
 .idea/*
+.sass-cache

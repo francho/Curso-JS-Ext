@@ -9,7 +9,7 @@
 Ext.define('MyApp.controller.Productos', {
     extend:'Ext.app.Controller',
 
-    models:['Producto'],
+    models:['Producto'] ,
     stores:['Productos'],
     views:[ 'productos.ProductosGrid', 'productos.ProductoForm'],
 
